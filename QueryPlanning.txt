@@ -1,0 +1,108 @@
+// *****USER LANDING PAGE**********
+
+// —> On page load: <————————————
+
+// Select the image, text and description for the featured images
+
+// Select the images for the categories
+
+// -> User interaction <————————————
+
+// Select all tags with specified category
+	[[fill div with thumbnail images and names]]
+
+// The id of the idea should be put in the <img>, so we can redirect to that product page immediately onclick.
+
+// *****USER BROWSING PAGE**********
+
+// —> On page load: <————————————
+
+// Count the quantity of items in the shopping cart to display in nav
+
+// Select the first 9? items with specified tag
+	[[fill browsing div with thumbnail images and names]]
+
+// -> User interaction <————————————
+
+// Select items containing the searched keyword (in tag or text)
+	[[refresh the browsing div with thumbnail images and names]]
+
+// Select all tags with specified category
+	[[Fill out the sidebar navigation bar]]
+
+// Select the second (or third, or fourth) 9? items with specified tag 
+	[[moving through the paginationfill]]
+
+// Select the first 9? items sorted by price
+
+// Select the first 9? items sorted by number_sold
+
+// *****USER PRODUCT PAGE**********
+
+// —> On page load: <————————————
+
+// Select the images of the product
+
+// Select the information of the product for display
+
+// Select 5? other ideas with the same subject tag (similar/related ideas) and get images for them. The id of the idea should be put in the <img>, so we can redirect to that product page immediately onclick.
+
+// -> User interaction <————————————
+
+// On purchase, update the shopping cart table with the id and number picked
+
+// Count the quantity of items in the shopping cart to display in nav 
+
+// *****USER ORDER PAGE**********
+
+// —> On page load: <————————————
+
+// Select the information from the shopping cart joined with ideas (price) to populate the table
+
+// -> User interaction <————————————
+
+// POST: Update the quantity of an idea in the cart, GET the refreshed total
+
+// Delete an idea from the car, GET the refreshed total
+
+// POST: The form information from the shipping address
+
+// POST: If same as shipping, fill the billing address with the same id as the shipping address. Else fill the shipping table and populate that field with the new ID.
+
+// Get the stripe token into the database
+
+// *****ADMIN LOGIN PAGE**********
+
+// —> On page load: <————————————
+
+// -> User interaction <————————————
+
+// *****ADMIN ORDERS DASHBOARD**********
+
+// —> On page load: <————————————
+
+// -> User interaction <————————————
+
+// *****ADMIN VIEW ORDER**********
+
+// —> On page load: <————————————
+
+// -> User interaction <————————————
+
+// *****ADMIN PRODUCTS DASHBOARD**********
+
+// —> On page load: <————————————
+
+// -> User interaction <————————————
+
+// *****ADMIN VIEW PRODUCT**********
+
+// —> On page load: <————————————
+
+// -> User interaction <————————————
+
+// *****ADMIN ADD PRODUCT**********
+
+// —> On page load: <————————————
+
+// -> User interaction <————————————
