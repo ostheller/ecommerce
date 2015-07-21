@@ -9,7 +9,12 @@ class Admins extends CI_Controller
 	}
 	public function login()
 	{
-		//if $this->input->post() exists send to model method to validate and login or send back errors
+		//if ($this->input->post() !=)
+		{
+			//$this->load->model();
+			//$orderdata=$query RESULT_array;
+			//$this->load->view('admin_orders_dash, $orderdata')
+		}
 		if($this->session->flashdata['errors'] != NULL)
 		{
 			// send errors from model form validation to the admin_login
@@ -23,7 +28,11 @@ class Admins extends CI_Controller
 	{
 		//directs to model to apply appropriate keyword filter to obtain data that admin wants displayed
 		// should work hard to get this to be an AJAX function
-		$this->load->view('admin_orders_dash');//with appropriate data pushed
+		$this->load->view('admin_orders_dash');//with appropriate data from model method pushed to view page
+	}
+	public function sort()
+	{
+
 	}
 
 }
