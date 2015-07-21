@@ -15,16 +15,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<form action='edit' method='post'>
 		<label>Name:</label><input type='text' name='name'>
 		<label>Description:</label><input type='text' name='descrip'>
-		<label>Categories</label><select>
-		<option>Authors</option>
-		<option>Eras</option>
-		<option>Subject</option>
-		<option>Local</option>
+		<label>Categories</label>
+		<select>
+			<?//foreach($categories as $category)
+			//{?>
+				<option><?=//$category?></option>
+			<?//}?>
+		</select>
+		<label>Tag</label>
+		<select>
+			<?//foreach($tags as $tag)
+			//{?>
+				<option><?=//$tag?></option>
+			<?//}?>
 		</select>
 		<!-- when the admin hovers over the <option>s an edit and delete icon need to appear and function WHEN option edit is clicked the <option> is replaced with <input type='text'> -->
 		<!-- when DELETE is clicked on display alert that confirms deletion of category -->
-		<label>or add new category:</label><input type='text' name='addCat'>
-		<!-- category selection field: should it update upon moving out of input field OR does the category just get added to the DB and generate on all appropriate pages after form submission??? -->
+		<form action='addTag' method='post'>
+		<label>or add new tag:</label><input type='text' name='addTag'>
+		<!-- tog selection field: should it update upon moving out of input field OR does the tag just get added to the DB -->
+		<label>which category does this tag belong to?</label>
+		<select>
+			<?//foreach($categories as $category)
+			//{?>
+				<option><?=//$category?></option>
+			<?//}?>
+		</select>
+		<input type='submit' value='Add New Tag'>
+	</form>
+		<div id='assocTags'>
+			<!-- populate with all the tags associated with the product AJAX to add any new tags without full refresh  -->
+		</div>
 			<form action='imgUpload' method='post'>
 				<label>Images</label>
 				<input type='file' name='image'>
