@@ -9,7 +9,6 @@
 // -> User interaction <————————————
 
 // Select all tags with specified category
-	[[fill div with thumbnail images and names]]
 
 // The id of the idea should be put in the <img>, so we can redirect to that product page immediately onclick.
 
@@ -20,18 +19,14 @@
 // Count the quantity of items in the shopping cart to display in nav
 
 // Select the first 9? items with specified tag
-	[[fill browsing div with thumbnail images and names]]
 
 // -> User interaction <————————————
 
 // Select items containing the searched keyword (in tag or text)
-	[[refresh the browsing div with thumbnail images and names]]
 
 // Select all tags with specified category
-	[[Fill out the sidebar navigation bar]]
 
 // Select the second (or third, or fourth) 9? items with specified tag 
-	[[moving through the pagination]]
 
 // Select the first 9? items sorted by price
 
@@ -129,8 +124,28 @@
 
 // -> User interaction <————————————
 
+// Upload a file to our assets folder and update the images database
+
+// POST the edits to the form
+
+// Assign tags to an item
+
+// Create tags
+
+// Assign tags to categories
+
 // *****ADMIN ADD PRODUCT**********
 
 // —> On page load: <————————————
 
 // -> User interaction <————————————
+
+// Upload a file to our assets folder and update the images database
+
+// POST the edits to the form
+
+// Assign tags to an item
+
+// Create tags
+
+// Assign tags to categories
