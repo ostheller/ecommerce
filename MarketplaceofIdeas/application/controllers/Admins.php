@@ -9,7 +9,7 @@ class Admins extends CI_Controller
 	}
 	public function login()
 	{
-		//if ($this->input->post() !=)
+		//if ($this->input->post() != NULL)
 		{
 			//$this->load->model();
 			//$orderdata=$query RESULT_array;
