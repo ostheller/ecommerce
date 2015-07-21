@@ -69,7 +69,7 @@
 			<div class='current'>
 				<h3>The latest ideas</h3>
 				<div class = 'latestideas'>
-					<img src="http://0.tqn.com/d/ancienthistory/1/0/h/P/Socrates.jpg" width="200" height="200" >
+					<a href="ideas/browsing"><img style="-webkit-user-select: none;" src="http://tshirtgroove.com/wp-content/uploads/2011/07/play-toh-t-shirt.jpg" width="200" height="200"></a>
 					<p>I believe the earth is round</p>
 				</div>
 				<div class = 'latestideas'>
