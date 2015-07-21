@@ -31,7 +31,7 @@
 	[[Fill out the sidebar navigation bar]]
 
 // Select the second (or third, or fourth) 9? items with specified tag 
-	[[moving through the paginationfill]]
+	[[moving through the pagination]]
 
 // Select the first 9? items sorted by price
 
@@ -75,29 +75,57 @@
 
 // —> On page load: <————————————
 
+// N/A
+
 // -> User interaction <————————————
+
+// Validate the POST data, either return errors or move to the next page
+
+// Validate new admin by sending email to superadmin
 
 // *****ADMIN ORDERS DASHBOARD**********
 
 // —> On page load: <————————————
 
+// Select orders (id, name, created_at, billing, total, status), with the most recent at the top (DESC)
+
 // -> User interaction <————————————
+
+// Search by customer name, id, etc.
+
+// Update order status
+
+// Select the second (or third, or fourth) 9? items further back in time
+	[[moving through the pagination]]
 
 // *****ADMIN VIEW ORDER**********
 
 // —> On page load: <————————————
 
+// Select addresses, items, order status, total cost
+
 // -> User interaction <————————————
+
+// N/A
 
 // *****ADMIN PRODUCTS DASHBOARD**********
 
 // —> On page load: <————————————
 
+// Select id, name, inventory, quantity
+
+// Select default picture for display
+
 // -> User interaction <————————————
 
-// *****ADMIN VIEW PRODUCT**********
+// Select the second (or third, or fourth) 9? items further back in time
+	[[moving through the pagination]]
+
+// *****ADMIN VIEW/EDIT PRODUCT**********
 
 // —> On page load: <————————————
+
+// Select the current data for that product id to populate the fields for editing
 
 // -> User interaction <————————————
 
