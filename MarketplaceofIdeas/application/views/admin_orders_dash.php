@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<link rel="stylesheet" type="text/css" href="">
 	<style type=""></style>
 </head>
-<header><--!LOAD PARTIAL/NAVBAR--></header>
+<header><!--LOAD PARTIAL/NAVBAR--></header>
 <body>
 <input type='text' name='search'>
 <!-- need to be able to search by all fields displayed in tablein -->
@@ -31,14 +31,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //{
 	//foreach($row_array as $key)
 	//{
-		?><!--<td><?=//$key?></td> -->
-	<?}?>
+		?><!--<td><?//$key?></td> -->
+	<?//}?>
 	<!-- <td><select>
 		<option>Order in process</option>
 		<option>Shipped</option>
 		<option>Cancelled</option>
 	</select></td> -->
-<?}?><!--foreach loop to poulate table with data from DB-->
+<?//}?><!--foreach loop to poulate table with data from DB-->
 </table>
 <!-- Need to add a limit to how many rows are displayed in table AND create pagination links to the rest of the rows -->
 </body>

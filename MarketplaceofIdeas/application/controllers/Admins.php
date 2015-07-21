@@ -9,7 +9,14 @@ class Admins extends CI_Controller
 	}
 	public function login()
 	{
+		if($this->session->flashdata['errors'] != NULL)
+		{
 
+		}
+		else
+		{
+			$this->load->view('admin_orders_dash');
+		}
 	}	
 }
 ?>
