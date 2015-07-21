@@ -1,0 +1,17 @@
+/** {
+	outline: 1px dotted purple;
+}*/
+
+body {
+	width: 960px;
+	margin: 0 auto;
+}
+
+.indexBoxes {
+	height: 200px;
+	margin: 0 20px; 
+}
+
+.box1 {
+	margin-left: 70px;
+}
