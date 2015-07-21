@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <header><--!LOAD PARTIAL/NAVBAR--></header>
 <body>
 <input type='text' name='search'>
-<!-- need to be able to search by all fields displayed in table -->
+<!-- need to be able to search by all fields displayed in tablein -->
 <select>
 	<option>Show All</option>
 	<option>Shipped</option>
