@@ -4,7 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Users_ideas extends CI_Controller {
 
 	
-	/* This function should only be called with the initial visit to the site */
+	/* This function should only be called with the initial visit to the site
+			or should have a home page link (User_landing) on the User_order 
+			page? */
 	public function index()
 	{
 		$this->load->view('user_landing');
@@ -15,6 +17,7 @@ class Users_ideas extends CI_Controller {
 		Keyword search
 		Category selection on Browsing page
 		Go Back link on User_Show Page
+		Continue Shopping button on order page
 		Question - Should the Go Back link go back to the same page as the show item
 					was displayed on or do we refresh that category / keyword list? 
 					Need to figure out how to impliment javascript history*/

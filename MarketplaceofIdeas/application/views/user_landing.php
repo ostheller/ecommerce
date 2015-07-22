@@ -73,22 +73,22 @@
 					<p>I believe the earth is round</p>
 				</div>
 				<div class = 'latestideas'>
-					<img src="http://www.universaltheosophy.com/wp-content/gallery/biography-pictures/500-pythagoras_240x360.png" width="200" height="200">
+					<a href="ideas/browsing"><img src="http://www.universaltheosophy.com/wp-content/gallery/biography-pictures/500-pythagoras_240x360.png" width="200" height="200"></a>
 					<p>That idea doesn't square with me.</p>
 				</div>
 				<div class = 'latestideas'>
-					<img style="-webkit-user-select: none;" src="http://www.toptenz.net/wp-content/uploads/2014/10/americanphilosophers4-640x480.jpg" width="200" height="200">
+					<a href="ideas/browsing"><img style="-webkit-user-select: none;" src="http://www.toptenz.net/wp-content/uploads/2014/10/americanphilosophers4-640x480.jpg" width="200" height="200"></a>
 					<p>You'll have to go west to be sure</p>
 				</div>
 				<div class = 'latestideas'>
-					<img src="http://www.philosophers.co.uk/immanuel-kant.jpg" width="200" height="200">
+					<a href="ideas/browsing"><img src="http://www.philosophers.co.uk/immanuel-kant.jpg" width="200" height="200"></a>
 					<p>I kant</p>
 				</div>
 			</div>
 
 			<div class='feature'>
 				<h3>Featured Idea</h3>
-				<img style="-webkit-user-select: none; cursor: zoom-out;" src="http://tomgpalmer.com/wp-content/uploads/legacy-images/School%20of%20Athens2.jpg" width="310" height="200">
+				<a href="ideas/show"><img style="-webkit-user-select: none; cursor: zoom-out;" src="http://tomgpalmer.com/wp-content/uploads/legacy-images/School%20of%20Athens2.jpg" width="310" height="200"></a>
 				<p><strong>Name:</strong> Plato: His ideas were so crate!</p>
 				<p><strong>Author: </strong>Chuck Barris</p>
 				<p><strong>Price:</strong> $19.95</p>
