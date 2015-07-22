@@ -1,10 +1,17 @@
-<html>
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');?>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
-		<meta charset='utf-8'>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
 		<title>Welcome User</title>
-
+	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	    <script src="js/bootstrap.min.js"></script>
+		<link href="<?= base_url();?>/assets/css/bootstrap.css" rel="stylesheet">
+		</script>
 		<style type="text/css">
-
 		.wrapper{
 			width: 1100px;
 		}
@@ -47,10 +54,8 @@
 			text-align: center;
 		}
 		</style>
-
 	</head>
 	<body>
-		<div class='wrapper'>
 
 			<div class='menu'>
 				<a href="/ideas/browsing">All Products</a>
@@ -94,5 +99,5 @@
 				<p><strong>Price:</strong> $19.95</p>
 			</div>
 		</div>
-	</body>
+  </body>
 </html>
