@@ -24,26 +24,25 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <table>
 	<thead>
 		<tr>
-			<!-- if we want to add an arrow denoting asc or desc sort we can add it with css so I assume there must be away to add it to Bootstrap -->
-		<th><a href="admins_orders/sort/id/<?=//($sort_order == 'asc' && $sort_by == 'id') ? 'desc' : 'asc';?>"></a>Order ID</th>
-		<th><a href="admins_orders/sort/name/<?=//($sort_order == 'asc' && $sort_by =='name') ? 'desc' : 'asc';?>">Name</th>
-		<th><a href="admins_orders/sort/date/<?=//($sort_order == 'asc' && $sort_by == 'date') ? 'desc' : 'asc';?>">Date</th>
-		<th><a href="admins_orders/sort/billing_address/<?=//($sort_order == 'asc' && $sort_by == 'billing_address' ) ? 'desc' : 'asc';?>">Billing Address</th>
-		<th><a href="admins_orders/sort/total/<?=//($sort_order == 'asc' && $sort_by == 'total') ? 'desc' : 'asc';?>">Total</th>
+<!-- if we want to add an arrow denoting asc or desc sort we can add it with css so I assume there must be away to add it to Bootstrap -->
+		<th><a href="admins_orders/sort/id/<?=($sort_order == 'asc' && $sort_by == 'id') ? 'desc' : 'asc';?>"></a>Order ID</th>
+		<th><a href="admins_orders/sort/name/<?=($sort_order == 'asc' && $sort_by =='name') ? 'desc' : 'asc';?>">Name</th>
+		<th><a href="admins_orders/sort/date/<?=($sort_order == 'asc' && $sort_by == 'date') ? 'desc' : 'asc';?>">Date</th>
+		<th><a href="admins_orders/sort/billing_address/<?=($sort_order == 'asc' && $sort_by == 'billing_address' ) ? 'desc' : 'asc';?>">Billing Address</th>
+		<th><a href="admins_orders/sort/total/<?=($sort_order == 'asc' && $sort_by == 'total') ? 'desc' : 'asc';?>">Total</th>
 		<th>Status</th>
 		</tr>
 	</thead>
 	<tbody>
-<?//foreach($orders as $order)
-//{?>
-	<!-- 
+<?foreach($orders as $order)
+{?>
 	<form action='status_update' method='post'>
-	<td><a href="/admins_orders/show/<?=//$order['id']?>"><?=//$order['id']?></a></td> -->
-	<!-- <td><?=//$order['name']?></td> -->
-	<!-- <td><?=//$order['date']?></td> -->
-	<!-- <td><?=//$order['billing_address']?></td> -->
-	<!-- <td><?=//$order['total']?></td> -->
-	<!-- <td>
+	<td><a href="/admins_orders/show/<?=$order['id']?>"><?=$order['id']?></a></td> -->
+	<td><?=$order['name']?></td>
+	<td><?=$order['date']?></td>
+	<td><?=$order['billing_address']?>
+	<td><?=$order['total']?></td>
+	<td>
 		<select>
 		<option>Order in process</option>
 		<option>Shipped</option>
@@ -51,13 +50,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<input type='submit' value='Update'>
 		</select>
 	</td>
-	</form>-->
-<?//}?><!--foreach loop to poulate table with data from DB-->
+	</form>
+<?}?><!--foreach loop to poulate table with data from DB-->
 	</tbody>
 </table>
-<?php if(strlen($pagination)):?>
+<?php if(strlen($pagination)){?>
 <div>
-	<p>Pages:</p><?= $pagination; ?>
+	<p>Pages:</p><?= $pagination;}?>
 </div>
 </body>
 </html>

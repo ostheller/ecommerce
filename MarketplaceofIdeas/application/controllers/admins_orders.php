@@ -32,25 +32,26 @@ class Admins_orders extends CI_Controller
 	}
 	public function sort($sort_by='id', $sort_order= 'asc', $offset = 0)
 	{
-		// $limit= 5;
-		// $this->load->model('admin_order');
-		// $results= $this->admin_order->orders_dash($limit, $offset, $sort_by, $sort_order);
-		// $data['orders']=$results['orders'];
-		// $data['num_rows']=$results['rows'];
+		$limit= 5;
+		$this->load->model('admin_order');
+		$results= $this->admin_order->orders_dash($limit, $offset, $sort_by, $sort_order);
+		$data['orders']=$results['orders'];
+		$data['num_rows']=$results['rows'];
 		// double check that orders var_dumps correctly on admin_order_dash
-	//----------pagination-------------
-		// $this->load->library('pagination');
-		// $config = array();
-		// $config['base_url'] = site_url('admins_orders/sort/$sort_by/$sort_order');
-		// $config['total_rows'] = $results['num_rows'];
-		// $config['per_page'] = $limit;
-		//$congig['num_links'] = 10 <- we may not need this...
-		// $config['uri_segment'] = 5
-		// $this->pagination->initialize($config);
-		//$data['pagination'] = $this->pagination->create_links();
-		//$data['sort_by'] = $sort_by;
-		//$data['sort_order'] = $sort_order;
-		// $this->load->view('admins_orders_dash', $data);
+	// ----------pagination-------------
+		$this->load->library('pagination');
+		$config = array();
+		$config['base_url'] = site_url('admins_orders/sort/$sort_by/$sort_order');
+		$config['total_rows'] = $results['num_rows'];
+		$config['per_page'] = $limit;
+		$congig['num_links'] = 10; //<- we may not need this...
+		$config['uri_segment'] = 5;
+		$this->pagination->initialize($config);
+		$data['pagination'] = $this->pagination->create_links();
+		$data['sort_by'] = $sort_by;
+		$data['sort_order'] = $sort_order;
+		$this->load->view('admin_orders_dash', $data);
+		// $this->load->view('admin_orders_dash');
 	}
 	public function status_update($post)
 	{

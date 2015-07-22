@@ -40,7 +40,7 @@ class Admin_order extends CI_Model {
 
 // *****ADMIN VIEW ORDER**********
 
-		//public function orders_dash($limit, $offset, $sort_by, $sort_order)
+	public function orders_dash($limit, $offset, $sort_by, $sort_order)
 
 // —> On page load: <————————————
 
@@ -48,7 +48,7 @@ class Admin_order extends CI_Model {
 
 // -> User interaction <————————————
 
-			//{
+			{
 				//$sort_order = ($sort_order == 'desc') ? 'desc' : 'asc';
 				//$sort_columns = array('id', 'name', 'date', 'billing_address', 'total');
 				//$sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'id';
@@ -64,7 +64,7 @@ class Admin_order extends CI_Model {
 		//public function status($post)
 	//{
 		//Query to update the status of selected order
-	//}
+	}
 
 // N/A
 
