@@ -58,7 +58,7 @@
 
 // POST: Update the quantity of an idea in the cart, GET the refreshed total
 
-// Delete an idea from the car, GET the refreshed total
+// Delete an idea from the cart, GET the refreshed total
 
 // POST: The form information from the shipping address
 
