@@ -24,6 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <table>
 	<thead>
 		<tr>
+			<!-- if we want to add an arrow denoting asc or desc sort we can add it with css so I assume there must be away to add it to Bootstrap -->
 		<th><a href="admins_orders/sort/id/<?=//($sort_order == 'asc' && $sort_by == 'id') ? 'desc' : 'asc';?>"></a>Order ID</th>
 		<th><a href="admins_orders/sort/name/<?=//($sort_order == 'asc' && $sort_by =='name') ? 'desc' : 'asc';?>">Name</th>
 		<th><a href="admins_orders/sort/date/<?=//($sort_order == 'asc' && $sort_by == 'date') ? 'desc' : 'asc';?>">Date</th>
@@ -32,7 +33,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<th>Status</th>
 		</tr>
 	</thead>
-<!-- looking at my previouse table build out there looked like I had an extra <tr> tag - if this doesn't work revisit table construction(check:addcourses table) -->
 	<tbody>
 <?//foreach($orders as $order)
 //{?>
