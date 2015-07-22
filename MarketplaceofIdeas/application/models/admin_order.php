@@ -1,4 +1,4 @@
-<?php
+ <?php
 class Admin_order extends CI_Model {
 
 // *****ADMIN LOGIN PAGE********** (I'm not sure which controller this belongs on)
@@ -40,11 +40,20 @@ class Admin_order extends CI_Model {
 
 // *****ADMIN VIEW ORDER**********
 
+		//function orders_dash($limit, $offset)
+
 // —> On page load: <————————————
 
 // Select addresses, items, order status, total cost
 
 // -> User interaction <————————————
+
+			//{
+				//results query
+				//$query="";
+				//$orders=$this->db->query($query)->result array()->limit($limit, $offset)
+				//return $orders;
+			//}
 
 // N/A
 

@@ -32,7 +32,15 @@ class Admins_orders extends CI_Controller
 	}
 	public function sort()
 	{
+		// $this->load->model(MODELNAME);
+		
+		// $results= $this->MODELNAME->MODELMETHOD();
 
+		// $data['orderes']=$results['row'];
+//---------------FOR MODEL-------------//
+	//results query
+	//	
+		redirect ('admins_orders/index');
 	}
 
 }
