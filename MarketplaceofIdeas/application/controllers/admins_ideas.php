@@ -17,7 +17,7 @@ class Admins_ideas extends CI_Controller
 	{
 		$limit= 5;
 		$this->load->model('admin_idea');
-		$results= $this->admin_order->products_dash($limit, $offset, $sort_by, $sort_order);
+		$results= $this->admin_idea->products_dash($limit, $offset, $sort_by, $sort_order);
 		$data['products']=$results['products'];
 		$data['num_rows']=$results['rows'];
 		// double check that orders var_dumps correctly on admin_order_dash
