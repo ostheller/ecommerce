@@ -55,8 +55,15 @@ class Admins_orders extends CI_Controller
 	public function status_update($post)
 	{
 		$this->load->model('admin_order');
-		$this->admin_order->status($post);
+		$this->admin_order->status($this->input->post());
 		redirect ('admins_orders/sort');
+	}
+	public function show()
+	{
+		$this->load->model('admin_order');
+		$orderdata=$this->admin_order->order_info($this->input->post());
+
+		$this->load->view('admin_view_order', $orderdata);
 	}
 
 }
