@@ -6,3 +6,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['admin']='admins_orders/index';
 $route['login']='admins_orders/login';
+
+// Molly's front-end routes
+$route['ideas/show/(:num)'] ='users_ideas/show/$1';
+$route['category/(:any)'] = 'users_ideas/category_index/$1';
+$route['browse'] = 'users_ideas/browsing';

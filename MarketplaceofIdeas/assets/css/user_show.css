@@ -1,0 +1,94 @@
+<style type="text/css">
+
+		*{
+			outline: 1px dotted red;
+		}
+
+		.images{
+			width: 250px;
+			display: inline-block;
+		}
+
+		.smallimage{
+			margin-top: 5px;
+			display: inline-block;
+		}
+
+		.description{
+			margin-left: 25px;
+			width: 700px;
+			vertical-align: top;
+			display: inline-block;
+		}
+
+			.description form{
+				margin-left: 450px;
+			}
+
+		.suggestions{
+			margin: 20 30px;
+			display: inline-block;
+		}
+
+			.suggestions p{
+				width: 150px;
+				text-align: center;
+				display: inline-block;
+
+			}
+
+
+		</style>
+		*{
+			outline: 1px dotted red;
+		}
+
+		.menu{
+			width: 200px;
+			display: inline-block;
+		}
+
+			.menu a{
+				display: block;
+			}
+
+		.results{
+			width: 900px;
+			vertical-align: top;
+			display: inline-block;
+		}
+			.results h3{
+				width: 400px;
+				display: inline-block;
+			}
+
+			.results a{
+				margin-left: 25px;
+			}
+
+			.results b{
+				margin-left: 25px;
+			}
+
+			.results label{
+				margin-left: 20px;
+			}
+
+		.item{
+			width: 200px;
+			display: inline-block;
+		}
+
+		.pages{
+			width: 1200px;
+			margin-left: 25px;
+			text-align: center;
+		}
+
+		.allitems{
+			width: 900px;
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		</style>

@@ -1,0 +1,60 @@
+#keyword_search_form {
+	margin-top: 5px;
+	margin-right: 5px;
+}
+
+/*<style type="text/css">
+
+		*{
+			outline: 1px dotted red;
+		}
+
+		.menu{
+			width: 200px;
+			display: inline-block;
+		}
+
+			.menu a{
+				display: block;
+			}
+
+		.results{
+			width: 900px;
+			vertical-align: top;
+			display: inline-block;
+		}
+			.results h3{
+				width: 400px;
+				display: inline-block;
+			}
+
+			.results a{
+				margin-left: 25px;
+			}
+
+			.results b{
+				margin-left: 25px;
+			}
+
+			.results label{
+				margin-left: 20px;
+			}
+
+		.item{
+			width: 200px;
+			display: inline-block;
+		}
+
+		.pages{
+			width: 1200px;
+			margin-left: 25px;
+			text-align: center;
+		}
+
+		.allitems{
+			width: 900px;
+			display: inline-block;
+			vertical-align: top;
+		}
+
+		</style>*/

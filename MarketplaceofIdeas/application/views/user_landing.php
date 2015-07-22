@@ -11,7 +11,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 	    <script src="<?= base_url();?>/assets/js/bootstrap.min.js"></script>
 		<link href="<?= base_url();?>/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
 		<link href="<?= base_url();?>/assets/css/modern-business.css" rel="stylesheet" type="text/css">
-<!-- 		<link href="<?= base_url();?>/assets/css/user_landing.css" rel="stylesheet" type="text/css"> -->
 		<link href="<?= base_url();?>/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<script>
 		$(document).ready(function() {
@@ -38,19 +37,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
             <div class="item active">
                 <div class="fill" style="background-image:url('<?= base_url();?>/assets/img/socrates.png');"></div>
                 <div class="carousel-caption">
-                    <h2>Virtue Ethics</h2>
+                    <a class="primary_link" href="/ideas/show/31"><h2>Virtue Ethics</h2></a>
                 </div>
             </div>
             <div class="item">
                 <div class="fill" style="background-image:url('<?= base_url();?>/assets/img/diogenes.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Cynicism</h2>
+                    <a class="primary_link" href="/ideas/show/7"><h2>Cynicism</h2></a>
                 </div>
             </div>
             <div class="item">
-                <div class="fill" style="background-image:url('<?= base_url();?>/assets/img/wanderer.png');"></div>
+                <div class="fill" style="background-image:url('<?= base_url();?>/assets/img/wanderer.jpg');"></div>
                 <div class="carousel-caption">
-                    <h2>Romanticism</h2>
+                    <a class="primary_link" href="/ideas/show/16"><h2>Romanticism</h2></a>
                 </div>
             </div>
         </div>
@@ -69,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
     <!-- Marketing Icons Section -->
         <div class="row">
             <div class="col-lg-12">
-                <h1 class="page-header">
+                <h1 class="page-header text-center">
                     The Marketplace of Ideas
                 </h1>
             </div>
@@ -83,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                         <img alt="Raphael's School of Athens" src="<?= base_url();?>/assets/img/school_of_athens.jpg" />
                     </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
+                        <a href="/category/author" class="btn btn-default">View Authors</a>
                     </div>
                 </div>
             </div>
@@ -97,7 +96,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                             <img alt="Old books" src="<?= base_url();?>/assets/img/subjects.jpg" />
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
+                        <a href="/category/subject" class="btn btn-default">View Subjects</a>
                     </div>
                 </div>
             </div>
@@ -111,7 +110,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                             <img alt="A 18th century French Enlightenment salon" src="<?= base_url();?>/assets/img/salon.jpg" />
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
+                        <a href="/category/era" class="btn btn-default">View Eras</a>
                     </div>
                 </div>
             </div>
@@ -125,14 +124,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                             <img alt="The Parthenon in Athens" src="<?= base_url();?>/assets/img/parthenon.jpg" />
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
-                        <a href="#" class="btn btn-default">Learn More</a>
+                        <a href="/category/location" class="btn btn-default">View Locations</a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- /.row -->
+
+         <!-- Call to Action Section -->
+        <div class="well">
+            <div class="row">
+                <div class="col-md-8">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
+                </div>
+                <div class="col-md-4">
+                    <a class="btn btn-lg btn-default btn-block" href="/browse">Explore All Ideas!</a>
+                </div>
+            </div>
+        </div>
 		
-	</div>
-	<!-- /.container -->	
+        <!-- Populate the DIV Section -->
+        <div class="col-md-12" id="category_sort">       
+        </div>
+
+	</div><!-- /.container --> 
   </body>
 </html>

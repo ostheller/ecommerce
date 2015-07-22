@@ -42,6 +42,10 @@ header.carousel .fill {
     background-size: cover;
 }
 
+a.primary_link {
+    color: #F5F5F5;
+}
+
 /* 404 Page Styles */
 
 .error-404 {
