@@ -40,7 +40,7 @@ class Admin_order extends CI_Model {
 
 // *****ADMIN VIEW ORDER**********
 
-		//function orders_dash($limit, $offset)
+		function orders_dash($limit, $offset)
 
 // —> On page load: <————————————
 
@@ -48,12 +48,15 @@ class Admin_order extends CI_Model {
 
 // -> User interaction <————————————
 
-			//{
-				//results query
-				//$query="";
-				//$orders=$this->db->query($query)->result array()->limit($limit, $offset)
-				//return $orders;
-			//}
+			{
+				// ----results query----//
+				// make sure the query data is set to match keys used in admin_orders_dash OR change key names in admin_orders_dash;
+				// $query="";
+				// $results['orders']=$this->db->query($query)->result_array()->limit($limit, $offset)
+				// $query=''FOR ROW COUNT
+				// $results['num_rows']=$this->db->($query)->result();
+				// return $results;
+			}
 
 // N/A
 

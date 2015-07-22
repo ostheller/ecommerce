@@ -24,11 +24,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <table>
 	<thead>
 		<tr>
-		<th><a href=""></a>Order ID</th> 
-		<th>Name</th>
-		<th>Date</th>
-		<th>Billing Address</th>
-		<th>Total</th>
+		<th><a href="admins_orders/sort/id/<?=//($sort_order == 'asc' && $sort_by == 'id') ? 'desc' : 'asc';?>"></a>Order ID</th>
+		<th><a href="admins_orders/sort/name/<?=//($sort_order == 'asc' && $sort_by =='name') ? 'desc' : 'asc';?>">Name</th>
+		<th><a href="admins_orders/sort/date/<?=//($sort_order == 'asc' && $sort_by == 'date') ? 'desc' : 'asc';?>">Date</th>
+		<th><a href="admins_orders/sort/billing_address/<?=//($sort_order == 'asc' && $sort_by == 'billing_address' ) ? 'desc' : 'asc';?>">Billing Address</th>
+		<th><a href="admins_orders/sort/total/<?=//($sort_order == 'asc' && $sort_by == 'total') ? 'desc' : 'asc';?>">Total</th>
 		<th>Status</th>
 		</tr>
 	</thead>
@@ -50,6 +50,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <?//}?><!--foreach loop to poulate table with data from DB-->
 	</tbody>
 </table>
-<!-- Need to add a limit to how many rows are displayed in table AND create pagination links to the rest of the rows -->
+<?php if(strlen($pagination)):?>
+<div>
+	<p>Pages:</p><?= $pagination; ?>
+</div>
 </body>
 </html>
