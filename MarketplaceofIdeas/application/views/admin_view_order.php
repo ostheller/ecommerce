@@ -52,5 +52,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<p>Shipping: <??></p>
 	<p>Total Price: <??></p>
 </div>
+<a href="admins_orders/sort">Return to Order's Dashboard</a>
 </body>
 </html>
