@@ -52,6 +52,12 @@ class Admins_orders extends CI_Controller
 		//$data['sort_order'] = $sort_order;
 		// $this->load->view('admins_orders_dash', $data);
 	}
+	public function status_update($post)
+	{
+		$this->load->model('admin_order');
+		$this->admin_order->status($post);
+		redirect ('admins_orders/sort');
+	}
 
 }
 ?>

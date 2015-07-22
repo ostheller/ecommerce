@@ -36,17 +36,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<tbody>
 <?//foreach($orders as $order)
 //{?>
-	<!-- <td><a href="/admins_orders/show/<?=//$order['id']?>"><?=//$order['id']?></a></td> -->
+	<!-- 
+	<form action='status_update' method='post'>
+	<td><a href="/admins_orders/show/<?=//$order['id']?>"><?=//$order['id']?></a></td> -->
 	<!-- <td><?=//$order['name']?></td> -->
 	<!-- <td><?=//$order['date']?></td> -->
 	<!-- <td><?=//$order['billing_address']?></td> -->
 	<!-- <td><?=//$order['total']?></td> -->
-	<!-- <td><select>
+	<!-- <td>
+		<select>
 		<option>Order in process</option>
 		<option>Shipped</option>
 		<option>Cancelled</option>
 		<input type='submit' value='Update'>
-	</select></td> -->
+		</select>
+	</td>
+	</form>-->
 <?//}?><!--foreach loop to poulate table with data from DB-->
 	</tbody>
 </table>
