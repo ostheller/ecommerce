@@ -1,3 +1,6 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+?>
 <html>
 	<head>
 		<meta charset='utf-8'>
@@ -41,14 +44,15 @@
 			<label>City:</label>
 			<input type='text' value='City'>
 			<label>State</label>
-			<select>
-				<option>AL</option>
-				<option>AK</option>
-				<option>AR</option>
-				<option>AZ</option>
-				<option>CA</option>
-				<option>FL</option>
-			</select>
+<?php
+				$query="SELECT name,id FROM state order by name"; 
+				echo "<select name=state value=''>State Name</option>"; // list box select command
+				foreach ($dbo->query($query) as $row)
+				{//Array or records stored in $row
+					echo "<option value=$row[id]>$row[name]</option>"; 
+				}
+				 echo "</select>";// Closing of list box
+ ?>
 			<label>Zip Code</label>
 			<input type='text' value='Zip Code'>
 			<h3>Billing Information</h3>
@@ -63,15 +67,15 @@
 			<input type='text' value='Address 2:'>
 			<label>City:</label>
 			<input type='text' value='City'>
-			<label>State</label>
-			<select>
-				<option>AL</option>
-				<option>AK</option>
-				<option>AR</option>
-				<option>AZ</option>
-				<option>CA</option>
-				<option>FL</option>
-			</select>
+	<?php
+				$query="SELECT name,id FROM state order by name"; 
+				echo "<select name=state value=''>State Name</option>"; // list box select command
+				foreach ($dbo->query($query) as $row)
+				{//Array or records stored in $row
+					echo "<option value=$row[id]>$row[name]</option>"; 
+				}
+				 echo "</select>";// Closing of list box
+ ?>
 			<label>Zip Code</label>
 			<input type='text' value='Zip Code'><br>
 			<!-- <label>Card Number:</label>
