@@ -5,34 +5,36 @@ class Admins_ideas extends CI_Controller
 {
 	public function index()
 	{
-		$this->load->view('admin_login');
-	}
-	public function login()
-	{
-		//if ($this->input->post() != NULL)
-		{
-			//$this->load->model();
-			//$orderdata=$query RESULT_array;
-			//$this->load->view('admin_orders_dash, $orderdata')
-		}
-		if($this->session->flashdata['errors'] != NULL)
-		{
-			// send errors from model form validation to the admin_login
-		}
-		else
-		{
-			$this->load->view('admin_orders_dash');
-		}
+
 	}
 	public function search()
 	{
 		//directs to model to apply appropriate keyword filter to obtain data that admin wants displayed
 		// should work hard to get this to be an AJAX function
-		$this->load->view('admin_orders_dash');//with appropriate data from model method pushed to view page
+		$this->load->view('admin_products_dash');//with appropriate data from model method pushed to view page
 	}
-	public function sort()
+	public function sort($sort_by='id', $sort_order= 'asc', $offset = 0)
 	{
-
+		$limit= 5;
+		$this->load->model('admin_idea');
+		$results= $this->admin_order->products_dash($limit, $offset, $sort_by, $sort_order);
+		$data['products']=$results['products'];
+		$data['num_rows']=$results['rows'];
+		// double check that orders var_dumps correctly on admin_order_dash
+	// ----------pagination-------------
+		$this->load->library('pagination');
+		$config = array();
+		$config['base_url'] = site_url('admins_ideas/sort/$sort_by/$sort_order');
+		$config['total_rows'] = $results['num_rows'];
+		$config['per_page'] = $limit;
+		$congig['num_links'] = 10; //<- we may not need this...
+		$config['uri_segment'] = 5;
+		$this->pagination->initialize($config);
+		$data['pagination'] = $this->pagination->create_links();
+		$data['sort_by'] = $sort_by;
+		$data['sort_order'] = $sort_order;
+		$this->load->view('admin_products_dash', $data);
+		// $this->load->view('admin_products_dash');
 	}
 
 }
