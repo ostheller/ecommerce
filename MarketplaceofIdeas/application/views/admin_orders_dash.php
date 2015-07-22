@@ -45,7 +45,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<option>Order in process</option>
 		<option>Shipped</option>
 		<option>Cancelled</option>
-		<input type>
+		<input type='submit' value='Update'>
 	</select></td> -->
 <?//}?><!--foreach loop to poulate table with data from DB-->
 	</tbody>
