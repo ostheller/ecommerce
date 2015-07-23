@@ -28,8 +28,10 @@ class Users_orders extends CI_Controller {
 		Shopping Cart on User_Browser Page,   */
 	public function cart()
 	{
-		$idea = $this->Product->show_idea($id);
-		$this->load->view('user_cart', array('idea' => $idea));
+		$this->load->model('user_order');
+		$state['state'] = $this->user_order->state_grab();
+		$this->load->view('user_cart', $state); 
+
 		// var_dump($product);
 		//  die('controller');
 	}

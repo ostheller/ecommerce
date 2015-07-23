@@ -34,7 +34,7 @@
 				</tr>
 			</thead>
 			<tbody>
-		<?php
+<!--		<?php
 					foreach ($all_ideas as  $idea) 
 					{
 		?>					
@@ -43,12 +43,12 @@
 							<td><?=$idea['description'] ?></td>
 							<td><?=$idea['price'] ?></td>
 							<td></td>
-						<!--	<td><a href="/remove/<?= $idea['id'] ?>">Remove</a></td> -->
+						<!--	<td><a href="/remove/<?= $idea['id'] ?>">Remove</a></td>
 						</tr>
 		<?php
 					}
 
-		?>	
+		?>	-->
 				</tbody>
 		</table>
 		<button action='/'type='button'>Continue Shopping</button>
@@ -67,6 +67,7 @@
 			<label>State</label>
 			<select name='state'>
 				
+
 				
 			</select>
 			<label>Zip Code</label>

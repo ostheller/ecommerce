@@ -55,9 +55,15 @@ class User_order extends CI_Model {
 
      public function state_grab()
      {
-     	$query = "SELECT * FROM states";
-     	$results['states'] = $this->db->query($query)->result_array;
+     	 $this->load->database();
+          $sql = ('SELECT * FROM states');
+          $query = $this->db->query($sql);
 
+          foreach($query->result_array() as $row) 
+          {
+            $state[$row['id']] = $row['name'];
+          }
+          return $state;
      }
 }
 ?>
