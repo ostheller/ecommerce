@@ -7,6 +7,7 @@ class Users_orders extends CI_Controller {
 					Marketplace of Ideas User_laning page?  */
 	public function index()
 	{
+		var_dump($this->input->post());
 		die('test');
 		$this->load->user_order;
 		$results=$this->user_order->state_grab();
