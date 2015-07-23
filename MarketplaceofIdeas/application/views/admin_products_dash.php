@@ -92,6 +92,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<a href="delete/idea">delete</a></td>
 <?}?><!--foreach loop to poulate table with data from DB-->
 </table>
-<!-- Need to add a limit to how many rows are displayed in table AND create pagination links to the rest of the rows WITHOUT refreshing page-->
+?php if(strlen($pagination)):?>
+<div>
+	<p>Pages:</p><?= $pagination;?>
+</div>
+<?php endif; ?>
 </body>
 </html>
