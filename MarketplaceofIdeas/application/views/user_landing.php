@@ -32,6 +32,7 @@
 		}
 
 
+<<<<<<< Updated upstream
 		.latestideas{
 			width: 225px;
 			display: inline-block;
@@ -81,6 +82,91 @@
 					<p>Philosophies by Subject</p>
 				</div>
 			</div>
+=======
+    <!-- Marketing Icons Section -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header text-center">
+                    The Marketplace of Ideas
+                </h1>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-users"></i> Author</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="thumbnail">
+                        <img alt="Raphael's School of Athens" src="<?= base_url();?>/assets/img/school_of_athens.jpg" />
+                    </div>
+                        <p>A philosopher, in a broad sense, is someone who studies philosophy. The word "philosopher" comes from the Ancient Greek φιλόσοφος (philosophos), which means "lover of wisdom". The introduction of the terms "philosopher" and "philosophy" has been ascribed to the Greek thinker Pythagoras.</p>
+                        <a href="/category/author" class="btn btn-default">View Authors</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-book"></i> Subject</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="thumbnail">
+                            <img alt="Old books" src="<?= base_url();?>/assets/img/subjects.jpg" />
+                        </div>
+                        <p>Philosophy is the study of general and fundamental problems, such as those connected with reality, existence, knowledge, values, reason, mind and language. There are five main branches: epistemology, ethics, aesthetics, metaphysics and politics.
+                        </p>
+                        <a href="/category/subject" class="btn btn-default">View Subjects</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-bell"></i> Era</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="thumbnail">
+                            <img alt="A 18th century French Enlightenment salon" src="<?= base_url();?>/assets/img/salon.jpg" />
+                        </div>
+                        <p>All cultures — be they prehistoric, medieval, or modern; Eastern, Western, religious or secular — have had their own unique schools of philosophy, arrived at through both inheritance and through independent discovery. </p>
+                        <a href="/category/era" class="btn btn-default">View Eras</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-fw fa-university"></i> Locale</h4>
+                    </div>
+                    <div class="panel-body">
+                        <div class="thumbnail">
+                            <img alt="The Parthenon in Athens" src="<?= base_url();?>/assets/img/parthenon.jpg" />
+                        </div>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                        <a href="/category/location" class="btn btn-default">View Locations</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.row -->
+
+         <!-- Call to Action Section -->
+        <div class="well">
+            <div class="row">
+                <div class="col-md-8">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
+                </div>
+                <div class="col-md-4">
+                    <a class="btn btn-lg btn-default btn-block" href="/browse">Explore All Ideas!</a>
+                </div>
+            </div>
+        </div>
+		
+        <!-- Populate the DIV Section -->
+        <div class="col-md-12" id="category_sort">       
+        <?php if(isset($data)) {$this->load->view('partials/landing_category_div'); }?>
+        </div>
+>>>>>>> Stashed changes
 
 			<div class='feature'>
 				<h3>Featured Idea</h3>

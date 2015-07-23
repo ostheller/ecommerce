@@ -12,7 +12,12 @@ class Users_ideas extends CI_Controller {
 		$this->load->view('user_landing');
 	}
 
-
+	// show all tags with a specified category on the landing page
+	public function category_index($id) 
+	{
+		$data = $this->user_idea->category_index($id);
+		$this->load->view('user_landing', array('data' => $data));
+	}
 	/* EVENTS to trigger this function should be:
 		Keyword search
 		Category selection on Browsing page
@@ -21,22 +26,40 @@ class Users_ideas extends CI_Controller {
 		Question - Should the Go Back link go back to the same page as the show item
 					was displayed on or do we refresh that category / keyword list? 
 					Need to figure out how to impliment javascript history*/
-	public function browsing()
+	public function browsing_index()
 	{
-		$this->load->view('user_browsing');
+		$data = $this->user_idea->browsing_index();
+		$this->load->view('user_browsing', array('data' => $data));
 	}
 
-
+	/* This function filters the ideas shown on the browsing page by tag */
+	public function browsing_show($id) {
+		$data = $this->user_idea->browsing_show($id);
+		$this->load->view('user_browsing', array('data' => $data));
+	}
 
 	/*  EVENTS to trigger this function should be:
 		Featured idea on User_Landing Page
 		Thumbnail image on User_Browser Page
 		Similar Items on the User_Show Page   */
+<<<<<<< Updated upstream
 	public function show()
 	{
 		$this->load->view('user_show');
 	}
 
+=======
+	
+	// shows ONE idea
+	public function show($id)
+	{
+		$related = $this->user_idea->fetch_related($id);
+		$datum = $this->user_idea->show($id);
+		$this->load->view('user_show', array('datum' => $datum, 'related' => $related, 'defaultPics' => $images));
+	}
+
+	
+>>>>>>> Stashed changes
 
 	/*I wonder if the cart should be part of the orders controller instead of the ideas.
 		EVENTS to trigger this function should be:

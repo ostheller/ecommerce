@@ -1,17 +1,16 @@
- <?php for($k = 0; $k < 3; $k ++) { ?>
+
         <!-- Projects Row -->
         <div class="row">
-            <?php for($i = 0; $i<3; $i++) { ?>
+            <?php foreach($data as $datum) { ?>
             <div class="col-md-4 img-portfolio">
-                <a href="portfolio-item.html">
-                    <img class="img-responsive img-hover" src="http://placehold.it/700x400" alt="">
+                <a href="/browse/<?= $datum['name'] ?>">
+                    <img class="img-responsive img-hover" src="<?= base_url();?>/assets/img/<?= $datum['location'] ?>" alt="<?= $datum['alt_text'] ?>">
                 </a>
-                <h3>
-                    <a href="portfolio-item.html">Project Name</a>
-                </h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam viverra euismod odio, gravida pellentesque urna varius vitae.</p>
+                <h4 class='text-center' >
+                    <a href="/browse/<?= $datum['name'] ?>"><?= $datum['name'] ?></a>
+                </h4>
+                <p></p>
             </div>
             <?php } ?>
         </div>
-        <!-- /.row -->
-        <?php } ?>
+<!-- /.row -->
