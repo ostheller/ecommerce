@@ -7,8 +7,6 @@ class Users_orders extends CI_Controller {
 					Marketplace of Ideas User_laning page?  */
 	public function index()
 	{
-		var_dump($this->input->post());
-		die('test');
 		$this->load->user_order;
 		$results=$this->user_order->state_grab();
 		//$this->load->view('user_cart');
@@ -30,7 +28,10 @@ class Users_orders extends CI_Controller {
 		Shopping Cart on User_Browser Page,   */
 	public function cart()
 	{
-		$this->load->view('user_cart');
+		$idea = $this->Product->show_idea($id);
+		$this->load->view('user_cart', array('idea' => $idea));
+		// var_dump($product);
+		//  die('controller');
 	}
 
 	public function purchases()

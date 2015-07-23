@@ -35,7 +35,16 @@ class User_order extends CI_Model {
 
 // Get the stripe token into the database
 
-public function purchase($post)
+        public function show_idea($id)
+         {
+            $query = "SELECT * FROM ideas WHERE id = ?";
+            $values = array($id);
+            return $this->db->query($query, $values)->row_array();
+        }
+
+
+
+    public function purchase($post)
      {
          
          $query = "INSERT INTO addresses(first_name, last_name, address, address_2, city, state_id, zip, created_at, updated_at)

@@ -14,3 +14,6 @@ $route['ideas/show/(:num)'] ='users_ideas/show/$1';
 $route['category/(:any)'] = 'users_ideas/category_index/$1';
 $route['browse'] = 'users_ideas/browsing_index';
 $route['browse/(:any)'] = 'users_ideas/browsing_show/$1';
+
+//jess's orders routes
+$route['cart'] = 'users_orders/cart';

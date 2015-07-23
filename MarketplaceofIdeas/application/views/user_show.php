@@ -76,12 +76,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-4">
                 <h3>Description</h3>
                 <p><?= $datum['description'] ?></p>
-                <form action='/ideas/cart' value='select'>
-			    	<select>
-			    		<option>1($19.95)</option>
-			    		<option>2($37.95)</option>
-			    		<option>3($55.95)</option>
-			    		<option>4($73.95)</option>
+                <form action='cart' method ='post'value='select'>
+			    	<select name='quantity'>
+			    		<option value='1'>1($19.95)</option>
+			    		<option value='2'>2($37.95)</option>
+			    		<option value='3'>3($55.95)</option>
+			    		<option value='4'>4($73.95)</option>
 			    	</select>
 			    	<input type='hidden' value='add'>
 			    	<input type='submit' value='Add to Cart'>

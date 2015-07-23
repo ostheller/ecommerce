@@ -34,14 +34,22 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>Socates: Drink This, Not That</td>
-					<td>$18.95</td>
-					<td>2</td>
-					<td><a href="">update</a></td>
-					<td><a href="">remove</a></td>
-					<td>$29.90</td>
-			</tbody>
+		<?php
+					foreach ($all_ideas as  $idea) 
+					{
+		?>					
+						<tr>
+							<td><?=$idea['name'] ?></td>
+							<td><?=$idea['description'] ?></td>
+							<td><?=$idea['price'] ?></td>
+							<td></td>
+						<!--	<td><a href="/remove/<?= $idea['id'] ?>">Remove</a></td> -->
+						</tr>
+		<?php
+					}
+
+		?>	
+				</tbody>
 		</table>
 		<button action='/'type='button'>Continue Shopping</button>
 		<form action='purchases'method='post'>
