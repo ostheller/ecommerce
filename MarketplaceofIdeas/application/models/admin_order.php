@@ -73,13 +73,19 @@ class Admin_order extends CI_Model {
 //	---using ternary operator for above, it is just shorthand of an if statement
 	//----results query----//
 //---make sure the query data is set to match keys used in admin_orders_dash OR change key names in admin_orders_dash;
-		$query="";//make sure to use the $sort_by and $sort_order in the $values???
-		$results['orders']=$this->db->query($query)->result_array()->limit($limit, $offset);
-		$query='';//FOR ROW COUNT
+		$query="SELECT orders.id AS 'id', addresses.first_name AS 'name', orders.created_at AS 'date', CONCAT(addresses.address, addresses.address_2, ', ', addresses.city, ', ', states.name, ' ', addresses.zip) AS 'billing_address', orders.total_price AS 'total', order_statuses.status as 'status' FROM orders left join addresses ON orders.billing_address_id = addresses.id left join order_statuses ON orders.order_status_id= order_statuses.id left join states ON addresses.state_id=states.id";
+		// $values
+			// $results=$this->db->query($query)->result_array();;//make sure to use the $sort_by and $sort_order in the $values???
+		$results['orders']=$this->db->limit($limit, $offset)->query($query)->result_array();
+			// var_dump($results['orders']);
+			// die('what did we get');
+		$query='SELECT count(id) from orders';//FOR ROW COUNT need for pagination
 		$results['num_rows']=$this->db->query($query)->result();
+		var_dump($results);
+		die('what did we get?');
 		return $results;
 	}
-	public function status($post)
+	public function change_status($post)
 	{
 		//Query to update the status of selected order
 	}

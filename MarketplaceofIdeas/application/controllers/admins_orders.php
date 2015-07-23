@@ -53,7 +53,6 @@ class Admins_orders extends CI_Controller
 		// die('reached sort function');
 		$limit= 5;
 		$results=$this->admin_order->orders_dash($limit, $offset, $sort_by, $sort_order);
-		// $results= $this->admin_order->orders_dash($limit, $offset, $sort_by, $sort_order);
 		$data['orders']=$results['orders'];
 		$data['num_rows']=$results['rows'];
 		// double check that orders var_dumps correctly on admin_order_dash
@@ -75,7 +74,7 @@ class Admins_orders extends CI_Controller
 	public function status_update($post)
 	{
 		$this->load->model('admin_order');
-		$this->admin_order->status($this->input->post());
+		$this->admin_order->change_status($this->input->post());
 		redirect ('admins_orders/sort');
 	}
 	public function show()
