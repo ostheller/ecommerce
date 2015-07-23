@@ -17,3 +17,4 @@ $route['browse/(:any)'] = 'users_ideas/browsing_show/$1';
 
 //jess's orders routes
 $route['cart'] = 'users_orders/cart';
+$route['continue'] = 'users_ideas/browsing_index';

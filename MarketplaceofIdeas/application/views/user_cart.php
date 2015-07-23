@@ -51,7 +51,7 @@
 		?>	-->
 				</tbody>
 		</table>
-		<button action='/'type='button'>Continue Shopping</button>
+		<button action='users_ideas/browsing_index'type='button'>Continue Shopping</button>
 		<form action='purchases'method='post'>
 			<h3>Shipping Information</h3>
 			<label>First Name:</label>
