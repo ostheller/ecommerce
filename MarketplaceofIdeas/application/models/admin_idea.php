@@ -27,15 +27,24 @@ $rusults['num_rows'] = count($results['num_rows']);
 }
 public function add_idea($post)
 {
-	
+// *****ADMIN ADD PRODUCT**********
+
+// —> On page load: <————————————
+	if($post['task'] == 'add')
+	{
+		$query='SELECT name from categories';
+		$results['categories']=$this->db->query($query);
+		return $results;
+	}
+	else if($post['task'] == 'add_idea')
+	{
+		$query="INSERT INTO ideas.name, ideas.description, categories.name,".<?if(?>." categories"
+	}
+
 }
 
 
 
-
-// *****ADMIN ADD PRODUCT**********
-
-// —> On page load: <————————————
 
 // -> User interaction <————————————
 
@@ -48,6 +57,7 @@ public function add_idea($post)
 // Create tags
 
 // Assign tags to categories
+
 
 // *****ADMIN VIEW/EDIT PRODUCT**********
 

@@ -12,10 +12,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <header><--!LOAD PARTIAL/NAVBAR--></header>
 <body>
 	<form action='search' method='post'>
+		<input type='hidden' name='task' value='search'>
 		<input type='text' name='search'>
 		<input type='submit' value='SEARCH'> 
 	</form>
 	<form action='add' method='post'>
+		<input type='hidden' name='task' value='add'>
 		<input type='submit' value='Add new idea'>
 	<!-- moves to admin_add_product.php -->
 	<table>

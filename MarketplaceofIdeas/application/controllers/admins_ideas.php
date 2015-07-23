@@ -37,7 +37,15 @@ class Admins_ideas extends CI_Controller
 	}
 	public function add()
 	{
-		// $this->input->post()
+		$this->load->view('admin_add_product');
+		if($this->input->post())
+		{
+			$this->admin_idea->add_idea($post);
+		}
+	}
+	public function delete()
+	{
+
 	}
 
 }

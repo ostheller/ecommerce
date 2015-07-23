@@ -67,7 +67,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<!-- redirects to the admin product dash -->
 		<button>Preview</button>
 		<!-- preview button opens a new tab with the product page displaying appropriate info displayed -->
-		<input type='submit' value='Update'>
+		<input type= 'hidden' name='task' value='add_idea'>
+		<input type='submit' value='Add'>
 	</form>
 </body>
 </html>
