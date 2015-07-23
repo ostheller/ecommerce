@@ -54,7 +54,10 @@ class Admins_orders extends CI_Controller
 		$limit= 5;
 		$results=$this->admin_order->orders_dash($limit, $offset, $sort_by, $sort_order);
 		$data['orders']=$results['orders'];
-		$data['num_rows']=$results['rows'];
+		$data['num_rows']=$results['num_rows'];
+		$data['status_options']=$results['status_options'];
+		// var_dump($data);
+		// die('did data move back to sort???');
 		// double check that orders var_dumps correctly on admin_order_dash
 	// ----------pagination-------------
 		$this->load->library('pagination');
@@ -62,23 +65,28 @@ class Admins_orders extends CI_Controller
 		$config['base_url'] = site_url('admins_orders/sort/$sort_by/$sort_order');
 		$config['total_rows'] = $results['num_rows'];
 		$config['per_page'] = $limit;
-		$congig['num_links'] = 10; //<- we may not need this...
-		$config['uri_segment'] = 5;
+		// $congig['num_links'] = 10; //<- we may not need this...
+		// $config['uri_segment'] = 5;
 		$this->pagination->initialize($config);
 		$data['pagination'] = $this->pagination->create_links();
 		$data['sort_by'] = $sort_by;
 		$data['sort_order'] = $sort_order;
+		// var_dump($data);
+		// die('what happens to my data!?');
 		$this->load->view('admin_orders_dash', $data);
 		// $this->load->view('admin_orders_dash');
 	}
-	public function status_update($post)
+	public function status_update()
 	{
-		$this->load->model('admin_order');
+		var_dump($this->input->post());
+		die('reached status update');
 		$this->admin_order->change_status($this->input->post());
 		redirect ('admins_orders/sort');
 	}
 	public function show()
 	{
+		var_dump($this->input->post());
+		die('hello');
 		$this->load->model('admin_order');
 		$orderdata=$this->admin_order->order_info($this->input->post());
 
