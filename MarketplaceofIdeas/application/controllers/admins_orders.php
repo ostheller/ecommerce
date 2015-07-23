@@ -66,7 +66,7 @@ class Admins_orders extends CI_Controller
 		$config['total_rows'] = $results['num_rows'];
 		$config['per_page'] = $limit;
 		// $congig['num_links'] = 10; //<- we may not need this...
-		// $config['uri_segment'] = 5;
+		$config['uri_segment'] = 5;
 		$this->pagination->initialize($config);
 		$data['pagination'] = $this->pagination->create_links();
 		$data['sort_by'] = $sort_by;
@@ -78,8 +78,8 @@ class Admins_orders extends CI_Controller
 	}
 	public function status_update()
 	{
-		var_dump($this->input->post());
-		die('reached status update');
+		// var_dump($this->input->post());
+		// die('reached status update');
 		$this->admin_order->change_status($this->input->post());
 		redirect ('admins_orders/sort');
 	}

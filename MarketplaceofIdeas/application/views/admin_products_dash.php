@@ -77,18 +77,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			{
 				echo $sort_order == 'asc';	
 			}
-				?>">Total</th>
+				?>">Total Sold</th>
 
-<?foreach($products as $product => $row_array)
-{
-	//foreach($row_array as $key)
-	//{
-		?><!--<td><?=//$key?></td> -->
-	<?}?>
-	<!-- <td><a href="">edit</a>
-	<a href="">delete</a></td> -->
-	<!-- edit moves to admin_edit_product.php -->
-	<!-- delete  -->
+<?foreach($products as $product )
+{?>
+	<tr>
+	<td><?=$products['id']?></td>
+	<td><?=$products['name']?></td>
+	<td><?=$products['description']?></td>
+	<td><?=$products['inventory']?>
+	<td><?=$products['sold']?></td>
+	<td>
+	<td><a href="edit/idea">edit</a>
+	<a href="delete/idea">delete</a></td>
 <?}?><!--foreach loop to poulate table with data from DB-->
 </table>
 <!-- Need to add a limit to how many rows are displayed in table AND create pagination links to the rest of the rows WITHOUT refreshing page-->

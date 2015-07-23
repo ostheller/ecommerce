@@ -28,39 +28,9 @@ class Admin_order extends CI_Model {
 		}
 	}
 
-
-// *****ADMIN CREATE ADMIN PAGE********** (I'm not sure which controller this belongs on)
-
-// —> On page load: <————————————
-
-// N/A
-
-// -> User interaction <————————————
-
-// Validate the POST data, either return errors or move to the orders dashboard
-
-
 // *****ADMIN ORDERS DASHBOARD**********
-
-// —> On page load: <————————————
-
-// Select orders (id, name, created_at, billing, total, status), with the most recent at the top (DESC)
-
-// -> User interaction <————————————
-
-// Search by customer name, id, etc.
-
-// Update order status
-
-// Select the second (or third, or fourth) 9? items further back in time
-
-
-
+// hmmm... I'm repeating my query hear just with more perameter so we can sort... any thoughts on eliminating this repetition?
 	public function orders_dash($limit, $offset, $sort_by, $sort_order)
-
-
-
-
 	{
 		// die('reached model orders_dash()');
 		$sort_order = ($sort_order == 'desc') ? 'desc' : 'asc';
@@ -91,16 +61,26 @@ class Admin_order extends CI_Model {
 	}
 	public function change_status($post)
 	{
+// this query is not quite right yet... I promise I've been working all night on this... I feel like I have accomplished so little :( -aadi
 		$query="UPDATE orders LEFT JOIN order_statuses ON orders.order_status_id = order_statuses.id WHERE orders.id = ? AND order_statuses.id LIKE ?";
-// *****ADMIN VIEW ORDER**********
-		$values=array($post['orderId'], $post['status'])
+		$values=array($post['orderId'], $post['status']);
 		$this->db->query($query, $values);
 	}
+// *****ADMIN VIEW ORDER**********
 // // —> On page load: <————————————
 
 // // Select addresses, items, order status, total cost
 // // -> User interaction <————————————
 // N/A
 
+// *****ADMIN CREATE ADMIN PAGE********** (I'm not sure which controller this belongs on)
+
+// —> On page load: <————————————
+
+// N/A
+
+// -> User interaction <————————————
+
+// Validate the POST data, either return errors or move to the orders dashboard
 }
 ?>
