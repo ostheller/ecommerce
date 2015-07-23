@@ -1,88 +1,70 @@
-<html>
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');?>
+<!DOCTYPE html>
+<html lang="en">
 	<head>
-		<meta charset='utf-8'>
-		<title>Welcome User</title>
-
-		<style type="text/css">
-
-		.wrapper{
-			width: 1100px;
-		}
-
-		.welcome{
-			width: 900px;
-			height: 200px;
-			border: 1px solid black;
-			background-color: green;
-			color: white;
-			text-align: center;
-			display: inline-block;
-			margin-left: 100px;
-		}
-
-		.feature{
-			margin-left: 150px;
-			width:900px;
-			margin-left: 50px;
-			text-align: center;
-		}
-
-		.current{
-			margin-left: 100px;
-		}
-
-
-<<<<<<< Updated upstream
-		.latestideas{
-			width: 225px;
-			display: inline-block;
-			text-align: center;
-		}
-
-		h3{
-			text-align: center;
-		}
-		</style>
-
-		<script type="text/javascript">
-			var slideimages = new Array() 
-			slideimages[0] = new Image() 
-			slideimages[0].src = "authors.gif" 
-			slideimages[1] = new Image()
-			slideimages[1].src = "eras.gif"
-			slideimages[2] = new Image()
-			slideimages[2].src = "locales.gif"
-			slideimages[3] = new Image()
-			slideimages[3].src = "subjects.gif"
-		</script>
-
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Marketplace of Ideas</title>
+	    <script src="<?= base_url();?>/assets/js/jquery.js"></script>
+	    <script src="<?= base_url();?>/assets/js/bootstrap.min.js"></script>
+		<link href="<?= base_url();?>/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="<?= base_url();?>/assets/css/modern-business.css" rel="stylesheet" type="text/css">
+		<link href="<?= base_url();?>/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<script>
+		$(document).ready(function() {
+		    $('carousel').carousel({
+		        interval: 2000 //changes the speed
+		    });
+		});
+    	</script>
 	</head>
 	<body>
-		<div class='wrapper'>
+<?php $this->load->view('partials/user_navbar'); ?>
+<!-- Header Carousel -->
+    <header id="myCarousel" class="carousel slide">
 
-			<div class='welcome'>
-				<h2>Marketplace of Ideas</h2>
-				</div>
-			<div class='current'>
-				<h3>Categories</h3>
-				<div class = 'latestideas'>
-					<a href='browse'><img src="http://0.tqn.com/d/ancienthistory/1/0/h/P/Socrates.jpg" width="200" height="200"></a>
-					<p>Authors on Philosophy</p>
-				</div>
-				<div class = 'latestideas'>
-					<a href='browse'><img src="http://www.universaltheosophy.com/wp-content/gallery/biography-pictures/500-pythagoras_240x360.png" width="200" height="200"></a>
-					<p>Philosophies by eras</p>
-				</div>
-				<div class = 'latestideas'>
-					<a href='browse'><img style="-webkit-user-select: none;" src="http://www.toptenz.net/wp-content/uploads/2014/10/americanphilosophers4-640x480.jpg" width="200" height="200"></a>
-					<p>Philosophies by locale</p>
-				</div>
-				<div class = 'latestideas'>
-					<a href='browse'><img src="http://www.philosophers.co.uk/immanuel-kant.jpg" width="200" height="200"></a>
-					<p>Philosophies by Subject</p>
-				</div>
-			</div>
-=======
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+            <li data-target="#myCarousel" data-slide-to="1"></li>
+            <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+            <div class="item active">
+                <div class="fill" style="background-image:url('<?= base_url();?>/assets/img/socrates.png');"></div>
+                <div class="carousel-caption">
+                    <a class="primary_link" href="/ideas/show/31"><h2>Virtue Ethics</h2></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('<?= base_url();?>/assets/img/diogenes.jpg');"></div>
+                <div class="carousel-caption">
+                    <a class="primary_link" href="/ideas/show/7"><h2>Cynicism</h2></a>
+                </div>
+            </div>
+            <div class="item">
+                <div class="fill" style="background-image:url('<?= base_url();?>/assets/img/wanderer.jpg');"></div>
+                <div class="carousel-caption">
+                    <a class="primary_link" href="/ideas/show/16"><h2>Romanticism</h2></a>
+                </div>
+            </div>
+        </div>
+ 	<!-- Controls -->
+        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+            <span class="icon-prev"></span>
+        </a>
+        <a class="right carousel-control" href="#myCarousel" data-slide="next">
+            <span class="icon-next"></span>
+        </a>
+    </header>
+
+    <!-- Page Content -->
+    <div class="container">
+
     <!-- Marketing Icons Section -->
         <div class="row">
             <div class="col-lg-12">
@@ -166,15 +148,7 @@
         <div class="col-md-12" id="category_sort">       
         <?php if(isset($data)) {$this->load->view('partials/landing_category_div'); }?>
         </div>
->>>>>>> Stashed changes
 
-			<div class='feature'>
-				<h3>Featured Idea</h3>
-				<img style="-webkit-user-select: none; cursor: zoom-out;" src="http://tomgpalmer.com/wp-content/uploads/legacy-images/School%20of%20Athens2.jpg" width="310" height="200">
-				<p><strong>Name:</strong> Plato: His ideas were so crate!</p>
-				<p><strong>Author: </strong>Chuck Barris</p>
-				<p><strong>Price:</strong> $19.95</p>
-			</div>
-		</div>
-	</body>
+	</div><!-- /.container --> 
+  </body>
 </html>

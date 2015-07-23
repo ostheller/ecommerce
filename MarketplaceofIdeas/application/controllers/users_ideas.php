@@ -42,13 +42,6 @@ class Users_ideas extends CI_Controller {
 		Featured idea on User_Landing Page
 		Thumbnail image on User_Browser Page
 		Similar Items on the User_Show Page   */
-<<<<<<< Updated upstream
-	public function show()
-	{
-		$this->load->view('user_show');
-	}
-
-=======
 	
 	// shows ONE idea
 	public function show($id)
@@ -57,9 +50,6 @@ class Users_ideas extends CI_Controller {
 		$datum = $this->user_idea->show($id);
 		$this->load->view('user_show', array('datum' => $datum, 'related' => $related, 'defaultPics' => $images));
 	}
-
-	
->>>>>>> Stashed changes
 
 	/*I wonder if the cart should be part of the orders controller instead of the ideas.
 		EVENTS to trigger this function should be:

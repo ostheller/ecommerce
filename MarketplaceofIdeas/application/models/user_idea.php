@@ -12,11 +12,7 @@ class User_idea extends CI_Model {
 // -> User interaction <————————————
 
 // Select all tags with specified category
-<<<<<<< Updated upstream
 
-// The id of the idea should be put in the <img>, so we can redirect to that product page immediately onclick.
-
-=======
 	public function category_index($id) 
 	{
 		return $this->db->query("SELECT tags.id, tags.name, images.location, images.alt_text
@@ -30,7 +26,6 @@ class User_idea extends CI_Model {
 			WHERE categories.name = ?
 			ORDER BY tags.name ASC;", array($id))->result_array();
 	}
->>>>>>> Stashed changes
 
 // *****USER BROWSING PAGE**********
 
@@ -38,8 +33,6 @@ class User_idea extends CI_Model {
 
 // Select items with NO APPLIED SORTING OR SEARCHING
 
-<<<<<<< Updated upstream
-=======
 	public function browsing_index() 
 	{
 		return $this->db->query("SELECT *
@@ -60,7 +53,6 @@ class User_idea extends CI_Model {
 			WHERE tags.name = ?;", array($id))->result_array();
 	}
 
->>>>>>> Stashed changes
 // -> User interaction <————————————
 
 // Select items containing the searched keyword (in tag or text)
@@ -97,9 +89,8 @@ class User_idea extends CI_Model {
 			WHERE ideas.id = ?;", array($id))->row_array();
 	}
 
-// Select 5? other ideas with the same subject tag (similar/related ideas) and get images for them. The id of the idea should be put in the <img>, so we can redirect to that product page immediately onclick.
-<<<<<<< Updated upstream
-=======
+// Select 5? other ideas with the same subject tag (similar/related ideas) and get images for them. The id of the idea should be put in the <img>, so we can redirect to that product page immediately onclick. 
+
 	public function fetch_related($id) 
 	{
 		$subject = $this->db->query("SELECT tags.id 
@@ -121,6 +112,5 @@ class User_idea extends CI_Model {
 				ON tags.id = ideas_has_tags.tag_id
 			WHERE tags.id = $subject_id;")->result_array();
 	}
->>>>>>> Stashed changes
 }
 ?>
