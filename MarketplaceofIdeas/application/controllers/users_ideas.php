@@ -43,7 +43,7 @@ class Users_ideas extends CI_Controller {
 		Thumbnail image on User_Browser Page
 		Similar Items on the User_Show Page   */
 	
-	// shows ONE idea
+	 //shows ONE idea
 	public function show($id)
 	{
 		$related = $this->user_idea->fetch_related($id);

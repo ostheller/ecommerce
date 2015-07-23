@@ -88,8 +88,7 @@ class User_idea extends CI_Model {
 			FROM ideas
 			WHERE ideas.id = ?;", array($id))->row_array();
 	}
-
-// Select 5? other ideas with the same subject tag (similar/related ideas) and get images for them. The id of the idea should be put in the <img>, so we can redirect to that product page immediately onclick. 
+// Select 5? other ideas with the same subject tag (similar/related ideas) and get images for them. The id of the idea should be put in the <img>, so we can redirect to that product page immediately onclick.
 
 	public function fetch_related($id) 
 	{
