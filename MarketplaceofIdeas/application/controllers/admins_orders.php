@@ -85,10 +85,10 @@ class Admins_orders extends CI_Controller
 	}
 	public function show()
 	{
-		var_dump($this->input->post());
-		die('hello');
-		$this->load->model('admin_order');
-		$orderdata=$this->admin_order->order_info($this->input->post());
+		// var_dump($this->index->post());
+		// die('hello');
+		$orderid = $this->input->post()
+		$orderdata=$this->admin_order->order_info($orderid);
 
 		$this->load->view('admin_view_order', $orderdata);
 	}

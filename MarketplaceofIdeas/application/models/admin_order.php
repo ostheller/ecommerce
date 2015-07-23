@@ -55,15 +55,11 @@ class Admin_order extends CI_Model {
 // Select the second (or third, or fourth) 9? items further back in time
 
 
-// *****ADMIN VIEW ORDER**********
 
 	public function orders_dash($limit, $offset, $sort_by, $sort_order)
 
-// // —> On page load: <————————————
 
-// // Select addresses, items, order status, total cost
 
-// // -> User interaction <————————————
 
 	{
 		// die('reached model orders_dash()');
@@ -95,9 +91,15 @@ class Admin_order extends CI_Model {
 	}
 	public function change_status($post)
 	{
-		//Query to update the status of selected order
+		$query="UPDATE orders LEFT JOIN order_statuses ON orders.order_status_id = order_statuses.id WHERE orders.id = ? AND order_statuses.id LIKE ?";
+// *****ADMIN VIEW ORDER**********
+		$values=array($post['orderId'], $post['status'])
+		$this->db->query($query, $values);
 	}
+// // —> On page load: <————————————
 
+// // Select addresses, items, order status, total cost
+// // -> User interaction <————————————
 // N/A
 
 }
