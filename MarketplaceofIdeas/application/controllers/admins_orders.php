@@ -5,19 +5,37 @@ class Admins_orders extends CI_Controller
 {
 	public function index()
 	{
-		$this->load->view('admin_login');
+		// var_dump($this->session->flashdata);
+		// die('qua?');
+		if($this->session->flashdata('errors') != null)
+		{
+			// var_dump($errors);
+			// die('got errors to index');
+			$this->load->view('admin_login', $this->session->flashdata('errors'));
+		}
+		else
+		{
+			$this->load->view('admin_login');
+		}
 	}
 	public function login()
 	{
-		//if ($this->input->post() != NULL)
+		// var_dump($this->input->post());
+		// die('reached users_orders/login');
+		if ($this->input->post() != NULL)
 		{
-			//$this->load->model();
+			$results=$this->admin_order->login_user($this->input->post());
 			//$orderdata=$query RESULT_array;
 			//$this->load->view('admin_orders_dash, $orderdata')
 		}
-		if($this->session->flashdata['errors'] != NULL)
+		if($this->session->flashdata('errors') != NULL)
 		{
-			// send errors from model form validation to the admin_login
+			// var_dump($this->session->flashdata('errors'));
+			// die('errors?');
+			$this->session->flashdata('errors');
+			// var_dump($errors);
+			// die('errors if before index return');
+			redirect ('admin');
 		}
 		else
 		{
@@ -32,9 +50,10 @@ class Admins_orders extends CI_Controller
 	}
 	public function sort($sort_by='id', $sort_order= 'asc', $offset = 0)
 	{
+		// die('reached sort function');
 		$limit= 5;
-		$this->load->model('admin_order');
-		$results= $this->admin_order->orders_dash($limit, $offset, $sort_by, $sort_order);
+		$results=$this->admin_order->orders_dash($limit, $offset, $sort_by, $sort_order);
+		// $results= $this->admin_order->orders_dash($limit, $offset, $sort_by, $sort_order);
 		$data['orders']=$results['orders'];
 		$data['num_rows']=$results['rows'];
 		// double check that orders var_dumps correctly on admin_order_dash

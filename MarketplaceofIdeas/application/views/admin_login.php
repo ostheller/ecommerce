@@ -11,6 +11,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <body>
 <h4>Admin Login Page</h4>
+<p><?= $this->session->flashdata('errors')?></p>
 <form action='login' method='post'>
 	<label>Email:</label><input type='text' name='email' placeholer='me@me.com'>
 	<label>Password:</label><input type='password' name='password'>

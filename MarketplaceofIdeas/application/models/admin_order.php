@@ -2,14 +2,31 @@
 class Admin_order extends CI_Model {
 
 // *****ADMIN LOGIN PAGE********** (I'm not sure which controller this belongs on)
-
-// —> On page load: <————————————
-
-// N/A
-
-// -> User interaction <————————————
-
-// Validate the POST data, either return errors or move to the orders dashboard
+	public function login_user($post)
+	{
+		// var_dump($post);
+		// die('reached model');
+		$query='SELECT user_id FROM admins where email = ? AND password = ?';
+		$values=array($post['email'], $post['password']);
+		$user=$this->db->query($query, $values)->row_array();
+		// var_dump($user);
+		// die('what rcvd?');
+		if($user != null)
+		{
+			$query="SELECT orders.id AS 'id', addresses.first_name AS 'name', orders.created_at AS 'date', CONCAT(addresses.address, addresses.address_2, ', ', addresses.city, ', ', states.name, ' ', addresses.zip) AS 'billing_address', orders.total_price AS 'total', order_statuses.status as 'status' FROM orders left join addresses ON orders.billing_address_id = addresses.id left join order_statuses ON orders.order_status_id= order_statuses.id left join states ON addresses.state_id=states.id";
+			$results=$this->db->query($query)->result_array();
+			// var_dump($results);
+			// die('success?');
+			return $results;
+		}
+		else if($user==NULL)
+		{
+			$this->session->set_flashdata('errors', 'Please check your login information');
+			// var_dump($this->session->flashdata('errors'));
+			// die('reached else if user is null');
+			return $this->session->flashdata;
+		}
+	}
 
 
 // *****ADMIN CREATE ADMIN PAGE********** (I'm not sure which controller this belongs on)
@@ -42,27 +59,28 @@ class Admin_order extends CI_Model {
 
 	public function orders_dash($limit, $offset, $sort_by, $sort_order)
 
-// —> On page load: <————————————
+// // —> On page load: <————————————
 
-// Select addresses, items, order status, total cost
+// // Select addresses, items, order status, total cost
 
-// -> User interaction <————————————
+// // -> User interaction <————————————
 
-			{
-				//$sort_order = ($sort_order == 'desc') ? 'desc' : 'asc';
-				//$sort_columns = array('id', 'name', 'date', 'billing_address', 'total');
-				//$sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'id';
-				//---using ternary operator for above it is just shorthand of an if statement
-				// ----results query----//
-				//---make sure the query data is set to match keys used in admin_orders_dash OR change key names in admin_orders_dash;
-				//$query="";//make sure to use the $sort_by and $sort_order in the $values???
-				//$results['orders']=$this->db->query($query)->result_array()->limit($limit, $offset)
-				//$query=''FOR ROW COUNT
-				//$results['num_rows']=$this->db->($query)->result();
-				//return $results;
-			//}
-		//public function status($post)
-	//{
+	{
+		die('reached model orders_dast()');
+		$sort_order = ($sort_order == 'desc') ? 'desc' : 'asc';
+		$sort_columns = array('id', 'name', 'date', 'billing_address', 'total');
+		$sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'id';
+//	---using ternary operator for above, it is just shorthand of an if statement
+	//----results query----//
+//---make sure the query data is set to match keys used in admin_orders_dash OR change key names in admin_orders_dash;
+		$query="";//make sure to use the $sort_by and $sort_order in the $values???
+		$results['orders']=$this->db->query($query)->result_array()->limit($limit, $offset);
+		$query='';//FOR ROW COUNT
+		$results['num_rows']=$this->db->query($query)->result();
+		return $results;
+	}
+	public function status($post)
+	{
 		//Query to update the status of selected order
 	}
 
