@@ -87,7 +87,7 @@
 				<label>City:</label>
 				<input type='text' name='billingcity'>
 				<label>State</label>
-				<select>
+				<select name='state'>
 					<option>AL</option>
 					<option>AK</option>
 					<option>AR</option>
