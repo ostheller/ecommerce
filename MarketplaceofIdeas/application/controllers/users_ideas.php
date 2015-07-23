@@ -32,18 +32,11 @@ class Users_ideas extends CI_Controller {
 		Featured idea on User_Landing Page
 		Thumbnail image on User_Browser Page
 		Similar Items on the User_Show Page   */
-	
-	public function show($id)
+	public function show()
 	{
-		
 		$this->load->view('user_show');
 	}
 
-	public function category_index($id) 
-	{
-		$data = $this->user_idea->category_index($id);
-		$this->load->view('user_landing', array('data' => $data));
-	}
 
 	/*I wonder if the cart should be part of the orders controller instead of the ideas.
 		EVENTS to trigger this function should be:
