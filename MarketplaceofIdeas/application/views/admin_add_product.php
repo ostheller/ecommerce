@@ -12,7 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <header><--!LOAD PARTIAL/NAVBAR--></header>
 <body>
 	<h2>Add Product</h2>
-	<form action='edit' method='post'>
+	<form action='add' method='post'>
 		<label>Name:</label><input type='text' name='name'>
 		<label>Description:</label><input type='text' name='descrip'>
 		<label>Categories</label>

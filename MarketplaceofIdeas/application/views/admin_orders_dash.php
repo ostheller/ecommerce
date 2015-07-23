@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<thead>
 		<tr>
 <!-- if we want to add an arrow denoting asc or desc sort we can add it with css so I assume there must be away to add it to Bootstrap -->
-		<th><a href="admins_orders/sort('id', 
+		<th><a href="admins_orders/sort/id/, 
 		<?if($sort_order == 'asc' && $sort_by == 'id')
 		{
 			echo $sort_order=='desc';
@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		else
 		{
 			echo $sort_order == 'asc';
-		}?>)">
+		}?>">
 		Order ID</a></th>
 		<th><a href="admins_orders/sort/name/
 			<?if($sort_order == 'asc' && $sort_by =='name')
@@ -59,7 +59,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				echo $sort_order == 'asc';
 			}?>">
 			Name</th>
-		<th><a href="admins_orders/sort('date',
+		<th><a href="admins_orders/sort/date/
 			<?if($sort_order == 'asc' && $sort_by == 'date')
 			{
 				echo $sort_order='desc';
@@ -67,7 +67,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			else
 			{
 				echo $sort_order='asc';
-			}?>)">
+			}?>">
 			Date</a></th>
 		<th><a href="admins_orders/sort/billing_address/
 			<?if($sort_order == 'asc' && $sort_by == 'billing_address' )

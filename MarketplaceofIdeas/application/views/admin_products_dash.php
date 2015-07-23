@@ -11,20 +11,76 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 </head>
 <header><--!LOAD PARTIAL/NAVBAR--></header>
 <body>
-	<input type='text' name='search'>
-	<button>Add new product</button>
+	<form action='search' method='post'>
+		<input type='text' name='search'>
+		<input type='submit' value='SEARCH'> 
+	</form>
+	<form action='add' method='post'>
+		<input type='submit' value='Add new idea'>
 	<!-- moves to admin_add_product.php -->
 	<table>
-<thead><tr>
-<th>Picture</th>
-<th>ID</th>
-<th>Name</th>
-<th>Inventory Count</th>
-<th>Quantity Sold</th>
-<th>Action</th></tr></thead>
-<!-- looking at my previouse table build out there looked like I had an extra <tr> tag - if this doesn't work revisit table construction(check:addcourses table) -->
-<?//foreach($products as $product => $row_array)
-//{
+		<thead><tr>
+		<th>Picture</th>
+		<th>ID</th>
+		<th>Name</th>
+		<th>Inventory Count</th>
+		<th>Quantity Sold</th>
+		<th>Action</th></tr></thead>
+		<tr>
+		<th>Image</th>
+		<th><a href="admins_ideas/sort_idea/'id', 
+		<?if($sort_order == 'asc' && $sort_by == 'id')
+		{
+			echo $sort_order=='desc';
+		}
+		else
+		{
+			echo $sort_order == 'asc';
+		}?>)">
+		Idea ID</a></th>
+		<th><a href="admins_orders/sort/name/
+		<?if($sort_order == 'asc' && $sort_by =='name')
+			{
+				echo $sort_order =='desc';
+			}
+			else
+			{
+				echo $sort_order == 'asc';
+			}?>">
+			Name</th>
+			<th><a href="admins_orders/sort/description/
+			<?if($sort_order == 'asc' && $sort_by == 'description')
+			{
+				echo $sort_order='desc';
+			}
+			else
+			{
+				echo $sort_order='asc';
+			}?>">
+			Description</a></th>
+		<th><a href="admins_orders/sort/inventory/
+			<?if($sort_order == 'asc' && $sort_by == 'inventory' )
+			{
+				echo $sort_order='desc';
+			}
+			else
+			{
+				echo $sort_order='asc';
+			}
+				?>">Inventory</th>
+		<th><a href="admins_orders/sort/sold/
+			<?if($sort_order == 'asc' && $sort_by == 'total')
+			{
+				echo $sort_order == 'desc';
+			}
+			else
+			{
+				echo $sort_order == 'asc';	
+			}
+				?>">Total</th>
+
+<?foreach($products as $product => $row_array)
+{
 	//foreach($row_array as $key)
 	//{
 		?><!--<td><?=//$key?></td> -->
