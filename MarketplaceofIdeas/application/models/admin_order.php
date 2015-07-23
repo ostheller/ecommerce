@@ -66,7 +66,7 @@ class Admin_order extends CI_Model {
 // // -> User interaction <————————————
 
 	{
-		die('reached model orders_dast()');
+		// die('reached model orders_dast()');
 		$sort_order = ($sort_order == 'desc') ? 'desc' : 'asc';
 		$sort_columns = array('id', 'name', 'date', 'billing_address', 'total');
 		$sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'id';
