@@ -48,7 +48,7 @@ class Users_ideas extends CI_Controller {
 	{
 		$related = $this->user_idea->fetch_related($id);
 		$datum = $this->user_idea->show($id);
-		$this->load->view('user_show', array('datum' => $datum, 'related' => $related, 'defaultPics' => $images));
+		$this->load->view('user_show', array('datum' => $datum, 'related' => $related));
 	}
 
 	/*I wonder if the cart should be part of the orders controller instead of the ideas.

@@ -17,6 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 		    $('carousel').carousel({
 		        interval: 2000 //changes the speed
 		    });
+            
 		});
     	</script>
 	</head>
@@ -124,7 +125,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                         <div class="thumbnail">
                             <img alt="The Parthenon in Athens" src="<?= base_url();?>/assets/img/parthenon.jpg" />
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Itaque, optio corporis quae nulla aspernatur in alias at numquam rerum ea excepturi expedita tenetur assumenda voluptatibus eveniet incidunt dicta nostrum quod?</p>
+                        <p>Many societies have considered philosophical questions and built philosophical traditions based upon each other's works. This small project focuses on Western thinkers and the Western tradition of philosophy, but truely the pursuit of knowledge is a characteristically human behavior that transcends national boundaries. </p>
                         <a href="/category/location" class="btn btn-default">View Locations</a>
                     </div>
                 </div>
@@ -136,10 +137,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
         <div class="well">
             <div class="row">
                 <div class="col-md-8">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias, expedita, saepe, vero rerum deleniti beatae veniam harum neque nemo praesentium cum alias asperiores commodi.</p>
+                    <p>As a method, philosophy is often distinguished from other ways of addressing such problems by its questioning, critical, generally systematic approach and its reliance on rational argument. It is also fun and interesting!</p>
                 </div>
                 <div class="col-md-4">
-                    <a class="btn btn-lg btn-default btn-block" href="/browse">Explore All Ideas!</a>
+                    <a class="btn btn-lg btn-default btn-block" href="/browse">Browse Ideas</a>
                 </div>
             </div>
         </div>

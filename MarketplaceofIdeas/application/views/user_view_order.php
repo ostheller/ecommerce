@@ -1,14 +1,23 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
+defined('BASEPATH') OR exit('No direct script access allowed');?>
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Administrative Orderes Dashboard</title>
-	<link rel="stylesheet" type="text/css" href="">
-	<style type=""></style>
-</head>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Browse Ideas</title>
+	    <script src="<?= base_url();?>/assets/js/jquery.js"></script>
+	    <script src="<?= base_url();?>/assets/js/bootstrap.min.js"></script>
+		<link href="<?= base_url();?>/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="<?= base_url();?>/assets/css/modern-business.css" rel="stylesheet" type="text/css">
+		<link href="<?= base_url();?>/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<style type="text/css">
+			/** {
+				outline: 1px solid purple;
+			}*/
+		</style>
+	</head>
 <header><!--LOAD PARTIAL/NAVBAR--></header>
 <body>
 <form action='search' method='post'>

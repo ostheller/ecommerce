@@ -99,7 +99,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
 			<?php $count = 0;
 			for($i = 0; $i < count($related) && $i < 4; $i++) {
-				$number = rand(0, count($related))?>
+				$number = rand(0, count($related)-1)?>
             <div class="col-sm-3 col-xs-6">
                 <a href="/ideas/show/<?= $related[$number]['id'] ?>">
                     <img class="img-responsive img-hover img-related" src="<?= base_url();?>/assets/img/diogenes.jpg" alt="Diogenes">
