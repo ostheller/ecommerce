@@ -48,11 +48,12 @@ class Admins_orders extends CI_Controller
 		// should work hard to get this to be an AJAX function
 		$this->load->view('admin_orders_dash');//with appropriate data from model method pushed to view page
 	}
-	public function sort($sort_by='id', $sort_order= 'asc', $offset = 0)
+
+	public function sort($offset = 0)//$sort_by='id', $sort_order= 'asc',
 	{
 		// die('reached sort function');
 		$limit= 5;
-		$results=$this->admin_order->orders_dash($limit, $offset, $sort_by, $sort_order);
+		$results=$this->admin_order->orders_dash($limit, $offset);//, $sort_by, $sort_order;
 		$data['orders']=$results['orders'];
 		$data['num_rows']=$results['num_rows'];
 		$data['status_options']=$results['status_options'];
@@ -62,15 +63,15 @@ class Admins_orders extends CI_Controller
 	// ----------pagination-------------
 		$this->load->library('pagination');
 		$config = array();
-		$config['base_url'] = site_url('admins_orders/sort/$sort_by/$sort_order');
+		$config['base_url'] = site_url('admins_orders/sort/');//$sort_by/$sort_order
 		$config['total_rows'] = $results['num_rows'];
 		$config['per_page'] = $limit;
 		// $congig['num_links'] = 10; //<- we may not need this...
-		$config['uri_segment'] = 5;
+		$config['uri_segment'] = 3;
 		$this->pagination->initialize($config);
 		$data['pagination'] = $this->pagination->create_links();
-		$data['sort_by'] = $sort_by;
-		$data['sort_order'] = $sort_order;
+		// $data['sort_by'] = $sort_by;
+		// $data['sort_order'] = $sort_order;
 		// var_dump($data);
 		// die('what happens to my data!?');
 		$this->load->view('admin_orders_dash', $data);
@@ -83,14 +84,22 @@ class Admins_orders extends CI_Controller
 		$this->admin_order->change_status($this->input->post());
 		redirect ('admins_orders/sort');
 	}
-	public function show()
+	public function show($id)
 	{
-		// var_dump($this->index->post());
+		$id = (int)$id;
+		// var_dump($id);
 		// die('hello');
-		$orderid = $this->input->post()
-		$orderdata=$this->admin_order->order_info($orderid);
-
-		$this->load->view('admin_view_order', $orderdata);
+		$results=$this->admin_order->get_order($id);
+		// var_dump($results);
+		// die('arrays');
+		$data['billing_info'] = $results['billing_info'];
+		$data['shipping_info'] = $results['shipping_info'];
+		// var_dump($data['shipping_info']);
+		// die();
+		$data['order_status'] = $results['order_status'];
+		$data['ideas'] = $results['ideas'];
+		$data['shipping'] = 10;
+		$this->load->view('admin_view_order', $data);
 	}
 
 }

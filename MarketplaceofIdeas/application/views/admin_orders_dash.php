@@ -40,54 +40,54 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<tr>
 <!-- if we want to add an arrow denoting asc or desc sort we can add it with css so I assume there must be away to add it to Bootstrap -->
 		<th><a href="admins_orders/sort/id/, 
-		<?if($sort_order == 'asc' && $sort_by == 'id')
-		{
-			echo $sort_order=='desc';
-		}
-		else
-		{
-			echo $sort_order == 'asc';
-		}?>">
+		<?//if($sort_order == 'asc' && $sort_by == 'id')
+		//{
+			//echo $sort_order=='desc';
+		//}
+		//else
+		//{
+			//echo $sort_order == 'asc';
+		//}?>">
 		Order ID</a></th>
 		<th><a href="admins_orders/sort/name/
-			<?if($sort_order == 'asc' && $sort_by =='name')
-			{
-				echo $sort_order =='desc';
-			}
-			else
-			{
-				echo $sort_order == 'asc';
-			}?>">
+			<?//if($sort_order == 'asc' && $sort_by =='name')
+			//{
+				//echo $sort_order =='desc';
+			//}
+			//else
+			//{
+				//echo $sort_order == 'asc';
+			//}?>">
 			Name</th>
 		<th><a href="admins_orders/sort/date/
-			<?if($sort_order == 'asc' && $sort_by == 'date')
-			{
-				echo $sort_order='desc';
-			}
-			else
-			{
-				echo $sort_order='asc';
-			}?>">
+			<?//if($sort_order == 'asc' && $sort_by == 'date')
+			//{
+			//	echo $sort_order='desc';
+			//}
+			// else
+			// {
+			// 	echo $sort_order='asc';
+			// }?>">
 			Date</a></th>
 		<th><a href="admins_orders/sort/billing_address/
-			<?if($sort_order == 'asc' && $sort_by == 'billing_address' )
-			{
-				echo $sort_order='desc';
-			}
-			else
-			{
-				echo $sort_order='asc';
-			}
+			<?//if($sort_order == 'asc' && $sort_by == 'billing_address' )
+			// {
+			// 	echo $sort_order='desc';
+			// }
+			// else
+			// {
+			// 	echo $sort_order='asc';
+			// }
 				?>">Billing Address</th>
 		<th><a href="admins_orders/sort/total/
-			<?if($sort_order == 'asc' && $sort_by == 'total')
-			{
-				echo $sort_order == 'desc';
-			}
-			else
-			{
-				echo $sort_order == 'asc';	
-			}
+			<?//if($sort_order == 'asc' && $sort_by == 'total')
+			// {
+			// 	echo $sort_order == 'desc';
+			// }
+			// else
+			// {
+			// 	echo $sort_order == 'asc';	
+			// }
 				?>">Total</th>
 		<th class='statusField'>Status</th>
 		</tr>
@@ -98,7 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 {?>
 	<tr>
 <!-- cannot get the order['id'] to pass... getting tired is now 5 am and I am feeling like I have not made enough progress -->
-	<td><a href="/admins_orders/show/<?=$order['id']?>"><?=$order['id']?></a></td>
+	<td><a href="/admins_orders/show/<?=$order['id']?>"><?=$order['id'];?></a></td>
 	<td><?=$order['name']?></td>
 	<td><?=$order['date']?></td>
 	<td><?=$order['billing_address']?>

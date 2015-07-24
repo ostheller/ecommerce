@@ -11,7 +11,7 @@ public function products_dash($limit, $offset, $sort_by, $sort_order)
 //this one works great!
 $query="SELECT images.location AS 'image', ideas.id AS 'id', ideas.name AS 'name', ideas.description AS 'description', ideas.inventory AS 'inventory', ideas.number_sold AS 'sold', FROM ideas_has_images inner join ideas ON ideas_has_images.idea_id = ideas.id inner join images ON ideas_has_images.image_id= images.id";
 //need to figure out how to add order by and pass through the $sort_order and $sort_by - right now I get an error... :(
-$values=array($limit, $offset)
+$values=array($limit, $offset);
 $results['products']=$this->db->query($query, $values)->result_array();
 $query='SELECT ideas.id from ideas';
 $results['num_rows'] = $this->db->query($query);
@@ -34,11 +34,13 @@ public function add_idea($post)
 	{
 		$query='SELECT name from categories';
 		$results['categories']=$this->db->query($query);
+		$query='SELECT name from tags';
+		$results['tags']=$this->db->query($query);
 		return $results;
 	}
 	else if($post['task'] == 'add_idea')
 	{
-		$query="INSERT INTO ideas.name, ideas.description, categories.name,".<?if(?>." categories"
+		//$query="INSERT INTO ideas.name, ideas.description, categories.name,".<?if(? >." categories"
 	}
 
 }
