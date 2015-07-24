@@ -15,9 +15,11 @@ class Admins_orders extends CI_Controller
 		}
 		else
 		{
-			if($this->session->userdata('logged_in')!=true) {
+			if($this->session->userdata('logged_in') != true) {
 				$this->load->view('admin_login'); }
-			else { redirect('admin/orders');}
+			else { 
+				redirect('admin/orders');
+			}
 		}
 	}
 	public function login()
@@ -52,9 +54,9 @@ class Admins_orders extends CI_Controller
 	public function orders_index()
 	{
 		$data = $this->admin_order->orders_dash();
-		echo "<pre>";
-		var_dump($data);
-		die();
+		// echo "<pre>";
+		// var_dump($data);
+		// die();
 		$this->load->view('admin_orders_dash', array('data' => $data));
 	}
 

@@ -15,6 +15,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<link href="<?= base_url();?>/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<script>
 			  $(document).ready(function(){
+			  	$('#del').on('click', function () {
+			        return confirm('Are you sure?');
+			    	});
 			  });	        
 		</script>
 
@@ -48,6 +51,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	     	margin: 30px auto;
 	     }
         </style>
+        <script>
+        $('#del').confirm({
+			});
+        </script>
 	</head>
 	<body>
 <?php $this->load->view('partials/user_navbar'); ?>
@@ -76,7 +83,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<small><input id="subbtn" type="submit" value="Update"></small></td>
 						</form>
 						<td>
-							<a href="/remove/<?= $idea['id'] ?>"><i class="fa fa-fw fa-trash"></i></a>
+							<a id="del" href="/remove/<?= $idea['id'] ?>"><i class="fa fa-fw fa-trash"></i></a>
 						</td>
 						<td>$<?php $total = number_format($idea['price'] * $idea['quantity'], 2);
 						echo $total;?></td>

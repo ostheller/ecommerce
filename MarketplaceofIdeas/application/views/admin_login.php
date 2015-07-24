@@ -30,23 +30,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">The Marketplace of Ideas: Administration</a>
+            <a class="navbar-brand" href="/admin">The Marketplace of Ideas</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<li class="active">
-							<a href="#">Orders</a>
-						</li>
-						<li>
-							<a href="#">Products</a>
-						</li>
-					</ul>
-					<ul class="nav navbar-nav navbar-right">
-						<li>
-							<a href="/logout">Log Off</a>
-						</li>
-				</div>
 			</nav></header>
 <!-- Page Content -->
     <div class="container">

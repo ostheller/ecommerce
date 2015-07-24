@@ -2,29 +2,42 @@
 class Admin_idea extends CI_Model {
 
 // *****ADMIN PRODUCTS DASHBOARD**********
-public function products_dash($limit, $offset, $sort_by, $sort_order)
-{
-	$sort_order = ($sort_order == 'desc') ? 'desc' : 'asc';
-		$sort_columns = array('id', 'name', 'description', 'inventory', 'sold');
-		$sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'id';
-// —> On page load: <————————————
-//this one works great!
-$query="SELECT images.location AS 'image', ideas.id AS 'id', ideas.name AS 'name', ideas.description AS 'description', ideas.inventory AS 'inventory', ideas.number_sold AS 'sold', FROM ideas_has_images inner join ideas ON ideas_has_images.idea_id = ideas.id inner join images ON ideas_has_images.image_id= images.id";
-//need to figure out how to add order by and pass through the $sort_order and $sort_by - right now I get an error... :(
-$values=array($limit, $offset);
-$results['products']=$this->db->query($query, $values)->result_array();
-$query='SELECT ideas.id from ideas';
-$results['num_rows'] = $this->db->query($query);
-$rusults['num_rows'] = count($results['num_rows']);
-	// var_dump($results);
-	// die('success?');
-	return $results;
+	public function products_dash()
+	{
+		return $this->db->query("SELECT images.location AS 'image', ideas.id AS 'id', ideas.name AS 'name', 
+			ideas.description AS 'description', ideas.inventory AS 'inventory', ideas.number_sold AS 'sold'
+			FROM ideas
+			LEFT JOIN ideas_has_images
+				ON ideas_has_images.idea_id = ideas.id 
+			LEFT JOIN images 
+				ON ideas_has_images.image_id= images.id")->result_array();
+
+	}
+
+// ORIGINAL QUERY
+// products_dash($limit, $offset, $sort_by, $sort_order)
+// {
+// 	$sort_order = ($sort_order == 'desc') ? 'desc' : 'asc';
+// 		$sort_columns = array('id', 'name', 'description', 'inventory', 'sold');
+// 		$sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'id';
+// // —> On page load: <————————————
+// //this one works great!
+// $query="SELECT images.location AS 'image', ideas.id AS 'id', ideas.name AS 'name', ideas.description AS 'description', ideas.inventory AS 'inventory', ideas.number_sold AS 'sold', FROM ideas_has_images inner join ideas ON ideas_has_images.idea_id = ideas.id inner join images ON ideas_has_images.image_id= images.id";
+// //need to figure out how to add order by and pass through the $sort_order and $sort_by - right now I get an error... :(
+// $values=array($limit, $offset);
+// $results['products']=$this->db->query($query, $values)->result_array();
+// $query='SELECT ideas.id from ideas';
+// $results['num_rows'] = $this->db->query($query);
+// $rusults['num_rows'] = count($results['num_rows']);
+// 	// var_dump($results);
+// 	// die('success?');
+// 	return $results;
 // Select default picture for display
 
 // -> User interaction <————————————
 
 // Select the second (or third, or fourth) 9? items further back in time
-}
+
 public function add_idea($post)
 {
 // *****ADMIN ADD PRODUCT**********
@@ -64,6 +77,11 @@ public function add_idea($post)
 // —> On page load: <————————————
 
 // Select the current data for that product id to populate the fields for editing
+
+	public function show($id) 
+	{
+		return $this->db->query("SELECT * from ideas WHERE id = ?", array($id))->row_array();
+	}
 
 // -> User interaction <————————————
 

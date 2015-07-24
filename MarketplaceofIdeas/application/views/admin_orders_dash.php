@@ -17,12 +17,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 			select, button{
 				display: block;
 			}
-			table{
-				border-collapse: collapse;
-			}
-			th, td{
-				border:1px solid black;
-			}
+
+	        table {
+	          margin-top: 20px;
+	        }
+	        th {
+	          padding: 5px 40px;
+	          text-align: center;
+	        }
+	        td {
+	          padding: 5px 40px;
+	          text-align: center;
+        }
+			#tools {
+                margin: 20px 0px 0px 0px;
+            }
 		</style>
 </head>
 <body>	
@@ -37,16 +46,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">The Marketplace of Ideas: Administration</a>
+            <a class="navbar-brand" href="/admin">The Marketplace of Ideas</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
 						<li class="active">
-							<a href="#">Orders</a>
+							<a href="/admin/orders">Orders</a>
 						</li>
 						<li>
-							<a href="#">Products</a>
+							<a href="/admin/products">Products</a>
 						</li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
@@ -57,84 +66,38 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 			</nav></header>
 		<!-- Page Content -->
     <div class="container">
-    	<div class="col-sm-12">
-		<form action='search' method='post'>
-			<input type='text' name='search'>
-			<input type='submit' value='SEARCH'> 
-		</form>
-<!-- need to be able to search by all fields displayed in tablein -->
-		<form action='sort' method='post' class="pull-right">
-			<select>
-				<option>Show All</option>
-				<option>Processing</option>
-				<option>Shipped</option>
-				<option>Cancelled</option>
-			</select>
-		</form>
+    	<div class="col-sm-12" id="tools">
+			<div class="searchForm"><form action='search' method='post' class='pull-right'>
+				<input type='text' name='search'>
+				<input type='submit' value='SEARCH'> 
+			</form></div>
+	<!-- need to be able to search by all fields displayed in tablein -->
+			<div id="processForm"><form action='sort' method='post' class='pull-right'>
+				<select>
+					<option>Show All</option>
+					<option>Processing</option>
+					<option>Shipped</option>
+					<option>Cancelled</option>
+				</select>
+			</form></div>
 		<?//=var_dump($status_options);
 		//die('status options?');?>
-		</div>
-		<hr>
-<table>
-	<thead>
-		<tr>
-<!-- if we want to add an arrow denoting asc or desc sort we can add it with css so I assume there must be away to add it to Bootstrap -->
-		<th><a href="admins_orders/sort/id/, 
-		<?//if($sort_order == 'asc' && $sort_by == 'id')
-		//{
-			//echo $sort_order=='desc';
-		//}
-		//else
-		//{
-			//echo $sort_order == 'asc';
-		//}?>">
-		Order ID</a></th>
-		<th><a href="admins_orders/sort/name/
-			<?//if($sort_order == 'asc' && $sort_by =='name')
-			//{
-				//echo $sort_order =='desc';
-			//}
-			//else
-			//{
-				//echo $sort_order == 'asc';
-			//}?>">
-			Name</th>
-		<th><a href="admins_orders/sort/date/
-			<?//if($sort_order == 'asc' && $sort_by == 'date')
-			//{
-			//	echo $sort_order='desc';
-			//}
-			// else
-			// {
-			// 	echo $sort_order='asc';
-			// }?>">
-			Date</a></th>
-		<th><a href="admins_orders/sort/billing_address/
-			<?//if($sort_order == 'asc' && $sort_by == 'billing_address' )
-			// {
-			// 	echo $sort_order='desc';
-			// }
-			// else
-			// {
-			// 	echo $sort_order='asc';
-			// }
-				?>">Billing Address</th>
-		<th><a href="admins_orders/sort/total/
-			<?//if($sort_order == 'asc' && $sort_by == 'total')
-			// {
-			// 	echo $sort_order == 'desc';
-			// }
-			// else
-			// {
-			// 	echo $sort_order == 'asc';	
-			// }
-				?>">Total</th>
-		<th class='statusField'>Status</th>
+			</div>
+<div class="container mainTable">
+<table class="table-hover table-bordered col-sm-12 text-center">
+	<thead >
+		<tr class="text-center">
+			<th>Order ID</th>
+			<th>Name</th>
+			<th>Date</th>
+			<th>Billing Address</th>
+			<th>Total</th>
+			<th>Status</th>
 		</tr>
-	</thead></tr>
+	</thead>
 	</form>
 	<tbody>
-<?foreach($orders as $order)
+<?foreach($data as $order)
 {?>
 	<tr>
 <!-- cannot get the order['id'] to pass... getting tired is now 5 am and I am feeling like I have not made enough progress -->
@@ -142,12 +105,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 	<td><?=$order['name']?></td>
 	<td><?=$order['date']?></td>
 	<td><?=$order['billing_address']?>
-	<td><?=$order['total']?></td>
+	<td> $<?=$order['total']?></td>
 	<td>
 	<!--we could for each the select with and if statement for the case of the first one to be listed as what is set as $order['status'] and the other populate-->
 	<form action='status_update' method='post'>
 		<select>
-		<option value='<?=$order['status']?>'><?=$order['status'];?></option>
+			<option value='<?=$order['status']?>'><?=$order['status'];?></option>
 		<?//var_dump($status_options);
 			//die('rcvd?');?>
 		<?foreach($status_options as $row=>$row_array)
@@ -170,10 +133,5 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 <!--foreach loop to poulate table with data from DB-->
 	</tbody>
 </table>
-<?php if(strlen($pagination)):?>
-<div>
-	<p>Pages:</p><?= $pagination;?>
-</div>
-<?php endif; ?>
 </body>
 </html>

@@ -9,10 +9,10 @@ $route['translate_uri_dashes'] = FALSE;
 $route['admin']='admins_orders/index';
 $route['login']='admins_orders/login';
 $route['show/(:num)']='admins_orders/show/$1';
-$route['edit']='admins_ideas/edit';
-$route['delete']='admins_ideas/delete';
+$route['edit/(:num)']='admins_ideas/edit/$1';
+$route['delete/(:num)']='admins_ideas/delete/$1';
 $route['add']='admins_ideas/add';
-$route['products']='admins_ideas/products_index';
+$route['admin/products']='admins_ideas/products_index';
 $route['admin/orders'] ='admins_orders/orders_index';
 
 // Molly's front-end routes

@@ -7,6 +7,13 @@ class Admins_ideas extends CI_Controller
 	{
 		redirect ('admins_ideas/sort_ideas');
 	}
+
+	public function products_index()
+	{
+		$data = $this->admin_idea->products_dash();
+		$this->load->view('admin_products_dash', array('data' => $data));
+	}
+
 	public function search()
 	{
 		//directs to model to apply appropriate keyword filter to obtain data that admin wants displayed
@@ -46,6 +53,12 @@ class Admins_ideas extends CI_Controller
 	public function delete()
 	{
 
+	}
+
+	public function edit($id)
+	{
+		$data = $this->admin_idea->show($id);
+		$this->load->view('admin_edit_product', array('data' => $data));
 	}
 
 }

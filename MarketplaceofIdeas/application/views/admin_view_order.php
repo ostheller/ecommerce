@@ -29,16 +29,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="/">The Marketplace of Ideas: Administration</a>
+            <a class="navbar-brand" href="/admin">The Marketplace of Ideas</a>
         </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav">
-						<li class="active">
-							<a href="#">Orders</a>
+						<li>
+							<a href="/admin/orders">Orders</a>
 						</li>
 						<li>
-							<a href="#">Products</a>
+							<a href="/admin/products">Products</a>
 						</li>
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
@@ -48,7 +48,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 				</div>
 			</nav></header>
 <body>
-<div id='orderInfo'>
+<div class='container'>
+<div id='orderInfo' class='col-sm-12'>
 	<p>Order ID: <?=$billing_info['id']?></p>
 	<div class='shipping'>
 		<p>Customer shipping info:</p>
@@ -115,7 +116,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 	<p>Shipping: <?="$"+$shipping?></p>
 	<p>Total Price: <?="$"+$order_total+$shipping?></p>
 </div>
-<a href="admins_orders/sort">Return to Order's Dashboard</a>
+<a href="admins_orders/sort">Return to Order Dashboard</a></div>
 <!-- For some reason when you click this href it sends you to admins_orders/show first!? I haven't been able to figure out why but that will throw you and error for sql because you aren't passing and id through... tried a couple work arounds but to no avail -->
 </body>
 </html>
