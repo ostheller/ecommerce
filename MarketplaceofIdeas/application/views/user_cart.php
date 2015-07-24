@@ -101,37 +101,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		<div class='row'>
 			<div class='col-sm-3 col-sm-offset-2' id="shipping">
-				<form action='purchase'method='post'>
+				<form action='/address/shipping'method='post'>
 						<div class='row'>
 						<h3>Shipping Information</h3>
 					</div>
 						<div class='row'>
 							<label>First Name:</label>
-							<input type='text' name='shippingfirstname:'> 
+							<input type='text' name='shippingfirstname' placeholder="<?php if (isset($same['shippingfirstname'])) {echo $same['shippingfirstname'];}?>"> 
 						</div>
 
 						<div class='row'>
 							<label>Last Name:</label>
-							<input type='text' name='shippinglastname:'>
+							<input type='text' name='shippinglastname' placeholder="<?php if (isset($same['shippinglastname'])) {echo $same['shippinglastname'];}?>">
 						</div>
 						<div class='row'>
 							<label>Adress:</label>
-							<input type='text' name='shippingaddress:'>
+							<input type='text' name='shippingaddress'>
 						</div>
 						<div class='row'>
 						<label>Address 2:</label>
-						<input type='text' name='shippingAddress_2:'>
+						<input type='text' name='shippingaddress2'>
 						</div>
 						<div class='row'>
 						<label>City:</label>
-						<input type='text' name='shippingCity'>
+						<input type='text' name='shippingcity'>
 						</div>
 						<div class='row'>
 						<label>State</label>
-						<select name='state'>
+						<select name='shippingstate'>
 							<option></option>
 							<?php foreach ($states as $state) {?>
-								<option><?=$state['name']?></option>
+								<option value='<?=$state['id']?>'><?=$state['name']?></option>
 							<?php }?>	
 						</select>
 						</div>
@@ -139,51 +139,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<label>Zip Code</label>
 						<input type='text' name='shippingzip'>
 						</div>
+						<input type="submit" value="submit">
 					</div>
+				</form>
 					<div class='col-sm-3' id="billing">
 						<div class='row'>
 						<h3>Billing Information</h3>
 						</div>
+					<form action='/address/same'method='post'>
 						<div class='row'>
-						<label>Same as Shipping?</label>
-						<input name="chkCopy" id='checkme'type="checkbox" value="" onClick="copyAddress();"> 
-		
+							<label>Same as Shipping?</label>
+							<input name="chkCopy" id='checkme'type="checkbox" value="true"> 
+							<input type="submit"> 
 						</div>
+					</form action='/address/billing'method='post'>
+					<form>
 						<div id='hideme'>
 							<div class='row'>
 								<label>First Name:</label>
-								<input type='text' name='billingfirstname:'> 
+								<input type='text' name='billingfirstname' placeholder="<?php if (isset($same['shippingfirstname'])) {echo $same['shippingfirstname'];}?>"> 
 							</div>
 							<div class='row'>
 								<label>Last Name:</label>
-								<input type='text' name='billinglastname:'>
+								<input type='text' name='billinglastname' placeholder="<?php if (isset($same['shippinglastname'])) {echo $same['shippinglastname'];}?>">
 							</div>
 							<div class='row'>
 								<label>Adress:</label>
-								<input type='text' name='billingaddress:'>
+								<input type='text' name='billingaddress' placeholder="<?php if (isset($same['shippingaddress'])) {echo $same['shippingaddress'];}?>">
 							</div>
 							<div class='row'>
 								<label>Address 2:</label>
-								<input type='text' name='billingaddress_2:'>
+								<input type='text' name='billingaddress2' placeholder="<?php if (isset($same['shippingaddress2'])) {echo $same['shippingaddress2'];}?>">
 							</div>
 							<div class='row'>
 								<label>City:</label>
-								<input type='text' name='billingcity'>
+								<input type='text' name='billingcity' placeholder = "<?php if (isset($same['shippingcity'])) {echo $same['shippingcity'];}?>">
 							</div>
 							<div class='row'>
 								<label>State</label>
-								<select name='state'>
+								<select name='billingstate'>
 									<option></option>
 								<?php foreach ($states as $state) {?>
-									<option><?=$state['name']?></option>
+									<option value="<?=$state['id']?>"><?=$state['name']?></option>
 								<?php }?>	
 								</select>
 							</div>
 							<div class='row'>
 							<label>Zip Code</label>
 							<input type='text' name='billingzip'>
+							</div>
+							<input type="submit" value='submit'>
 						</div>
-					</div>
+					</form>
 				</div>
 				<div class='col-sm-3' id="card_info">
 					<!-- <div class='row'>
@@ -206,18 +213,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<div class='row'>
 						<input type='hidden' value='buyit'>
 						<input type='submit' value="Buy"> -->
-				  <script
+					<?php require 'vendor/autoload.php'; 
+					$stripe = array(
+					  "secret_key"      => "sk_test_mkGsLqEW6SLnZa487HYfJVLf",
+					  "publishable_key" => "pk_test_czwzkTp2tactuLOEOqbMTRzG"
+					);
 
-				   src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-				    data-key="pk_test_2x9PR3c3iakOD6QuKD9Gl2Cv"
-				    data-amount=<?=$total_price * 100?>
-				   data-name="Marketplace of Ideas"
-				   data-description="Ideas purchased"
-				   data-image="assets/img/aurelius.png">
-				 
-				  </script>  
-					</div>
-				</div>
+					Stripe::setApiKey($stripe['secret_key']);?>
+				  <form action="/submit_payment" method="POST">
+				  	<script
+						src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+					    data-key="pk_test_2x9PR3c3iakOD6QuKD9Gl2Cv"
+					    data-amount=<?=$total_price * 100?>
+					   	data-name="Marketplace of Ideas"
+					   	data-description="Ideas purchased"
+					   	data-image="assets/img/aurelius.png"> 
+				  	</script> 
+				  </form> 
 				</form>
 			</div>
 		</div>

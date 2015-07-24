@@ -30,6 +30,10 @@ $route['ideas/sort'] = 'users_ideas/sort_by';
 $route['ideas/byPrice'] = 'users_ideas/pull_by_price';
 $route['ideas/byPopularity'] = 'users_ideas/pull_by_sell_count';
 $route['sort/(:any)'] = 'users_ideas/browsing_show_partial/$1';
+$route['address/shipping'] = 'users_orders/address_shipping';
+$route['address/same'] = 'users_orders/same_as_billing';
+$route['address/billing'] = 'users_orders/address_billing';
+$route['submit_payment'] = 'users_orders/submit_payment';
 
 //jess's orders routes
 $route['cart'] = 'users_orders/index';

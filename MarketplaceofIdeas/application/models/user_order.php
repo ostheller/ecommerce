@@ -87,18 +87,33 @@ class User_order extends CI_Model {
 // Fill out the dropdown state list on the purchase page
      public function state_grab()
      {
-          return $this->db->query('SELECT name FROM states')->result_array();
+          return $this->db->query('SELECT * FROM states')->result_array();
      }
 
 // -> User interaction <————————————
 
 // Insert address into db upon purchase
-    public function checkout($post)
+    public function checkout_shipping($post)
      {
          
          $query = "INSERT INTO addresses(first_name, last_name, address, address_2, city, state_id, zip, created_at, updated_at)
             VALUES (?,?,?,?,?,?,?,NOW(), NOW())";
-         $values = array($post['first_name'], $post['last_name'], $post['address'], $post['address_2'], $post['city'], $post['state_id'], $post['zip']); 
+         $values = array($post['shippingfirstname'], $post['shippinglastname'], $post['shippingaddress'], $post['shippingaddress2'], $post['shippingcity'], $post['shippingstate'], $post['shippingzip']); 
+         $this->db->query($query, $values); 
+         $id = $this->db->insert_id();
+         $this->session->userdata('address_id', $id);
+     }
+
+     public function pull_address()
+     {
+        return $this->db->query("SELECT * FROM addresses WHERE id = ?", array($this->session->userdata('address_id')))->row_array();
+     }
+
+     public function checkout_billing($post)
+     {     
+         $query = "INSERT INTO addresses(first_name, last_name, address, address_2, city, state_id, zip, created_at, updated_at)
+            VALUES (?,?,?,?,?,?,?,NOW(), NOW())";
+         $values = array($post['billingfirstname'], $post['billinglastname'], $post['billingaddress'], $post['billingaddress2'], $post['billingcity'], $post['billingstate'], $post['billingzip'], 'NOW()', 'NOW()'); 
          $this->db->query($query, $values); 
          
      }
