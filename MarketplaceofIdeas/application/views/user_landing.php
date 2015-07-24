@@ -18,26 +18,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		    $('carousel').carousel({
 		        interval: 2000 //changes the speed
 		    });
-            $('.authors').on('click', (function(){
-                $.get('category/author', function(res){
-                    $('#category_sort').load(res);
-                    }); 
-                });
-             $('.subjects').click(function(){
-                $.get('category/author', function(res){
-                    $('#category_sort').load(res);
-                    }); 
-                });
-              $('.eras').click(function(){
-                $.get('category/author', function(res){
-                    $('#category_sort').load(res);
-                    }); 
-                });
-               $('.locations').click(function(){
-                $.get('category/author', function(res){
-                    $('#category_sort').load(res);
-                    }); 
-                });
+            // $('.authors').on('click', (function(){
+            //     $.get('category/author', function(res){
+            //         $('#category_sort').load(res);
+            //         }); 
+            //     });
+            //  $('.subjects').click(function(){
+            //     $.get('category/author', function(res){
+            //         $('#category_sort').load(res);
+            //         }); 
+            //     });
+            //   $('.eras').click(function(){
+            //     $.get('category/author', function(res){
+            //         $('#category_sort').load(res);
+            //         }); 
+            //     });
+            //    $('.locations').click(function(){
+            //     $.get('category/author', function(res){
+            //         $('#category_sort').load(res);
+            //         }); 
+            //     });
             });
     	</script>
 	</head>
