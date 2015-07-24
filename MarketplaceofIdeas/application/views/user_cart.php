@@ -81,6 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<tr>
 						<td colspan='4'></td>
 						<td>$<?= number_format($total_price, 2)?></td>
+							<?php $purchasetotal = number_format($total_price, 2) ?>;
 					</tr>	
 					</tbody>
 				</table>
@@ -172,7 +173,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 				</div>
 				<div class='col-sm-3' id="card_info">
-					<div class='row'>
+					<!-- <div class='row'>
 						<h3>Card Information</h3>
 					</div>
 					<div class='row'>
@@ -191,15 +192,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					</div>
 					<div class='row'>
 						<input type='hidden' value='buyit'>
-						<input type='submit' value="Buy">
-				 <!--  <script
+						<input type='submit' value="Buy"> -->
+				  <script
 				   src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 				    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-				    data-amount="2000"
+				    data-amount=<?=$total_price?>
 				   data-name="Demo Site"
-				   data-description="2 widgets ($20.00)"
+				   data-description="Ideas purchased"
 				   data-image="/128x128.png">
-				  </script>  --> 
+				  </script>  
 					</div>
 				</div>
 				</form>
