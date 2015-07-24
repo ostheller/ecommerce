@@ -34,11 +34,13 @@ public function add_idea($post)
 	{
 		$query='SELECT name from categories';
 		$results['categories']=$this->db->query($query);
+		$query='SELECT name from tags';
+		$results['tags']=$this->db->query($query);
 		return $results;
 	}
 	else if($post['task'] == 'add_idea')
 	{
-	//	$query="INSERT INTO ideas.name, ideas.description, categories.name,".<?if(." categories"
+		//$query="INSERT INTO ideas.name, ideas.description, categories.name,".<?if(? >." categories"
 	}
 
 }

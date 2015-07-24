@@ -1,93 +1,133 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
+defined('BASEPATH') OR exit('No direct script access allowed');?>
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Administrative Orderes Dashboard</title>
-	<link rel="stylesheet" type="text/css" href="">
-	<style type="text/css">
-	select, button{
-		display: block;
-	}
-	table{
-		border-collapse: collapse;
-	}
-	th, td{
-		border:1px solid black;
-	}
-	</style>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Admin Orders Dashboard</title>
+	    <script src="<?= base_url();?>/assets/js/jquery.js"></script>
+	    <script src="<?= base_url();?>/assets/js/bootstrap.min.js"></script>
+        <script src="<?= base_url();?>/assets/js/browse.js"></script>
+        <link href="<?= base_url();?>/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="<?= base_url();?>/assets/css/modern-business.css" rel="stylesheet" type="text/css">
+		<link href="<?= base_url();?>/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<style type="text/css">
+			select, button{
+				display: block;
+			}
+			table{
+				border-collapse: collapse;
+			}
+			th, td{
+				border:1px solid black;
+			}
+		</style>
 </head>
-<header><!--LOAD PARTIAL/NAVBAR--></header>
-<body>
-<form action='search' method='post'>
-<input type='text' name='search'>
-<input type='submit' value='SEARCH'> 
-</form>
+<body>	
+<header><!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">The Marketplace of Ideas: Administration</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="#">Orders</a>
+						</li>
+						<li>
+							<a href="#">Products</a>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="/logout">Log Off</a>
+						</li>
+				</div>
+			</nav></header>
+		<!-- Page Content -->
+    <div class="container">
+    	<div class="col-sm-12">
+		<form action='search' method='post'>
+			<input type='text' name='search'>
+			<input type='submit' value='SEARCH'> 
+		</form>
 <!-- need to be able to search by all fields displayed in tablein -->
-<form action='sort' method='post'>
-<select>
-	<option>Show All</option>
-	<option>Processing</option>
-	<option>Shipped</option>
-	<option>Cancelled</option>
-</select>
+		<form action='sort' method='post' class="pull-right">
+			<select>
+				<option>Show All</option>
+				<option>Processing</option>
+				<option>Shipped</option>
+				<option>Cancelled</option>
+			</select>
+		</form>
 		<?//=var_dump($status_options);
 		//die('status options?');?>
+		</div>
+		<hr>
 <table>
 	<thead>
 		<tr>
 <!-- if we want to add an arrow denoting asc or desc sort we can add it with css so I assume there must be away to add it to Bootstrap -->
 		<th><a href="admins_orders/sort/id/, 
-		<?if($sort_order == 'asc' && $sort_by == 'id')
-		{
-			echo $sort_order=='desc';
-		}
-		else
-		{
-			echo $sort_order == 'asc';
-		}?>">
+		<?//if($sort_order == 'asc' && $sort_by == 'id')
+		//{
+			//echo $sort_order=='desc';
+		//}
+		//else
+		//{
+			//echo $sort_order == 'asc';
+		//}?>">
 		Order ID</a></th>
 		<th><a href="admins_orders/sort/name/
-			<?if($sort_order == 'asc' && $sort_by =='name')
-			{
-				echo $sort_order =='desc';
-			}
-			else
-			{
-				echo $sort_order == 'asc';
-			}?>">
+			<?//if($sort_order == 'asc' && $sort_by =='name')
+			//{
+				//echo $sort_order =='desc';
+			//}
+			//else
+			//{
+				//echo $sort_order == 'asc';
+			//}?>">
 			Name</th>
 		<th><a href="admins_orders/sort/date/
-			<?if($sort_order == 'asc' && $sort_by == 'date')
-			{
-				echo $sort_order='desc';
-			}
-			else
-			{
-				echo $sort_order='asc';
-			}?>">
+			<?//if($sort_order == 'asc' && $sort_by == 'date')
+			//{
+			//	echo $sort_order='desc';
+			//}
+			// else
+			// {
+			// 	echo $sort_order='asc';
+			// }?>">
 			Date</a></th>
 		<th><a href="admins_orders/sort/billing_address/
-			<?if($sort_order == 'asc' && $sort_by == 'billing_address' )
-			{
-				echo $sort_order='desc';
-			}
-			else
-			{
-				echo $sort_order='asc';
-			}
+			<?//if($sort_order == 'asc' && $sort_by == 'billing_address' )
+			// {
+			// 	echo $sort_order='desc';
+			// }
+			// else
+			// {
+			// 	echo $sort_order='asc';
+			// }
 				?>">Billing Address</th>
 		<th><a href="admins_orders/sort/total/
-			<?if($sort_order == 'asc' && $sort_by == 'total')
-			{
-				echo $sort_order == 'desc';
-			}
-			else
-			{
-				echo $sort_order == 'asc';	
-			}
+			<?//if($sort_order == 'asc' && $sort_by == 'total')
+			// {
+			// 	echo $sort_order == 'desc';
+			// }
+			// else
+			// {
+			// 	echo $sort_order == 'asc';	
+			// }
 				?>">Total</th>
 		<th class='statusField'>Status</th>
 		</tr>
@@ -98,7 +138,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 {?>
 	<tr>
 <!-- cannot get the order['id'] to pass... getting tired is now 5 am and I am feeling like I have not made enough progress -->
-	<td><a href="/admins_orders/show/<?=$order['id']?>"><?=$order['id']?></a></td>
+	<td><a href="/admins_orders/show/<?=$order['id']?>"><?=$order['id'];?></a></td>
 	<td><?=$order['name']?></td>
 	<td><?=$order['date']?></td>
 	<td><?=$order['billing_address']?>

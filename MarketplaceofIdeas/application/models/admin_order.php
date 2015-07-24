@@ -13,6 +13,7 @@ class Admin_order extends CI_Model {
 		// die('what rcvd?');
 		if($user != null)
 		{
+			$this->session->set_userdata('logged_in', true);
 			$query="SELECT orders.id AS 'id', addresses.first_name AS 'name', orders.created_at AS 'date', CONCAT(addresses.address, addresses.address_2, ', ', addresses.city, ', ', states.name, ' ', addresses.zip) AS 'billing_address', orders.total_price AS 'total', order_statuses.status as 'status' FROM orders left join addresses ON orders.billing_address_id = addresses.id left join order_statuses ON orders.order_status_id= order_statuses.id left join states ON addresses.state_id=states.id";
 			$results=$this->db->query($query)->result_array();
 			// var_dump($results);
@@ -30,43 +31,87 @@ class Admin_order extends CI_Model {
 
 // *****ADMIN ORDERS DASHBOARD**********
 // hmmm... I'm repeating my query hear just with more perameter so we can sort... any thoughts on eliminating this repetition?
-	public function orders_dash($limit, $offset, $sort_by, $sort_order)
+// 	
+	// MOVING THE QUERY QUERY
+	public function orders_dash()
 	{
-		// die('reached model orders_dash()');
-		$sort_order = ($sort_order == 'desc') ? 'desc' : 'asc';
-		$sort_columns = array('id', 'name', 'date', 'billing_address', 'total');
-		$sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'id';
-//	---using ternary operator for above, it is just shorthand of an if statement
-	//----results query----//
-//---make sure the query data is set to match keys used in admin_orders_dash OR change key names in admin_orders_dash;
-		$query="SELECT orders.id AS 'id', addresses.first_name AS 'name', orders.created_at AS 'date', CONCAT(addresses.address, addresses.address_2, ', ', addresses.city, ', ', states.name, ' ', addresses.zip) AS 'billing_address', orders.total_price AS 'total', order_statuses.status as 'status' FROM orders left join addresses ON orders.billing_address_id = addresses.id left join order_statuses ON orders.order_status_id= order_statuses.id left join states ON addresses.state_id=states.id LIMIT ? OFFSET  ?";
-//ORDER BY = ? ? needs to go in query  and $sort_by, $sort_order, needs to go in $values array BUT I give up, I can not get the sort by and order by to escape the string... Molly & Jess -> any ideas?
-		$values=array( $limit, $offset);
-			// $results=$this->db->query($query)->result_array();;//make sure to use the $sort_by and $sort_order in the $values???
-		$results['orders']=$this->db->query($query, $values)->result_array();
-			// var_dump($results['orders']);
-			// die('what did we get');
-		$query='SELECT orders.id from orders';//FOR ROW COUNT need for pagination
-		$results['num_rows']=$this->db->query($query)->result();
-		$results['num_rows']=count($results['num_rows']);
-		// var_dump($results['num_rows']);
-		// die('what?');
-
-		$query="SELECT status AS 'option' from order_statuses";
-		$results['status_options']=$this->db->query($query)->result_array();
-		// var_dump($results);
-		// die('what did we get?');
-		return $results;
-
+		return $this->db->query("SELECT orders.id AS 'id', addresses.first_name AS 'name', orders.created_at AS 'date', 
+			CONCAT(addresses.address, addresses.address_2, ', ', addresses.city, ', ', states.name, ' ', addresses.zip) AS 'billing_address', 
+			orders.total_price AS 'total', order_statuses.status as 'status' 
+			FROM orders 
+			left join addresses 
+				ON orders.billing_address_id = addresses.id 
+			left join order_statuses 
+				ON orders.order_status_id= order_statuses.id 
+			left join states 
+				ON addresses.state_id=states.id")->result_array();
+		
 	}
+
+	// ORIGINAL QUERY
+	// public function orders_dash($limit, $offset)//, $sort_by, $sort_order
+// 	{
+// 		// die('reached model orders_dash()');
+// 		// $sort_order = ($sort_order == 'desc') ? 'desc' : 'asc';
+// 		// $sort_columns = array('id', 'name', 'date', 'billing_address', 'total');
+// 		// $sort_by = (in_array($sort_by, $sort_columns)) ? $sort_by : 'id';
+// //	---using ternary operator for above, it is just shorthand of an if statement
+// 	//----results query----//
+// //---make sure the query data is set to match keys used in admin_orders_dash OR change key names in admin_orders_dash;
+// 		$query="SELECT orders.id AS 'id', addresses.first_name AS 'name', orders.created_at AS 'date', CONCAT(addresses.address, addresses.address_2, ', ', addresses.city, ', ', states.name, ' ', addresses.zip) AS 'billing_address', orders.total_price AS 'total', order_statuses.status as 'status' FROM orders left join addresses ON orders.billing_address_id = addresses.id left join order_statuses ON orders.order_status_id= order_statuses.id left join states ON addresses.state_id=states.id LIMIT ? OFFSET  ?";
+// //ORDER BY = ? ? needs to go in query  and $sort_by, $sort_order, needs to go in $values array BUT I give up, I can not get the sort by and order by to escape the string... Molly & Jess -> any ideas?
+// 		$values=array( $limit, $offset);
+// 			// $results=$this->db->query($query)->result_array();;//make sure to use the $sort_by and $sort_order in the $values???
+// 		$results['orders']=$this->db->query($query, $values)->result_array();
+// 			// var_dump($results['orders']);
+// 			// die('what did we get');
+// 		$query='SELECT orders.id from orders';//FOR ROW COUNT need for pagination
+// 		$results['num_rows']=$this->db->query($query)->result();
+// 		$results['num_rows']=count($results['num_rows']);
+// 		// var_dump($results['num_rows']);
+// 		// die('what?');
+
+// 		$query="SELECT status AS 'option' from order_statuses";
+// 		$results['status_options']=$this->db->query($query)->result_array();
+// 		// var_dump($results);
+// 		// die('what did we get?');
+// 		return $results;
+
 	public function change_status($post)
 	{
 // this query is not quite right yet... I promise I've been working all night on this... I feel like I have accomplished so little :( -aadi
 		$query="UPDATE orders LEFT JOIN order_statuses ON orders.order_status_id = order_statuses.id WHERE orders.id = ? AND order_statuses.id LIKE ?";
 		$values=array($post['orderId'], $post['status']);
 		$this->db->query($query, $values);
+		return;
 	}
 // *****ADMIN VIEW ORDER**********
+public function get_order($id)
+{
+	// var_dump($id);
+	// die('reached get_order');
+	$query="SELECT orders.id AS 'id', addresses.first_name AS 'name', CONCAT(addresses.address, ' ', addresses.address_2) AS 'address', addresses.city AS 'city', states.name AS 'state', addresses.zip AS 'zip' FROM orders left join addresses ON orders.billing_address_id = addresses.id  left join states ON addresses.state_id=states.id WHERE orders.id = ?";
+	$values=$id;
+	// var_dump($values);
+	// die('');
+	$results['billing_info']=$this->db->query($query, $values)->row_array();
+	// var_dump($results);
+	// die('array');
+	$query="SELECT addresses.first_name AS 'name', CONCAT(addresses.address, ' ', addresses.address_2) AS 'address', addresses.city AS 'city', states.name AS 'state', addresses.zip AS 'zip' FROM orders left join addresses ON orders.shipping_address_id = addresses.id left join states ON addresses.state_id=states.id WHERE orders.id = ? AND orders.shipping_address_id != orders.billing_address_id";
+ 	$results['shipping_info']=$this->db->query($query, $values)->row_array();
+ 	if($results['shipping_info'] == null)
+ 	{
+ 		$results['shipping_info']= ('Customer shipping info is the same as their billing info');	
+ 	}
+ 	$query="SELECT order_statuses.status as 'status' FROM orders LEFT JOIN order_statuses ON orders.order_status_id = order_statuses.id WHERE orders.id = ?";
+ 	$values=$id;
+ 	$results['order_status']=$this->db->query($query, $values)->row_array();
+ 	$query="SELECT ideas.id AS 'id', ideas.name AS 'name', ideas.price AS 'price', ideas.number_sold as 'quantity', orders.total_price as 'total_price' FROM ideas left join shopping_cart_has_ideas ON ideas.id=shopping_cart_has_ideas.idea_id left join shopping_cart on shopping_cart_has_ideas.shopping_cart_id = shopping_cart.id join users on shopping_cart.id = users.shopping_cart_id join orders on users.id = orders.user_id WHERE orders.id = ?";
+ 	$results['ideas'] = $this->db->query($query, $values)->result_array();
+ 	// var_dump($results);
+ 	// die(' ');
+ 	return $results;
+}
 // // —> On page load: <————————————
 
 // // Select addresses, items, order status, total cost

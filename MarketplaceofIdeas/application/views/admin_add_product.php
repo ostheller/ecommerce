@@ -1,15 +1,53 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
-?>
+defined('BASEPATH') OR exit('No direct script access allowed');?>
 <!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Administrative Add Products</title>
-	<link rel="stylesheet" type="text/css" href="">
-	<style type=""></style>
-</head>
-<header><--!LOAD PARTIAL/NAVBAR--></header>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+	    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Admin Add Product</title>
+	    <script src="<?= base_url();?>/assets/js/jquery.js"></script>
+	    <script src="<?= base_url();?>/assets/js/bootstrap.min.js"></script>
+        <script src="<?= base_url();?>/assets/js/browse.js"></script>
+        <link href="<?= base_url();?>/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="<?= base_url();?>/assets/css/modern-business.css" rel="stylesheet" type="text/css">
+		<link href="<?= base_url();?>/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+		<style type="text/css">
+			/** {
+				outline: 1px solid purple;
+			}*/
+		</style>
+	</head>
+<header><!-- Navigation -->
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">The Marketplace of Ideas: Administration</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active">
+							<a href="#">Orders</a>
+						</li>
+						<li>
+							<a href="#">Products</a>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<a href="/logout">Log Off</a>
+						</li>
+				</div>
+			</nav></header>
 <body>
 	<h2>Add Product</h2>
 	<form action='add' method='post'>
