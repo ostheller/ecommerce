@@ -89,7 +89,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		</div>
 		<div class='row'>
 			<div class='col-sm-3 col-sm-offset-2' id="shipping">
-				<form action='purchases'method='post'>
+				<form action='purchase'method='post'>
 						<div class='row'>
 						<h3>Shipping Information</h3>
 					</div>
@@ -197,9 +197,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				   src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 				    data-key="pk_test_2x9PR3c3iakOD6QuKD9Gl2Cv"
 				    data-amount=<?=$total_price * 100?>
-				   data-name="Demo Site"
+				   data-name="Marketplace of Ideas"
 				   data-description="Ideas purchased"
-				   data-image="/128x128.png">
+				   data-image="assets/img/aurelius.png">
 				  </script>  
 					</div>
 				</div>

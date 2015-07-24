@@ -20,6 +20,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 	</head>
 <header><!--LOAD PARTIAL/NAVBAR--></header>
 <body>
+
+	
 <form action='search' method='post'>
 <input type='text' name='search'>
 <input type='submit' value='SEARCH'> 

@@ -33,7 +33,7 @@ class Users_orders extends CI_Controller {
 	public function purchase($id)
 	{
 		$this->user_order->purchase($id);
-		redirect("ideas/show/$id");
+		$this->load->view('user_view_order');
 	}	
 
 /*   This page is identical to the admin order page.
