@@ -15,13 +15,13 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="about.html">Shopping Cart ( )</a>
-                </li>
-                <!-- <li>
-                    <a href="services.html">Services</a>
+                    <a href="/cart">Shopping Cart (<?=$this->session->userdata('product_count')?>)</a>
                 </li>
                 <li>
-                    <a href="contact.html">Contact</a>
+                    <a href="/logout">Session Destroy</a>
+                </li>
+                <!-- <li>
+                    <a href="contact.html">Credits</a>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">Portfolio <b class="caret"></b></a>

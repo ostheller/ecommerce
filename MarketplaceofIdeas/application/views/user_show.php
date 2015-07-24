@@ -1,8 +1,6 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-// echo "<pre>";
-// var_dump($related);
-// die();
+// var_dump($this->session->userdata('shopping_cart_id'));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,14 +74,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <div class="col-md-4">
                 <h3>Description</h3>
                 <p><?= $datum['description'] ?></p>
-                <form action='/users_orders/cart' method ='post'value='select'>
+                <h5>Price: $<?= $datum['price'] ?></h5>
+                <form action='/purchase/<?= $datum['id'] ?>' method ='post'>
 			    	<select name='quantity'>
-			    		<option value='1'>1($19.95)</option>
-			    		<option value='2'>2($37.95)</option>
-			    		<option value='3'>3($55.95)</option>
-			    		<option value='4'>4($73.95)</option>
+                        <?php for($i =1; $i < 11; $i++) {?>
+                        <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
+                        <?php } ?>
 			    	</select>
-			    	<input type='hidden' value='add'>
 			    	<input type='submit' value='Add to Cart'>
 			    </form>
             </div>

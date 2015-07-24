@@ -51,9 +51,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 				    	<input type='hidden' value='add'>
 				    	<input type='submit' value='Sort Ideas'>
 			    	</form></p>
-			    	<p><form id="keyword_search_form" action ='' method='post'>
-						<input type='text' placeholder='Search'>
-						<input type='hidden' value='search'>
+			    	<p><form id="keyword_search_form" action ='/search' method='post'>
+						<input type='text' name='keyword' placeholder='Search'>
 						<input type='submit' value="Search">
 					</form></p>
 				</div>

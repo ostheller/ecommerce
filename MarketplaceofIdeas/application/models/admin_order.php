@@ -1,4 +1,4 @@
- <?php
+<?php
 class Admin_order extends CI_Model {
 
 // *****ADMIN LOGIN PAGE********** (I'm not sure which controller this belongs on)

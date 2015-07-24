@@ -9,12 +9,24 @@ class Users_ideas extends CI_Controller {
 			page? */
 	public function index()
 	{
+		if($this->session->userdata('user_id') == null) {
+			$this->user_idea->new_user();
+		}
+		$this->user_order->cart_count();
 		$this->load->view('user_landing');
+	}
+
+	// Session destroy 
+	public function logout()
+	{
+		$this->session->sess_destroy();
+		redirect('/');
 	}
 
 	// show all tags with a specified category on the landing page
 	public function category_index($id) 
 	{
+		$this->user_order->cart_count();
 		$data = $this->user_idea->category_index($id);
 		$this->load->view('user_landing', array('data' => $data));
 	}
@@ -28,16 +40,26 @@ class Users_ideas extends CI_Controller {
 					Need to figure out how to impliment javascript history*/
 	public function browsing_index()
 	{
-		$data = $this->user_idea->browsing_index();
-		$this->load->view('user_browsing', array('data' => $data));
+		$this->user_order->cart_count();
+		$all_data = $this->user_idea->browsing_index();
+		$this->load->view('user_browsing', array('data' => $all_data));
 	}
 
 	/* This function filters the ideas shown on the browsing page by tag */
 	public function browsing_show($id) {
-		$data = $this->user_idea->browsing_show($id);
-		$this->load->view('user_browsing', array('data' => $data));
+		$this->user_order->cart_count();
+		$data_sort = $this->user_idea->browsing_show($id);
+		$this->load->view('user_browsing', array('data' => $data_sort));
 	}
 
+	public function keyword_search()
+	{
+		$this->user_order->cart_count();
+		$post = $this->input->post();
+		$data_search = $this->user_idea->search($post);
+		$this->load->view('user_browsing', array('data' => $data_search));
+
+	}
 	/*  EVENTS to trigger this function should be:
 		Featured idea on User_Landing Page
 		Thumbnail image on User_Browser Page
@@ -46,6 +68,7 @@ class Users_ideas extends CI_Controller {
 	 //shows ONE idea
 	public function show($id)
 	{
+		$this->user_order->cart_count();
 		$related = $this->user_idea->fetch_related($id);
 		$datum = $this->user_idea->show($id);
 		$this->load->view('user_show', array('datum' => $datum, 'related' => $related));
