@@ -5,6 +5,17 @@ class User_idea extends CI_Model {
 
 // —> On page load: <————————————
 
+// Create a new user
+	public function new_user()
+	{
+		$this->db->query("INSERT INTO shopping_cart (product_count) VALUES (?);", array(0));
+		$id = $this->db->insert_id();
+		$this->session->set_userdata('shopping_cart_id', $id);
+		$this->db->query("INSERT INTO users (shopping_cart_id, user_level_id, created_at, updated_at) VALUES (?,?,?,?);", array($this->session->userdata('shopping_cart_id'), 1, 'NOW()', 'NOW()'));
+		$id = $this->db->insert_id();
+		$this->session->set_userdata('user_id', $id);
+	}
+
 // Select the image, text and description for the featured images !!!! I have done this manually at this point	
 
 // Select the images for the categories !!!! I have done this manually at this point
@@ -56,15 +67,33 @@ class User_idea extends CI_Model {
 // -> User interaction <————————————
 
 // Select items containing the searched keyword (in tag or text)
+	public function search($post)
+	{
+		$keyword = implode($post);
+		$keyword = "%".$keyword."%";
+		$query = "SELECT ideas.id, ideas.name
+			FROM ideas
+			LEFT JOIN ideas_has_tags
+				ON ideas.id = ideas_has_tags.idea_id
+			LEFT JOIN tags 
+				ON ideas_has_tags.tag_id = tags.id
+			WHERE tags.name LIKE '$keyword'
+			OR ideas.description LIKE '$keyword'
+			OR ideas.name LIKE '$keyword'
+			GROUP BY ideas.name";
+		$search = $this->db->query($query)->result_array();
+		return $search;
+	}
 
-// Select all tags with specified category
+// Sort by Price
 
-// Select the second (or third, or fourth) 9? items with specified tag 
+	public function pull_by_price() {
+		return $this->db->query('SELECT * FROM ideas ORDER BY price DESC')->result_array();
+	}
 
-// Select the first 9? items sorted by price
-
-// Select the first 9? items sorted by number_sold
-
+	public function pull_by_sell_count() {
+		return $this->db->query('SELECT * FROM ideas ORDER BY number_sold')->result_array();
+	}
 
 // *****USER PRODUCT PAGE**********
 

@@ -46,8 +46,6 @@ public function add_idea($post)
 }
 
 
-
-
 // -> User interaction <————————————
 
 // Upload a file to our assets folder and update the images database
