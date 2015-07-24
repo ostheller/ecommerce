@@ -9,6 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 		<title>Browse Ideas</title>
 	    <script src="<?= base_url();?>/assets/js/jquery.js"></script>
 	    <script src="<?= base_url();?>/assets/js/bootstrap.min.js"></script>
+        <script src="<?= base_url();?>/assets/js/browse.js"></script>
 		<link href="<?= base_url();?>/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
 		<link href="<?= base_url();?>/assets/css/modern-business.css" rel="stylesheet" type="text/css">
 		<link href="<?= base_url();?>/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -44,72 +45,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 		<div class='row'>
 		</div>
         <!-- Sidebar Column -->
-            <div class="col-md-3">
+            <div class="col-sm-3">
                 <div class="well">
+                    <form id="keyword_search_form" action ='/search' method='post' role="search">
+                        <input type='text' name='keyword' placeholder='Search' size='10'>
+                        <input type="submit" value="Search">
+                    </form>
                     <form action='/ideas/sort' method="post">
                         <select name="sort">
-                            <option></option>
                             <option value="byPrice">Price</option>
                             <option value="byPopularity">Popularity</option>
                         </select>
                         <input type='submit' value='Sort'>
                     </form>
+                    <hr>
+                    <h4>Browse by Subject</h4>
+                     <div class="list-group">
+                        <a id="aesthetics" class="list-group-item">Aesthetics</a>
+                        <a id="epistemology" class="list-group-item">Epistemology</a>
+                        <a id="ethics" class="list-group-item">Ethics</a>
+                        <a id="metaphysics" class="list-group-item">Metaphysics</a>
+                        <a id="political" class="list-group-item">Political &amp; Social</a>
+                    </div>
                 </div>
-                <div class="well">
-                    <form id="keyword_search_form" action ='/search' method='post' role="search">
-                        <input type='text' name='keyword' placeholder='Search' size='16'>
-                        <input type="submit" value="Search">
-                    </form>
-            </div>
         </div>
         <!-- Projects Row -->
-        <div class="row col-md-9">
-          <?php foreach($data as $datum) { ?>
-            <div class="col-md-4 img-portfolio">
-                <a href="/ideas/show/<?= $datum['id'] ?>">
-                    <img class="img-responsive img-hover" src="<?= base_url();?>/assets/img/socrates.png" alt="">
-                </a>
-                <h3 class='text-center'>
-                    <a href="/ideas/show/<?= $datum['id'] ?>"><?= $datum['name'] ?></a>
-                </h3>
-            </div>
-            <?php } ?>
+        <div class="row col-sm-9" id="content">
+          
         </div>
         <!-- /.row -->
 
         <hr>
-
-        <!-- Pagination -->
-        <div class="row text-center">
-            <div class="col-lg-12">
-                <ul class="pagination">
-                    <li>
-                        <a href="#">&laquo;</a>
-                    </li>
-                    <li class="active">
-                        <a href="#">1</a>
-                    </li>
-                    <li>
-                        <a href="#">2</a>
-                    </li>
-                    <li>
-                        <a href="#">3</a>
-                    </li>
-                    <li>
-                        <a href="#">4</a>
-                    </li>
-                    <li>
-                        <a href="#">5</a>
-                    </li>
-                    <li>
-                        <a href="#">&raquo;</a>
-                    </li>
-                </ul>
-            </div>
+        <div id="pagination">
+            <?php
+            $this->load->view('partials/pagination');
+            ?>
         </div>
-        <!-- /.row -->
-
-		
-
 	</body>
 </html>
