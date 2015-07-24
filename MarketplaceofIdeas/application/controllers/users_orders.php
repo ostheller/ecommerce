@@ -63,22 +63,15 @@ class Users_orders extends CI_Controller {
 	public function address_shipping(){
 		$post = $this->input->post();
 		$this->user_order->checkout_shipping($post);
+		$data = $this->user_order->pull_address();
+		$this->load->view('partials/shipping_checkout_form', array('address' => $data));
 
 	}
 
 	public function same_as_billing(){
 		$data = $this->user_order->pull_address();
-		$ideas = $this->user_order->idea_grab();
-		$state = $this->user_order->state_grab();
-		$this->user_order->cart_count();
-		$this->load->view('user_cart', array('states' => $state, 'all_ideas' => $ideas, 'same' => $data)); 
-		$ideas = $this->user_order->idea_grab();
-		$state = $this->user_order->state_grab();
-		$data = $this->user_order->pull_address();
-		var_dump($data);
-		die();
-		$this->user_order->cart_count();
-		$this->load->view('user_cart', array('states' => $state, 'all_ideas' => $ideas, 'same' => $data)); 
+		$this->user_order->same_address();
+		$this->load->view('partials/billing_checkout_form', array('same' => $data));
 	}
 
 	public function address_billing(){

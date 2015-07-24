@@ -21,7 +21,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			  	$('#del').on('click', function () {
 			        return confirm('Are you sure?');
 			    	});
-			  });	        
+			  	$('#checkme').click(function(){
+	                $.get('/address/same', function(res){
+	                    $('#hideme').html(res);
+	                    }); 
+	                });
+			  	$('#shipping_form').submit(function(){
+	                $.post('/address/shipping', $(this).serialize(), function(res){
+	                    $('#shipping_div').html(res);
+	                    }); 
+	                return false;
+	            });
+			  });	       
 		</script>
 
 		<style type="text/css">
@@ -107,60 +118,59 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			</div>
 		</div>
 		<div class='row'>
-			<div class='col-sm-3 col-sm-offset-2' id="shipping">
-				<form action='/address/shipping'method='post'>
+			<div class='col-sm-3 col-sm-offset-2' id="shipping_div">
+				<form action='/address/shipping' id="shipping_form" method='post'>
 						<div class='row'>
 						<h3>Shipping Information</h3>
 					</div>
 						<div class='row'>
 							<label>First Name:</label>
-							<input type='text' name='shippingfirstname' placeholder="<?php if (isset($same['shippingfirstname'])) {echo $same['shippingfirstname'];}?>"> 
+							<input type='text' name='shippingfirstname'> 
 						</div>
 
 						<div class='row'>
 							<label>Last Name:</label>
-							<input type='text' name='shippinglastname' placeholder="<?php if (isset($same['shippinglastname'])) {echo $same['shippinglastname'];}?>">
+							<input type='text' name='shippinglastname'>
 						</div>
 						<div class='row'>
 							<label>Adress:</label>
 							<input type='text' name='shippingaddress'>
 						</div>
 						<div class='row'>
-						<label>Address 2:</label>
-						<input type='text' name='shippingaddress2'>
+							<label>Address 2:</label>
+							<input type='text' name='shippingaddress2'>
 						</div>
 						<div class='row'>
-						<label>City:</label>
-						<input type='text' name='shippingcity'>
+							<label>City:</label>
+							<input type='text' name='shippingcity'>
 						</div>
 						<div class='row'>
-						<label>State</label>
-						<select name='shippingstate'>
-							<option></option>
-							<?php foreach ($states as $state) {?>
-								<option value='<?=$state['id']?>'><?=$state['name']?></option>
-							<?php }?>	
-						</select>
+							<label>State</label>
+							<select name='shippingstate'>
+								<option></option>
+								<?php foreach ($states as $state) {?>
+									<option value='<?=$state['id']?>'><?=$state['name']?></option>
+								<?php }?>	
+							</select>
 						</div>
 						<div class='row'>
 						<label>Zip Code</label>
 						<input type='text' name='shippingzip'>
 						</div>
-						<input type="submit" value="submit">
+						<input type="submit" value="Confirm">
 					</div>
 				</form>
-				<form action='/address/billing'method='post'>
 					<div class='col-sm-3' id="billing">
 						<div class='row'>
 						<h3>Billing Information</h3>
 						</div>
-					<form action='/address/same'method='post'>
+						<form action='/address/same' method='post'>
 						<div class='row'>
 							<label>Same as Shipping?</label>
 							<input name="chkCopy" id='checkme'type="checkbox" value="true"> 
-							<input type="submit"> 
+						</form>
 						</div>
-					
+						<form action='/address/billing'method='post'>
 						<div id='hideme'>
 							<div class='row'>
 								<label>First Name:</label>
@@ -195,11 +205,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<label>Zip Code</label>
 							<input type='text' name='billingzip'>
 							</div>
-							<input type="submit" value="Submit">
+							<input type="submit" value="Confirm">
 							</form>
 						</div>
-					
-				</div>
+					</div>
 				<div class='col-sm-3' id="card_info">
 
 				<form action="checkout" method="POST">
@@ -213,10 +222,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					   	data-image="assets/img/aurelius.png"> 
 				  	</script> 
 				  </form> 
+				  </form>
 				  <div class="row" id="browse">
                     <a class="btn btn-default" href="/browse">Back to Browse</a>
                 </div>
 			</div>
+			</div>	
 		</div>
+	</div>
 	</body>
 </html>

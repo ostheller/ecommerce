@@ -102,11 +102,21 @@ class User_order extends CI_Model {
          $this->db->query($query, $values); 
          $id = $this->db->insert_id();
          $this->session->set_userdata('address_id', $id);
+         $query = $this->db->query('INSERT INTO orders (shipping_address, updated_at) VALUES (?,NOW())');
+         $values = array($id);
+         $this->db->query($query, $values);
      }
 
      public function pull_address()
      {
         return $this->db->query("SELECT * FROM addresses WHERE id = ?", array($this->session->userdata('address_id')))->row_array();
+     }
+
+     public function same_address()
+     {
+      $query = "INSERT INTO orders (billing_address) VALUES (?)";
+      $values = array($this->session->userdata('address_id'));
+      $this->db->query($query, $values);
      }
 
      public function checkout_billing($post)
