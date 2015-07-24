@@ -18,6 +18,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 			}*/
             #keyword_search_form {
                 margin-bottom: 20px;
+                margin-right: 20px;
             }
 		</style>
 	</head>
@@ -37,17 +38,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                     </li>
                     <li class="active"><a href="/browse">Browse Ideas</a></li></ol>
                 <div>
-                	<!-- <p><form class='pull-right' action='/ideas/cart' value='select'>
-						<select>
+                	<p><form class='pull-right' action='/ideas/sort' method="post">
+						<select name="sort">
 				    		<option></option>
-				    		<option>Author</option>
-				    		<option>Subject</option>
-				    		<option>Era</option>
-				    		<option>Locale</option>
+				    		<option value="byPrice">Price</option>
+				    		<option value="byPopularity">Popularity</option>
 				    	</select>
-				    	<input type='hidden' value='add'>
-				    	<input type='submit' value='Sort Ideas'>
-			    	</form></p> -->
+				    	<input type='submit' value='Sort'>
+			    	</form></p>
 			    	<p><form class='pull-right' id="keyword_search_form" action ='/search' method='post'>
 						<input type='text' name='keyword' placeholder='Search'>
 						<input type='submit' value="Search">

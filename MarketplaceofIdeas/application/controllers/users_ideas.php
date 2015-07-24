@@ -52,6 +52,30 @@ class Users_ideas extends CI_Controller {
 		$this->load->view('user_browsing', array('data' => $data_sort));
 	}
 
+	public function sort_by() {
+		if($this->input->post('sort') == 'byPrice') {
+			redirect('ideas/byPrice');
+		}
+		else if ($this->input->post('sort') == 'byPopularity') {
+			redirect('ideas/byPopularity');
+		}
+		else {
+			redirect('browse');
+		}
+	}
+
+	public function pull_by_price() {
+		$this->user_order->cart_count();
+		$data_price = $this->user_idea->pull_by_price();
+		$this->load->view('user_browsing', array('data' => $data_price));
+	}
+
+	public function pull_by_sell_count() {
+		$this->user_order->cart_count();
+		$data_count = $this->user_idea->pull_by_sell_count();
+		$this->load->view('user_browsing', array('data' => $data_count));
+	}
+
 	public function keyword_search()
 	{
 		$this->user_order->cart_count();

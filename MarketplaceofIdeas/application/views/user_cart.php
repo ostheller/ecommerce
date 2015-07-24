@@ -81,7 +81,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<tr>
 						<td colspan='4'></td>
 						<td>$<?= number_format($total_price, 2)?></td>
-							<?php $purchasetotal = number_format($total_price, 2) ?>;
+							<?php $purchasetotal = number_format($total_price, 2); ?>
 					</tr>	
 					</tbody>
 				</table>

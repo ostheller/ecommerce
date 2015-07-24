@@ -20,18 +20,14 @@ class Users_orders extends CI_Controller {
 	public function destroy($id)
 	{
 		$this->user_order->destroy($id);
-		redirect('/cart');
+		redirect('users_orders/index');
 	}
 
 	public function update($id)
 	{
-		if($this->input->post('quantity') == 0) {
-			redirect("remove/$id");
-		}
-		else {
-			$this->user_order->update($id);
+			$post = $this->input->post();
+			$this->user_order->update($post, $id);
 			redirect('/cart');
-		}
 	}
 
 	public function purchase($id)

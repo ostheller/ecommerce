@@ -79,9 +79,20 @@ class User_idea extends CI_Model {
 				ON ideas_has_tags.tag_id = tags.id
 			WHERE tags.name LIKE '$keyword'
 			OR ideas.description LIKE '$keyword'
+			OR ideas.name LIKE '$keyword'
 			GROUP BY ideas.name";
 		$search = $this->db->query($query)->result_array();
 		return $search;
+	}
+
+// Sort by Price
+
+	public function pull_by_price() {
+		return $this->db->query('SELECT * FROM ideas ORDER BY price DESC')->result_array();
+	}
+
+	public function pull_by_sell_count() {
+		return $this->db->query('SELECT * FROM ideas ORDER BY number_sold')->result_array();
 	}
 
 // *****USER PRODUCT PAGE**********

@@ -24,6 +24,9 @@ $route['purchase/(:num)'] = 'users_orders/purchase/$1';
 $route['update/(:num)'] = 'users_orders/update/$1';
 $route['remove/(:num)'] = 'users_orders/destroy/$1';
 $route['search'] = 'users_ideas/keyword_search';
+$route['ideas/sort'] = 'users_ideas/sort_by';
+$route['ideas/byPrice'] = 'users_ideas/pull_by_price';
+$route['ideas/byPopularity'] = 'users_ideas/pull_by_sell_count';
 
 //jess's orders routes
 $route['cart'] = 'users_orders/index';

@@ -39,11 +39,11 @@ class User_order extends CI_Model {
 
 // *****USER ORDER PAGE**********
 
-// POST: Update the quantity of an idea in the cart, GET the refreshed total
-  public function update($id)
+// POST: Update the quantity of an idea in the cart
+  public function update($post, $id)
          {
-            $query = "UPDATE shopping_cart_has_ideas SET quantity = ? WHERE id = ?;";
-            $values = array($this->input->post('quantity'), $id);
+            $query = "UPDATE shopping_cart_has_ideas SET quantity = ? WHERE idea_id = ?;";
+            $values = array($post['quantity'], $id);
             $this->db->query($query, $values);
         }
 
