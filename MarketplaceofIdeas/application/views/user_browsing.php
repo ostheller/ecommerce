@@ -36,29 +36,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
                 <ol class="breadcrumb">
                     <li><a href="/">Home</a>
                     </li>
-                    <li class="active"><a href="/browse">Browse Ideas</a></li></ol>
-                <div>
-                	<p><form class='pull-right' action='/ideas/sort' method="post">
-						<select name="sort">
-				    		<option></option>
-				    		<option value="byPrice">Price</option>
-				    		<option value="byPopularity">Popularity</option>
-				    	</select>
-				    	<input type='submit' value='Sort'>
-			    	</form></p>
-			    	<p><form class='pull-right' id="keyword_search_form" action ='/search' method='post'>
-						<input type='text' name='keyword' placeholder='Search'>
-						<input type='submit' value="Search">
-					</form></p>
-				</div>
-                
+                    <li class="active"><a href="/browse">Browse Ideas</a></li>
+                </ol>
             </div>
         </div>
         <!-- /.row -->
 		<div class='row'>
 		</div>
+        <!-- Sidebar Column -->
+            <div class="col-md-3">
+                <div class="well">
+                    <form action='/ideas/sort' method="post">
+                        <select name="sort">
+                            <option></option>
+                            <option value="byPrice">Price</option>
+                            <option value="byPopularity">Popularity</option>
+                        </select>
+                        <input type='submit' value='Sort'>
+                    </form>
+                </div>
+                <div class="well">
+                    <form id="keyword_search_form" action ='/search' method='post' role="search">
+                        <input type='text' name='keyword' placeholder='Search' size='16'>
+                        <input type="submit" value="Search">
+                    </form>
+            </div>
+        </div>
         <!-- Projects Row -->
-        <div class="row">
+        <div class="row col-md-9">
           <?php foreach($data as $datum) { ?>
             <div class="col-md-4 img-portfolio">
                 <a href="/ideas/show/<?= $datum['id'] ?>">

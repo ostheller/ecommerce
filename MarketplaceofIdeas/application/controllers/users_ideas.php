@@ -28,7 +28,7 @@ class Users_ideas extends CI_Controller {
 	{
 		$this->user_order->cart_count();
 		$data = $this->user_idea->category_index($id);
-		$this->load->view('user_landing', array('data' => $data));
+		$this->load->view('partials/landing_category_div', array('data' => $data));
 	}
 	/* EVENTS to trigger this function should be:
 		Keyword search

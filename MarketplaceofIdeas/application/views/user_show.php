@@ -14,7 +14,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<link href="<?= base_url();?>/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
 		<link href="<?= base_url();?>/assets/css/modern-business.css" rel="stylesheet" type="text/css">
 		<link href="<?= base_url();?>/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	</head>
+	   <script type="text/javascript">
+        $(document).ready(function() {
+            $('carousel').carousel({
+                interval: 1000 //changes the speed
+            });
+             });
+       </script>
+    </head>
 	<body>
 		<?php $this->load->view('partials/user_navbar'); ?>
 		<!-- Page Content -->
@@ -51,13 +58,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     <!-- Wrapper for slides -->
                     <div class="carousel-inner">
                         <div class="item active">
-                            <img min-height="500" class="img-responsive" src="http://placehold.it/750x500" alt="">
+                            <img min-height="500" class="img-responsive" src="<?= base_url();?>/assets/img/socrates.png" alt="">
                         </div>
                         <div class="item">
-                            <img min-height="500" class="img-responsive" src="http://placehold.it/750x500" alt="">
+                            <img min-height="500" class="img-responsive" src="<?= base_url();?>/assets/img/diogenes.jpg" alt="">
                         </div>
                         <div class="item">
-                            <img min-height="500" class="img-responsive" src="http://placehold.it/750x500" alt="">
+                            <img min-height="500" class="img-responsive" src="<?= base_url();?>/assets/img/wanderer.jpg" alt="">
                         </div>
                     </div>
 
