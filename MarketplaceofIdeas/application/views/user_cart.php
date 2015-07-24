@@ -17,7 +17,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			  $(document).ready(function(){
 			  });	        
 		</script>
-		<style type="text/css">
+
 		<style type="text/css">
         body {
             padding: 20px;
@@ -134,7 +134,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</div>
 						<div class='row'>
 						<label>Same as Shipping?</label>
-						<input type='checkbox' id='chkbox'>
+						<input name="chkCopy" id='checkme'type="checkbox" value="" onClick="copyAddress();"> 
+		
 						</div>
 						<div id='hideme'>
 							<div class='row'>
@@ -194,12 +195,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<input type='hidden' value='buyit'>
 						<input type='submit' value="Buy"> -->
 				  <script
+
 				   src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 				    data-key="pk_test_2x9PR3c3iakOD6QuKD9Gl2Cv"
 				    data-amount=<?=$total_price * 100?>
 				   data-name="Marketplace of Ideas"
 				   data-description="Ideas purchased"
 				   data-image="assets/img/aurelius.png">
+				 
 				  </script>  
 					</div>
 				</div>

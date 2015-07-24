@@ -42,7 +42,16 @@ class Users_orders extends CI_Controller {
 			purchase their order   */
 	public function confirm_order()
 	{
-		$this->load->view('User_order_confirm');
+		$this->load->view('User_view_order');
 	}
+
+	//this posts addresses to database before posting charges to Stripe
+	public function checkout()
+	{
+		
+		$this->user_order->checkout();
+		$this->load->view('User_view_order');
+	}
+
 
 }

@@ -31,4 +31,4 @@ $route['ideas/byPopularity'] = 'users_ideas/pull_by_sell_count';
 //jess's orders routes
 $route['cart'] = 'users_orders/index';
 $route['continue'] = 'users_ideas/browsing_index';
-$route['purchase'] = 'users_orders/'
+$route['ideabuy'] = 'users_orders/checkout';
