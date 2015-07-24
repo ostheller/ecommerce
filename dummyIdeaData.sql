@@ -1,0 +1,208 @@
+CREATE DATABASE  IF NOT EXISTS `ideas` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `ideas`;
+-- MySQL dump 10.13  Distrib 5.6.24, for Win64 (x86_64)
+--
+-- Host: 127.0.0.1    Database: ideas
+-- ------------------------------------------------------
+-- Server version	5.5.41-log
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Dumping data for table `addresses`
+--
+
+LOCK TABLES `addresses` WRITE;
+/*!40000 ALTER TABLE `addresses` DISABLE KEYS */;
+INSERT INTO `addresses` VALUES (1,'john','smith','123 ABC St.','','Cincinati',98234,1,'2015-07-22 15:47:55','2015-07-22 15:47:55'),(2,'abby','jacobs','324 DEF Crt.','Apt. 1','Atlanta',32942,2,'2015-07-22 15:48:38','2015-07-22 15:48:38'),(3,'alice','malice','234 GHI Dr.','Apt. C','Richland',39438,3,'2015-07-22 15:49:23','2015-07-22 15:49:23'),(4,'george','castanza','456 JKL Dr.','','Memphis',34923,4,'2015-07-22 15:49:58','2015-07-22 15:49:58'),(5,'bella','buenisimo','567 MNO St.','','New Art',39432,5,'2015-07-22 15:50:37','2015-07-22 15:50:37'),(6,'marsha','greene','678 PQR St.','','Bellingham',42394,6,'2015-07-22 15:51:19','2015-07-22 15:51:19'),(7,'norman','hamshire','789 STV St.','','Los Angeles',39842,7,'2015-07-22 15:51:50','2015-07-22 15:51:50'),(8,'martin','micheals','901 UWX St.','','Pierre',39842,8,'2015-07-22 15:52:37','2015-07-22 15:52:37');
+/*!40000 ALTER TABLE `addresses` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `admins`
+--
+
+LOCK TABLES `admins` WRITE;
+/*!40000 ALTER TABLE `admins` DISABLE KEYS */;
+INSERT INTO `admins` VALUES (1,'anyone@anywhere.com','password',1,'2015-07-22 15:54:32','2015-07-22 15:54:32');
+/*!40000 ALTER TABLE `admins` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `categories`
+--
+
+LOCK TABLES `categories` WRITE;
+/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+INSERT INTO `categories` VALUES (5,'authors','2015-07-22 15:55:43','2015-07-22 15:55:43'),(6,'subjects','2015-07-22 15:55:52','2015-07-22 15:55:52'),(7,'eras','2015-07-22 15:55:55','2015-07-22 15:55:55'),(8,'locals','2015-07-22 15:55:58','2015-07-22 15:55:58');
+/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `categories_has_images`
+--
+
+LOCK TABLES `categories_has_images` WRITE;
+/*!40000 ALTER TABLE `categories_has_images` DISABLE KEYS */;
+INSERT INTO `categories_has_images` VALUES (1,5,12,'2015-07-22 15:58:51','2015-07-22 15:58:51'),(2,6,13,'2015-07-22 15:59:02','2015-07-22 15:59:02'),(3,7,14,'2015-07-22 15:59:07','2015-07-22 15:59:07'),(4,8,15,'2015-07-22 15:59:13','2015-07-22 15:59:13');
+/*!40000 ALTER TABLE `categories_has_images` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `ideas`
+--
+
+LOCK TABLES `ideas` WRITE;
+/*!40000 ALTER TABLE `ideas` DISABLE KEYS */;
+INSERT INTO `ideas` VALUES (32,'mollisism','dkaojefi eoanf keofnwa',20,3,99,'2015-07-22 16:02:21','2015-07-22 16:02:21'),(33,'jessism','fwokef ihsadokfnokawejo',50,3,99,'2015-07-22 16:02:45','2015-07-22 16:02:45'),(34,'aadisism','adfoawei foiawejfpajwp',10,1,99,'2015-07-22 16:03:27','2015-07-22 16:03:27'),(35,'dadaism','adfoawei foiawejfpajwp',15,2,50,'2015-07-22 16:03:45','2015-07-22 16:03:45'),(36,'neoism','aweojfoij aweijf iowejfoiaw',1323,80,10,'2015-07-22 16:04:25','2015-07-22 16:04:25'),(37,'samasism','askekfo jaweoij foaiwjlkfafjselkgjp',30,80,69,'2015-07-22 16:04:52','2015-07-22 16:04:52'),(38,'jsonism','akdjefoaeiw kladnfoweainfonasdkfnkd fed',100,2,75,'2015-07-22 16:05:27','2015-07-22 16:05:27'),(39,'phpism','oarjdrgoijdlkfjgaw',4,1,85,'2015-07-22 16:05:48','2015-07-22 16:05:48');
+/*!40000 ALTER TABLE `ideas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `ideas_has_images`
+--
+
+LOCK TABLES `ideas_has_images` WRITE;
+/*!40000 ALTER TABLE `ideas_has_images` DISABLE KEYS */;
+INSERT INTO `ideas_has_images` VALUES (5,32,12,'2015-07-22 16:21:18','2015-07-22 16:21:18'),(6,32,13,'2015-07-22 16:21:24','2015-07-22 16:21:24'),(7,33,14,'2015-07-22 16:21:30','2015-07-22 16:21:30'),(8,33,15,'2015-07-22 16:21:35','2015-07-22 16:21:35'),(9,34,16,'2015-07-22 16:21:46','2015-07-22 16:21:46'),(10,34,17,'2015-07-22 16:21:51','2015-07-22 16:21:51'),(11,35,18,'2015-07-22 16:21:59','2015-07-22 16:21:59'),(12,35,19,'2015-07-22 16:22:02','2015-07-22 16:22:02'),(13,36,20,'2015-07-22 16:22:11','2015-07-22 16:22:11'),(14,36,21,'2015-07-22 16:22:19','2015-07-22 16:22:19'),(15,37,22,'2015-07-22 16:22:27','2015-07-22 16:22:27'),(16,37,23,'2015-07-22 16:22:36','2015-07-22 16:22:36'),(17,38,12,'2015-07-22 16:22:42','2015-07-22 16:22:42'),(18,38,14,'2015-07-22 16:23:03','2015-07-22 16:23:03'),(19,39,16,'2015-07-22 16:23:10','2015-07-22 16:23:10'),(20,39,18,'2015-07-22 16:23:14','2015-07-22 16:23:14');
+/*!40000 ALTER TABLE `ideas_has_images` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `ideas_has_tags`
+--
+
+LOCK TABLES `ideas_has_tags` WRITE;
+/*!40000 ALTER TABLE `ideas_has_tags` DISABLE KEYS */;
+/*!40000 ALTER TABLE `ideas_has_tags` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `images`
+--
+
+LOCK TABLES `images` WRITE;
+/*!40000 ALTER TABLE `images` DISABLE KEYS */;
+INSERT INTO `images` VALUES (12,'authors','authors.jpg','2015-07-22 16:09:18','2015-07-22 16:09:18'),(13,'subjects','subjects.jpg','2015-07-22 16:14:15','2015-07-22 16:14:15'),(14,'parthenon','parthenon.jpg','2015-07-22 16:16:37','2015-07-22 16:16:37'),(15,'wanderer','wanderer.jpg','2015-07-22 16:16:59','2015-07-22 16:16:59'),(16,'augustus','augustus.jpg','2015-07-22 16:17:28','2015-07-22 16:17:28'),(17,'diogenes','diogenes.jpg','2015-07-22 16:17:41','2015-07-22 16:17:41'),(18,'marcus_aurelius','marcus_aurelius.jpg','2015-07-22 16:18:05','2015-07-22 16:18:05'),(19,'melk_abbey_library','melk_abbey_library.jpg','2015-07-22 16:18:34','2015-07-22 16:18:34'),(20,'salon','salon.jpg','2015-07-22 16:18:50','2015-07-22 16:18:50'),(21,'school_of_athens','school_of_athens.jpg','2015-07-22 16:19:08','2015-07-22 16:19:08'),(22,'slave-ship','slave-ship.jpg','2015-07-22 16:19:25','2015-07-22 16:19:25'),(23,'socrates','socrates.jpg','2015-07-22 16:19:40','2015-07-22 16:19:40');
+/*!40000 ALTER TABLE `images` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `order_statuses`
+--
+
+LOCK TABLES `order_statuses` WRITE;
+/*!40000 ALTER TABLE `order_statuses` DISABLE KEYS */;
+INSERT INTO `order_statuses` VALUES (1,'processing','2015-07-22 16:25:04','2015-07-22 16:25:04'),(2,'shipped','2015-07-22 16:25:14','2015-07-22 16:25:14'),(3,'canceled','2015-07-22 16:25:23','2015-07-22 16:25:23');
+/*!40000 ALTER TABLE `order_statuses` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `orders`
+--
+
+LOCK TABLES `orders` WRITE;
+/*!40000 ALTER TABLE `orders` DISABLE KEYS */;
+INSERT INTO `orders` VALUES (1,1,NULL,1,1,1,99,'2015-07-22 16:39:48','2015-07-22 16:39:48'),(2,2,NULL,1,2,1,60,'2015-07-22 16:40:13','2015-07-22 16:40:13'),(3,4,NULL,3,8,8,20,'2015-07-22 16:41:10','2015-07-22 16:41:10'),(4,5,NULL,2,3,3,55,'2015-07-22 16:41:45','2015-07-22 16:41:45'),(5,3,NULL,1,4,4,65,'2015-07-22 16:42:08','2015-07-22 16:42:08'),(6,6,NULL,3,5,4,95,'2015-07-22 16:42:33','2015-07-22 16:42:33'),(7,8,NULL,2,6,6,15,'2015-07-22 16:43:17','2015-07-22 16:43:17'),(8,7,NULL,2,7,7,45,'2015-07-22 16:43:51','2015-07-22 16:43:51');
+/*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `orders_has_ideas`
+--
+
+LOCK TABLES `orders_has_ideas` WRITE;
+/*!40000 ALTER TABLE `orders_has_ideas` DISABLE KEYS */;
+INSERT INTO `orders_has_ideas` VALUES (1,1,32,'2015-07-22 16:45:59','2015-07-22 16:45:59'),(2,1,39,'2015-07-22 16:46:09','2015-07-22 16:46:09'),(3,2,34,'2015-07-22 16:46:27','2015-07-22 16:46:27'),(4,3,35,'2015-07-22 16:46:39','2015-07-22 16:46:39'),(5,3,36,'2015-07-22 16:46:44','2015-07-22 16:46:44'),(6,4,33,'2015-07-22 16:46:53','2015-07-22 16:46:53'),(7,4,33,'2015-07-22 16:46:59','2015-07-22 16:46:59'),(8,5,35,'2015-07-22 16:47:19','2015-07-22 16:47:19'),(9,5,36,'2015-07-22 16:47:22','2015-07-22 16:47:22'),(10,5,38,'2015-07-22 16:47:24','2015-07-22 16:47:24'),(11,6,32,'2015-07-22 16:47:33','2015-07-22 16:47:33'),(12,6,33,'2015-07-22 16:47:36','2015-07-22 16:47:36'),(13,6,33,'2015-07-22 16:47:53','2015-07-22 16:47:53'),(14,6,39,'2015-07-22 16:48:07','2015-07-22 16:48:07'),(15,7,32,'2015-07-22 16:48:14','2015-07-22 16:48:14'),(16,8,35,'2015-07-22 16:48:21','2015-07-22 16:48:21'),(17,8,36,'2015-07-22 16:48:23','2015-07-22 16:48:23'),(18,8,39,'2015-07-22 16:48:37','2015-07-22 16:48:37'),(19,8,33,'2015-07-22 16:48:50','2015-07-22 16:48:50'),(20,8,34,'2015-07-22 16:49:00','2015-07-22 16:49:00');
+/*!40000 ALTER TABLE `orders_has_ideas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `shopping_cart`
+--
+
+LOCK TABLES `shopping_cart` WRITE;
+/*!40000 ALTER TABLE `shopping_cart` DISABLE KEYS */;
+INSERT INTO `shopping_cart` VALUES (1,'2015-07-22 16:51:21','2015-07-22 16:51:21'),(2,'2015-07-22 16:51:23','2015-07-22 16:51:23'),(3,'2015-07-22 16:51:24','2015-07-22 16:51:24'),(4,'2015-07-22 16:51:25','2015-07-22 16:51:25'),(5,'2015-07-22 16:51:25','2015-07-22 16:51:25'),(6,'2015-07-22 16:51:26','2015-07-22 16:51:26'),(7,'2015-07-22 16:51:26','2015-07-22 16:51:26'),(8,'2015-07-22 16:51:27','2015-07-22 16:51:27'),(9,'2015-07-22 16:51:27','2015-07-22 16:51:27'),(10,'2015-07-22 16:51:27','2015-07-22 16:51:27'),(11,'2015-07-22 16:51:28','2015-07-22 16:51:28'),(12,'2015-07-22 16:51:28','2015-07-22 16:51:28'),(13,'2015-07-22 16:51:29','2015-07-22 16:51:29'),(14,'2015-07-22 16:51:29','2015-07-22 16:51:29');
+/*!40000 ALTER TABLE `shopping_cart` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `shopping_cart_has_ideas`
+--
+
+LOCK TABLES `shopping_cart_has_ideas` WRITE;
+/*!40000 ALTER TABLE `shopping_cart_has_ideas` DISABLE KEYS */;
+INSERT INTO `shopping_cart_has_ideas` VALUES (1,1,32,1,'2015-07-22 17:03:27','2015-07-22 17:03:27'),(2,1,39,1,'2015-07-22 17:03:38','2015-07-22 17:03:38'),(3,2,34,1,'2015-07-22 17:03:54','2015-07-22 17:03:54'),(4,3,35,1,'2015-07-22 17:04:08','2015-07-22 17:04:08'),(5,3,36,1,'2015-07-22 17:04:12','2015-07-22 17:04:12'),(6,4,33,2,'2015-07-22 17:04:26','2015-07-22 17:04:26'),(7,5,35,1,'2015-07-22 17:06:20','2015-07-22 17:06:20'),(8,5,36,1,'2015-07-22 17:06:26','2015-07-22 17:06:26'),(9,5,38,1,'2015-07-22 17:06:30','2015-07-22 17:06:30'),(10,6,32,1,'2015-07-22 17:06:44','2015-07-22 17:06:44'),(11,6,33,2,'2015-07-22 17:06:51','2015-07-22 17:06:51'),(12,6,39,1,'2015-07-22 17:06:57','2015-07-22 17:06:57'),(13,7,32,1,'2015-07-22 17:07:04','2015-07-22 17:07:04'),(14,8,35,1,'2015-07-22 17:07:14','2015-07-22 17:07:14'),(15,8,36,1,'2015-07-22 17:07:17','2015-07-22 17:07:17'),(16,8,39,1,'2015-07-22 17:07:20','2015-07-22 17:07:20'),(17,8,33,1,'2015-07-22 17:07:24','2015-07-22 17:07:24'),(18,8,34,1,'2015-07-22 17:07:27','2015-07-22 17:07:27');
+/*!40000 ALTER TABLE `shopping_cart_has_ideas` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `states`
+--
+
+LOCK TABLES `states` WRITE;
+/*!40000 ALTER TABLE `states` DISABLE KEYS */;
+INSERT INTO `states` VALUES (1,'CT','2015-07-22 17:08:33','2015-07-22 17:08:33'),(2,'GA','2015-07-22 17:09:09','2015-07-22 17:09:09'),(3,'WA','2015-07-22 17:09:24','2015-07-22 17:09:24'),(4,'TN','2015-07-22 17:09:30','2015-07-22 17:09:30'),(5,'NJ','2015-07-22 17:09:37','2015-07-22 17:09:37'),(6,'WA','2015-07-22 17:09:43','2015-07-22 17:09:43'),(7,'CA','2015-07-22 17:09:46','2015-07-22 17:09:46'),(8,'SD','2015-07-22 17:09:50','2015-07-22 17:09:50');
+/*!40000 ALTER TABLE `states` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `tags`
+--
+
+LOCK TABLES `tags` WRITE;
+/*!40000 ALTER TABLE `tags` DISABLE KEYS */;
+INSERT INTO `tags` VALUES (1,'surly',1,'2015-07-22 17:11:18','2015-07-22 17:11:18'),(2,'jelly',1,'2015-07-22 17:11:38','2015-07-22 17:11:38'),(3,'simple',1,'2015-07-22 17:12:03','2015-07-22 17:12:03'),(4,'jelly',2,'2015-07-22 17:12:13','2015-07-22 17:12:13'),(5,'smooth',2,'2015-07-22 17:12:43','2015-07-22 17:12:43'),(6,'noxious',2,'2015-07-22 17:12:46','2015-07-22 17:12:46'),(7,'small',3,'2015-07-22 17:12:55','2015-07-22 17:12:55'),(8,'newsies',3,'2015-07-22 17:13:04','2015-07-22 17:13:04'),(9,'nuclear',3,'2015-07-22 17:13:10','2015-07-22 17:13:10'),(10,'greek',4,'2015-07-22 17:13:24','2015-07-22 17:13:24'),(11,'latin',4,'2015-07-22 17:13:28','2015-07-22 17:13:28'),(12,'roman',4,'2015-07-22 17:13:31','2015-07-22 17:13:31'),(75,'german',4,'2015-07-22 17:14:18','2015-07-22 17:14:18');
+/*!40000 ALTER TABLE `tags` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `tags_has_images`
+--
+
+LOCK TABLES `tags_has_images` WRITE;
+/*!40000 ALTER TABLE `tags_has_images` DISABLE KEYS */;
+INSERT INTO `tags_has_images` VALUES (1,1,12,'2015-07-22 17:16:48','2015-07-22 17:16:48'),(2,2,13,'2015-07-22 17:16:57','2015-07-22 17:16:57'),(3,3,14,'2015-07-22 17:17:02','2015-07-22 17:17:02'),(4,4,15,'2015-07-22 17:17:07','2015-07-22 17:17:07'),(5,5,16,'2015-07-22 17:17:13','2015-07-22 17:17:13'),(6,6,17,'2015-07-22 17:17:23','2015-07-22 17:17:23'),(7,7,18,'2015-07-22 17:17:27','2015-07-22 17:17:27'),(8,8,19,'2015-07-22 17:17:33','2015-07-22 17:17:33'),(9,9,20,'2015-07-22 17:17:40','2015-07-22 17:17:40'),(10,10,21,'2015-07-22 17:17:46','2015-07-22 17:17:46'),(11,11,22,'2015-07-22 17:17:53','2015-07-22 17:17:53'),(12,13,23,'2015-07-22 17:17:59','2015-07-22 17:17:59'),(13,14,12,'2015-07-22 17:18:05','2015-07-22 17:18:05');
+/*!40000 ALTER TABLE `tags_has_images` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `user_levels`
+--
+
+LOCK TABLES `user_levels` WRITE;
+/*!40000 ALTER TABLE `user_levels` DISABLE KEYS */;
+INSERT INTO `user_levels` VALUES (1,1,'user','2015-07-22 17:20:54','2015-07-22 17:20:54'),(2,2,'admin','2015-07-22 17:21:22','2015-07-22 17:21:22'),(3,2,'super_admin','2015-07-22 17:21:30','2015-07-22 17:21:30');
+/*!40000 ALTER TABLE `user_levels` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping data for table `users`
+--
+
+LOCK TABLES `users` WRITE;
+/*!40000 ALTER TABLE `users` DISABLE KEYS */;
+INSERT INTO `users` VALUES (1,1,3,'2015-07-22 16:37:16','2015-07-22 16:37:16'),(2,2,1,'2015-07-22 17:25:01','2015-07-22 17:25:01'),(3,3,1,'2015-07-22 17:25:08','2015-07-22 17:25:08'),(4,13,1,'2015-07-22 17:25:12','2015-07-22 17:25:12'),(5,12,1,'2015-07-22 17:25:15','2015-07-22 17:25:15'),(6,8,1,'2015-07-22 17:25:21','2015-07-22 17:25:21');
+/*!40000 ALTER TABLE `users` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2015-07-23 21:17:23
