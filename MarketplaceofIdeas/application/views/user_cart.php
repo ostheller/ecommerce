@@ -195,8 +195,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<input type='submit' value="Buy"> -->
 				  <script
 				   src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-				    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
-				    data-amount=<?=$total_price?>
+				    data-key="pk_test_2x9PR3c3iakOD6QuKD9Gl2Cv"
+				    data-amount=<?=$total_price * 100?>
 				   data-name="Demo Site"
 				   data-description="Ideas purchased"
 				   data-image="/128x128.png">
