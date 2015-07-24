@@ -19,6 +19,7 @@
     "ext-curl": "*",
     "ext-json": "*",
     "ext-mbstring": "*"
+    "stripe/stripe-php": "2.*"
   },
   "require-dev": {
     "phpunit/phpunit": "~4.0",

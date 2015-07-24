@@ -32,39 +32,51 @@ class Users_orders extends CI_Controller {
 
 	public function submit_payment()
 	{
-		// Set your secret key: remember to change this to your live secret key in production
-		// See your keys here https://dashboard.stripe.com/account/apikeys
-		\Stripe\Stripe::setApiKey("sk_test_7NlolFaIBOfT65JPmcmtHFEH");
-
-		// Get the credit card details submitted by the form
-		$token = $_POST['stripeToken'];
-
+		require_once('vendor/stripe/stripe-php/config.php');
+		$items = $this->user_order->idea_grab();
+		$post = $this->input->post();
 		// Create the charge on Stripe's servers - this will charge the user's card
-		try {
-		$charge = \Stripe\Charge::create(array(
-		  "amount" => 1000, // amount in cents, again
-		  "currency" => "usd",
-		  "source" => $token,
-		  "description" => "Example charge")
-		);
-		} catch(\Stripe\Error\Card $e) {
-		  // The card has been declined
-		}
+			try {
+			$charge = \Stripe\Charge::create(array(
+			  "amount" => 1000, // amount in cents, again
+			  "currency" => "usd",
+			  "source" => $post['stripeToken'],
+			  "description" => "Example charge")
+				);
+				$message = '<h2 class="text-center">Thank you for shopping with us!</h2> <h4 class="text-center">Expect to see your items shortly!</h4><p class="text-center"><a href="/clear">Back to Browse</a></p>';
+				$this->user_order->insert_token($post);
+			} catch(\Stripe\Error\Card $e) {
+			  $message = 'Card declined';
+			}
+		$ideas = $this->user_order->idea_grab();
+		$state = $this->user_order->state_grab();
+		$this->user_order->cart_count();
+		$this->load->view('user_view_order', array('message' => $message, 'states' => $state, 'all_ideas' => $ideas));
+	}
+
+	public function clear() 
+	{
+		$this->user_order->clear_cart();
+		redirect('/');
 	}
 
 	public function address_shipping(){
 		$post = $this->input->post();
 		$this->user_order->checkout_shipping($post);
-		$ideas = $this->user_order->idea_grab();
-		$state = $this->user_order->state_grab();
-		$this->user_order->cart_count();
-		$this->load->view('user_cart', array('states' => $state, 'all_ideas' => $ideas, 'same' => $data)); 
+
 	}
 
 	public function same_as_billing(){
 		$data = $this->user_order->pull_address();
 		$ideas = $this->user_order->idea_grab();
 		$state = $this->user_order->state_grab();
+		$this->user_order->cart_count();
+		$this->load->view('user_cart', array('states' => $state, 'all_ideas' => $ideas, 'same' => $data)); 
+		$ideas = $this->user_order->idea_grab();
+		$state = $this->user_order->state_grab();
+		$data = $this->user_order->pull_address();
+		var_dump($data);
+		die();
 		$this->user_order->cart_count();
 		$this->load->view('user_cart', array('states' => $state, 'all_ideas' => $ideas, 'same' => $data)); 
 	}

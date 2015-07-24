@@ -101,7 +101,7 @@ class User_order extends CI_Model {
          $values = array($post['shippingfirstname'], $post['shippinglastname'], $post['shippingaddress'], $post['shippingaddress2'], $post['shippingcity'], $post['shippingstate'], $post['shippingzip']); 
          $this->db->query($query, $values); 
          $id = $this->db->insert_id();
-         $this->session->userdata('address_id', $id);
+         $this->session->set_userdata('address_id', $id);
      }
 
      public function pull_address()
@@ -116,6 +116,20 @@ class User_order extends CI_Model {
          $values = array($post['billingfirstname'], $post['billinglastname'], $post['billingaddress'], $post['billingaddress2'], $post['billingcity'], $post['billingstate'], $post['billingzip'], 'NOW()', 'NOW()'); 
          $this->db->query($query, $values); 
          
+     }
+
+     public function insert_token($post)
+     {
+      $query = "INSERT INTO orders (stripe_token) VALUES (?)";
+      $values = array($post['stripeToken']);
+      $this->db->query($query, $values);
+     }
+
+     public function clear_cart()
+     {
+          $query = "DELETE FROM shopping_cart_has_ideas WHERE shopping_cart_id = ?;";
+          $values = array($this->session->userdata('shopping_cart_id'));
+          $this->db->query($query, $values);
      }
 }
 ?>

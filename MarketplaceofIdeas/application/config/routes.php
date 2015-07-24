@@ -33,7 +33,8 @@ $route['sort/(:any)'] = 'users_ideas/browsing_show_partial/$1';
 $route['address/shipping'] = 'users_orders/address_shipping';
 $route['address/same'] = 'users_orders/same_as_billing';
 $route['address/billing'] = 'users_orders/address_billing';
-$route['submit_payment'] = 'users_orders/submit_payment';
+$route['checkout'] = 'users_orders/submit_payment';
+$route['clear'] = 'users_orders/clear';
 
 //jess's orders routes
 $route['cart'] = 'users_orders/index';

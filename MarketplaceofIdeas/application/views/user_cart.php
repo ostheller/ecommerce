@@ -1,5 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+// var_dump($this->session->userdata('user_id'));
+// die();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -10,6 +12,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<title>Shopping Cart</title>
 	    <script src="<?= base_url();?>/assets/js/jquery.js"></script>
 	    <script src="<?= base_url();?>/assets/js/bootstrap.min.js"></script>
+	    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 		<link href="<?= base_url();?>/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
 		<link href="<?= base_url();?>/assets/css/modern-business.css" rel="stylesheet" type="text/css">
 		<link href="<?= base_url();?>/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -26,7 +29,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             padding: 20px;
         }
         table {
-          margin: 50px auto 20px;
+          margin: 80px auto 20px;
         }
 	        th {
 	          padding: 5px 40px;
@@ -49,6 +52,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	     .well {
 	     	margin: 30px auto;
+	     }
+
+	     #browse {
+			padding: 10px;
 	     }
         </style>
         <script>
@@ -142,6 +149,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<input type="submit" value="submit">
 					</div>
 				</form>
+				<form action='/address/billing'method='post'>
 					<div class='col-sm-3' id="billing">
 						<div class='row'>
 						<h3>Billing Information</h3>
@@ -152,8 +160,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<input name="chkCopy" id='checkme'type="checkbox" value="true"> 
 							<input type="submit"> 
 						</div>
-					</form action='/address/billing'method='post'>
-					<form>
+					
 						<div id='hideme'>
 							<div class='row'>
 								<label>First Name:</label>
@@ -188,61 +195,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<label>Zip Code</label>
 							<input type='text' name='billingzip'>
 							</div>
-							<input type="submit" value='submit'>
+							<input type="submit" value="Submit">
+							</form>
 						</div>
-					</form>
+					
 				</div>
 				<div class='col-sm-3' id="card_info">
-					<!-- <div class='row'>
-						<h3>Card Information</h3>
-					</div>
-					<div class='row'>
-						<label>Card Number:</label>
-						<input type='text' placeholder=''>
-					</div>
-					<div class='row'>
-						<label>Security Code:</label>
-						<input type='text' placeholder='###'size='3'>
-					</div>
-					<div class='row'>
-						<label>Expiration:</label>
-						<input type='text' placeholder='##'size='2'>
-						<label>/</label>
-						<input type='text' placeholder='##' size='2'>
-					</div>
-					<div class='row'>
-						<input type='hidden' value='buyit'>
-						<input type='submit' value="Buy"> -->
-					<?php require 'vendor/autoload.php'; 
-					$stripe = array(
-					  "secret_key"      => "sk_test_mkGsLqEW6SLnZa487HYfJVLf",
-					  "publishable_key" => "pk_test_czwzkTp2tactuLOEOqbMTRzG"
-					);
 
-					Stripe::setApiKey($stripe['secret_key']);?>
-				  <form action="/submit_payment" method="POST">
+				<form action="checkout" method="POST">
+				<?php require_once('vendor/stripe/stripe-php/config.php'); ?>
 				  	<script
 						src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 					    data-key="pk_test_2x9PR3c3iakOD6QuKD9Gl2Cv"
-					    data-amount=<?=$total_price * 100?>
+					    data-amount= <?='"('.$total_price.' * 100)"'?>
 					   	data-name="Marketplace of Ideas"
 					   	data-description="Ideas purchased"
 					   	data-image="assets/img/aurelius.png"> 
 				  	</script> 
 				  </form> 
-				</form>
-			</div>
-		</div>
-		  <!-- Call to Action Section -->
-     <div class="row col-md-offset-5">  
-        <div class="well col-md-4">
-            <div class="row">
-                <div class="col-md-12">
-                    <a class="btn btn-lg btn-default btn-block" href="/browse">Back to Browse</a>
+				  <div class="row" id="browse">
+                    <a class="btn btn-default" href="/browse">Back to Browse</a>
                 </div>
-            </div>
-        </div>
-    </div>
+			</div>
 		</div>
 	</body>
 </html>

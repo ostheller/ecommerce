@@ -17,9 +17,6 @@
                 <li>
                     <a href="/cart">Shopping Cart (<?=$this->session->userdata('product_count')?>)</a>
                 </li>
-                <li>
-                    <a href="/logout">Session Destroy</a>
-                </li>
                 <!-- <li>
                     <a href="contact.html">Credits</a>
                 </li>

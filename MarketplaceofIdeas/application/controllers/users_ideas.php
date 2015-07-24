@@ -115,7 +115,10 @@ class Users_ideas extends CI_Controller {
 	public function purchase($id)
 	{
 		$this->user_order->purchase($id);
-		$this->show($id);
+		$this->user_order->cart_count();
+		$related = $this->user_idea->fetch_related($id);
+		$datum = $this->user_idea->show($id);
+		$this->load->view('user_show', array('datum' => $datum, 'related' => $related));
 	}	
 	/*I wonder if the cart should be part of the orders controller instead of the ideas.
 		EVENTS to trigger this function should be:
