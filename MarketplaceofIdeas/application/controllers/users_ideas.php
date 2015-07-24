@@ -28,8 +28,9 @@ class Users_ideas extends CI_Controller {
 	{
 		$this->user_order->cart_count();
 		$data = $this->user_idea->category_index($id);
-		$this->load->view('user_landing', array('data' => $data));
+		$this->load->view('partials/landing_category_div', array('data' => $data));
 	}
+
 	/* EVENTS to trigger this function should be:
 		Keyword search
 		Category selection on Browsing page
@@ -38,18 +39,24 @@ class Users_ideas extends CI_Controller {
 		Question - Should the Go Back link go back to the same page as the show item
 					was displayed on or do we refresh that category / keyword list? 
 					Need to figure out how to impliment javascript history*/
+	public function load_browse()
+	{
+		$this->user_order->cart_count();
+		$this->load->view('user_browsing');
+	}
+
 	public function browsing_index()
 	{
 		$this->user_order->cart_count();
 		$all_data = $this->user_idea->browsing_index();
-		$this->load->view('user_browsing', array('data' => $all_data));
+		$this->load->view('partials/browse_content', array('data' => $all_data));
 	}
 
 	/* This function filters the ideas shown on the browsing page by tag */
 	public function browsing_show($id) {
 		$this->user_order->cart_count();
 		$data_sort = $this->user_idea->browsing_show($id);
-		$this->load->view('user_browsing', array('data' => $data_sort));
+		$this->load->view('partials/browse_content', array('data' => $data_sort));
 	}
 
 	public function sort_by() {
@@ -60,7 +67,7 @@ class Users_ideas extends CI_Controller {
 			redirect('ideas/byPopularity');
 		}
 		else {
-			redirect('browse');
+			redirect('load_browse');
 		}
 	}
 

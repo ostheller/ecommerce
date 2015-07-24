@@ -15,29 +15,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<link href="<?= base_url();?>/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<script>
 		$(document).ready(function() {
-		    $('carousel').carousel({
+            $('carousel').carousel({
 		        interval: 2000 //changes the speed
 		    });
-            // $('.authors').on('click', (function(){
-            //     $.get('category/author', function(res){
-            //         $('#category_sort').load(res);
-            //         }); 
-            //     });
-            //  $('.subjects').click(function(){
-            //     $.get('category/author', function(res){
-            //         $('#category_sort').load(res);
-            //         }); 
-            //     });
-            //   $('.eras').click(function(){
-            //     $.get('category/author', function(res){
-            //         $('#category_sort').load(res);
-            //         }); 
-            //     });
-            //    $('.locations').click(function(){
-            //     $.get('category/author', function(res){
-            //         $('#category_sort').load(res);
-            //         }); 
-            //     });
+            $('#authors').click(function(){
+                $.get('/category/author', function(res){
+                    $('#category_sort').html(res);
+                    }); 
+                });
+             $('#subjects').click(function(){
+                $.get('/category/subject', function(res){
+                    $('#category_sort').html(res);
+                    }); 
+                });
+              $('#eras').click(function(){
+                $.get('/category/era', function(res){
+                    $('#category_sort').html(res);
+                    }); 
+                });
+               $('#locations').click(function(){
+                $.get('/category/location', function(res){
+                    $('#category_sort').html(res);
+                    }); 
+                });
             });
     	</script>
 	</head>
@@ -103,7 +103,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <img alt="Raphael's School of Athens" src="<?= base_url();?>/assets/img/school_of_athens.jpg" />
                     </div>
                         <p>A philosopher, in a broad sense, is someone who studies philosophy. The word "philosopher" comes from the Ancient Greek φιλόσοφος (philosophos), which means "lover of wisdom". The introduction of the terms "philosopher" and "philosophy" has been ascribed to the Greek thinker Pythagoras.</p>
-                        <a href="/category/author" class="btn btn-default authors">View Authors</a>
+                        <a href="#category_sort"><button id='authors' class='btn-default'>View Authors</button></a>
                     </div>
                 </div>
             </div>
@@ -118,7 +118,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <p>Philosophy is the study of general and fundamental problems, such as those connected with reality, existence, knowledge, values, reason, mind and language. There are five main branches: epistemology, ethics, aesthetics, metaphysics and politics.
                         </p>
-                        <a href="/category/subject" class="btn btn-default subjects">View Subjects</a>
+                        <a href="#category_sort"><button id='subjects' class='btn-default'>View Subjects</button></a>
                     </div>
                 </div>
             </div>
@@ -132,7 +132,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <img alt="A 18th century French Enlightenment salon" src="<?= base_url();?>/assets/img/salon.jpg" />
                         </div>
                         <p>All cultures — be they prehistoric, medieval, or modern; Eastern, Western, religious or secular — have had their own unique schools of philosophy, arrived at through both inheritance and through independent discovery. </p>
-                        <a href="/category/era" class="btn btn-default eras">View Eras</a>
+                        <a href="#category_sort"><button id='eras' class='btn-default'>View Eras</button></a>
                     </div>
                 </div>
             </div>
@@ -146,7 +146,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <img alt="The Parthenon in Athens" src="<?= base_url();?>/assets/img/parthenon.jpg" />
                         </div>
                         <p>Many societies have considered philosophical questions and built philosophical traditions based upon each other's works. This small project focuses on Western thinkers and the Western tradition of philosophy, but truely the pursuit of knowledge is a characteristically human behavior that transcends national boundaries. </p>
-                        <a href="/category/location" class="btn btn-default locations">View Locations</a>
+                        <a href="#category_sort"><button id='locations' class='btn-default'>View Locales</button></a>
                     </div>
                 </div>
             </div>
@@ -166,8 +166,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
 		
         <!-- Populate the DIV Section -->
-        <div class="col-md-12" id="category_sort">       
-        <?php if(isset($data)) {$this->load->view('partials/landing_category_div'); }?>
+        <div class="col-md-12" name="category_sort" id="category_sort">       
         </div>
 
 	</div><!-- /.container --> 

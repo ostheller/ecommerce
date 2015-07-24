@@ -39,6 +39,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	     	display: inline-block;
 	     	vertical-align: top;
 	     }
+	     
+	     #card_info {
+	     	margin-top: 25px; 
+	     }
+
 	     .well {
 	     	margin: 30px auto;
 	     }

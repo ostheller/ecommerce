@@ -17,7 +17,8 @@ $route['products']='admins_ideas/index';
 // Molly's front-end routes
 $route['ideas/show/(:num)'] ='users_ideas/show/$1';
 $route['category/(:any)'] = 'users_ideas/category_index/$1';
-$route['browse'] = 'users_ideas/browsing_index';
+$route['browse'] = 'users_ideas/load_browse';
+$route['ideas'] = 'users_ideas/browsing_index';
 $route['browse/(:any)'] = 'users_ideas/browsing_show/$1';
 $route['logout'] = 'users_ideas/logout';
 $route['purchase/(:num)'] = 'users_orders/purchase/$1';
@@ -31,4 +32,9 @@ $route['ideas/byPopularity'] = 'users_ideas/pull_by_sell_count';
 //jess's orders routes
 $route['cart'] = 'users_orders/index';
 $route['continue'] = 'users_ideas/browsing_index';
+<<<<<<< HEAD
 $route['ideabuy'] = 'users_orders/checkout';
+=======
+$route['purchase'] = 'users_orders/'
+?>
+>>>>>>> origin/molly_dev
