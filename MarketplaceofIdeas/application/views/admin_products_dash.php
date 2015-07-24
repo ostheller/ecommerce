@@ -30,55 +30,55 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<th>Action</th></tr></thead>
 		<tr>
 		<th>Image</th>
-		<th><a href="admins_ideas/sort_idea/'id', 
-		<?if($sort_order == 'asc' && $sort_by == 'id')
-		{
-			echo $sort_order=='desc';
-		}
-		else
-		{
-			echo $sort_order == 'asc';
-		}?>)">
+		<th><a href="admins_ideas/sort_idea/id/ 
+		<?//if($sort_order == 'asc' && $sort_by == 'id')
+		// {
+		// 	echo $sort_order=='desc';
+		// }
+		// else
+		// {
+		// 	echo $sort_order == 'asc';
+		// }?>">
 		Idea ID</a></th>
 		<th><a href="admins_orders/sort/name/
-		<?if($sort_order == 'asc' && $sort_by =='name')
-			{
-				echo $sort_order =='desc';
-			}
-			else
-			{
-				echo $sort_order == 'asc';
-			}?>">
+		<?//if($sort_order == 'asc' && $sort_by =='name')
+			// {
+			// 	echo $sort_order =='desc';
+			// }
+			// else
+			// {
+			// 	echo $sort_order == 'asc';
+			// }?>">
 			Name</th>
 			<th><a href="admins_orders/sort/description/
-			<?if($sort_order == 'asc' && $sort_by == 'description')
-			{
-				echo $sort_order='desc';
-			}
-			else
-			{
-				echo $sort_order='asc';
-			}?>">
+			<?//if($sort_order == 'asc' && $sort_by == 'description')
+			// {
+			// 	echo $sort_order='desc';
+			// }
+			// else
+			// {
+			// 	echo $sort_order='asc';
+			// }?>">
 			Description</a></th>
 		<th><a href="admins_orders/sort/inventory/
-			<?if($sort_order == 'asc' && $sort_by == 'inventory' )
-			{
-				echo $sort_order='desc';
-			}
-			else
-			{
-				echo $sort_order='asc';
-			}
+			<?//if($sort_order == 'asc' && $sort_by == 'inventory' )
+			// {
+			// 	echo $sort_order='desc';
+			// }
+			// else
+			// {
+			// 	echo $sort_order='asc';
+			// }
 				?>">Inventory</th>
 		<th><a href="admins_orders/sort/sold/
-			<?if($sort_order == 'asc' && $sort_by == 'total')
-			{
-				echo $sort_order == 'desc';
-			}
-			else
-			{
-				echo $sort_order == 'asc';	
-			}
+			<?//if($sort_order == 'asc' && $sort_by == 'total')
+			// {
+			// 	echo $sort_order == 'desc';
+			// }
+			// else
+			// {
+			// 	echo $sort_order == 'asc';	
+			// }
 				?>">Total Sold</th>
 
 <?foreach($products as $product )
