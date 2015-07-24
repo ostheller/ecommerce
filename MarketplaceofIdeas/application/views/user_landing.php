@@ -93,6 +93,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                     The Marketplace of Ideas
                 </h1>
             </div>
+        </div>
+        <!-- Call to Action Section -->
+        <div class="well col-md-12">
+            <div class="row">
+                <div class="col-md-8">
+                    <p>As a method, philosophy is often distinguished from other ways of addressing such problems by its questioning, critical, generally systematic approach and its reliance on rational argument. It is also fun and interesting!</p>
+                </div>
+                <div class="col-md-4">
+                    <a class="btn btn-lg btn-default btn-block" href="/browse">Browse Ideas</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-12">
             <div class="col-md-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -103,7 +116,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <img alt="Raphael's School of Athens" src="<?= base_url();?>/assets/img/school_of_athens.jpg" />
                     </div>
                         <p>A philosopher, in a broad sense, is someone who studies philosophy. The word "philosopher" comes from the Ancient Greek φιλόσοφος (philosophos), which means "lover of wisdom". The introduction of the terms "philosopher" and "philosophy" has been ascribed to the Greek thinker Pythagoras.</p>
-                        <a href="#category_sort"><button id='authors' class='btn-default'>View Authors</button></a>
+                        <a href="#category_sort"><button id='authors' class='btn-primary center-block'>View Authors</button></a>
                     </div>
                 </div>
             </div>
@@ -118,7 +131,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         </div>
                         <p>Philosophy is the study of general and fundamental problems, such as those connected with reality, existence, knowledge, values, reason, mind and language. There are five main branches: epistemology, ethics, aesthetics, metaphysics and politics.
                         </p>
-                        <a href="#category_sort"><button id='subjects' class='btn-default'>View Subjects</button></a>
+                        <a href="#category_sort"><button id='subjects' class='btn-primary center-block'>View Subjects</button></a>
                     </div>
                 </div>
             </div>
@@ -132,41 +145,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                             <img alt="A 18th century French Enlightenment salon" src="<?= base_url();?>/assets/img/salon.jpg" />
                         </div>
                         <p>All cultures — be they prehistoric, medieval, or modern; Eastern, Western, religious or secular — have had their own unique schools of philosophy, arrived at through both inheritance and through independent discovery. </p>
-                        <a href="#category_sort"><button id='eras' class='btn-default'>View Eras</button></a>
+                        <a href="#category_sort"><button id='eras' class='btn-primary center-block'>View Eras</button></a>
                     </div>
                 </div>
             </div>
             <div class="col-md-3">
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        <h4><i class="fa fa-fw fa-university"></i> Locale</h4>
+                        <h4><i class="fa fa-fw fa-university"></i> Location</h4>
                     </div>
                     <div class="panel-body">
                         <div class="thumbnail">
                             <img alt="The Parthenon in Athens" src="<?= base_url();?>/assets/img/parthenon.jpg" />
                         </div>
                         <p>Many societies have considered philosophical questions and built philosophical traditions based upon each other's works. This small project focuses on Western thinkers and the Western tradition of philosophy, but truely the pursuit of knowledge is a characteristically human behavior that transcends national boundaries. </p>
-                        <a href="#category_sort"><button id='locations' class='btn-default'>View Locales</button></a>
+                        <a href="#category_sort"><button id='locations' class='btn-primary center-block'>View Locations</button></a>
                     </div>
                 </div>
             </div>
         </div>
         <!-- /.row -->
-
-         <!-- Call to Action Section -->
-        <div class="well">
-            <div class="row">
-                <div class="col-md-8">
-                    <p>As a method, philosophy is often distinguished from other ways of addressing such problems by its questioning, critical, generally systematic approach and its reliance on rational argument. It is also fun and interesting!</p>
-                </div>
-                <div class="col-md-4">
-                    <a class="btn btn-lg btn-default btn-block" href="/browse">Browse Ideas</a>
-                </div>
-            </div>
-        </div>
 		
         <!-- Populate the DIV Section -->
-        <div class="col-md-12" name="category_sort" id="category_sort">       
+        <div class="col-lg-12" name="category_sort" id="category_sort">       
         </div>
 
 	</div><!-- /.container --> 

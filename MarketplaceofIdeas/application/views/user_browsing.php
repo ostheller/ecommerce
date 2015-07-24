@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
 	    <script src="<?= base_url();?>/assets/js/jquery.js"></script>
 	    <script src="<?= base_url();?>/assets/js/bootstrap.min.js"></script>
         <script src="<?= base_url();?>/assets/js/browse.js"></script>
-		<link href="<?= base_url();?>/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
+        <link href="<?= base_url();?>/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
 		<link href="<?= base_url();?>/assets/css/modern-business.css" rel="stylesheet" type="text/css">
 		<link href="<?= base_url();?>/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 		<style type="text/css">
@@ -47,17 +47,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
         <!-- Sidebar Column -->
             <div class="col-sm-3">
                 <div class="well">
-                    <form id="keyword_search_form" action ='/search' method='post' role="search">
-                        <input type='text' name='keyword' placeholder='Search' size='10'>
+                    <form id="keyword_search_form" action ='/search' method='post'>
+                        <input type='text' name='keyword' placeholder='Search' size='17'>
                         <input type="submit" value="Search">
                     </form>
-                    <form action='/ideas/sort' method="post">
-                        <select name="sort">
-                            <option value="byPrice">Price</option>
-                            <option value="byPopularity">Popularity</option>
-                        </select>
-                        <input type='submit' value='Sort'>
-                    </form>
+                    <hr>
+                    <h4>Sort All Ideas</h4>
+                     <div class="list-group">
+                        <a id="byPrice" class="list-group-item">Price</a>
+                        <a id="byPopularity" class="list-group-item">Popularity</a>
+                    </div>
                     <hr>
                     <h4>Browse by Subject</h4>
                      <div class="list-group">
@@ -71,15 +70,40 @@ defined('BASEPATH') OR exit('No direct script access allowed');?>
         </div>
         <!-- Projects Row -->
         <div class="row col-sm-9" id="content">
-          
-        </div>
-        <!-- /.row -->
-
-        <hr>
-        <div id="pagination">
-            <?php
-            $this->load->view('partials/pagination');
+        <?php
+            $this->load->view('partials/browse_content');
             ?>
         </div>
+        <!-- /.row -->
+        <hr>
+         <!-- Pagination -->
+        <div class="row text-center">
+            <div class="col-lg-12">
+                <ul class="pagination">
+                    <li>
+                        <a href="#">&laquo;</a>
+                    </li>
+                    <li class="active">
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+                    <li>
+                        <a href="#">5</a>
+                    </li>
+                    <li>
+                        <a href="#">&raquo;</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+<!-- /.row -->
 	</body>
 </html>

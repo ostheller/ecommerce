@@ -21,20 +21,16 @@ $route['browse'] = 'users_ideas/load_browse';
 $route['ideas'] = 'users_ideas/browsing_index';
 $route['browse/(:any)'] = 'users_ideas/browsing_show/$1';
 $route['logout'] = 'users_ideas/logout';
-$route['purchase/(:num)'] = 'users_orders/purchase/$1';
+$route['purchase/(:num)'] = 'users_ideas/purchase/$1';
 $route['update/(:num)'] = 'users_orders/update/$1';
 $route['remove/(:num)'] = 'users_orders/destroy/$1';
 $route['search'] = 'users_ideas/keyword_search';
 $route['ideas/sort'] = 'users_ideas/sort_by';
 $route['ideas/byPrice'] = 'users_ideas/pull_by_price';
 $route['ideas/byPopularity'] = 'users_ideas/pull_by_sell_count';
+$route['sort/(:any)'] = 'users_ideas/browsing_show_partial/$1';
 
 //jess's orders routes
 $route['cart'] = 'users_orders/index';
 $route['continue'] = 'users_ideas/browsing_index';
-<<<<<<< HEAD
 $route['ideabuy'] = 'users_orders/checkout';
-=======
-$route['purchase'] = 'users_orders/'
-?>
->>>>>>> origin/molly_dev

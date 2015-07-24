@@ -14,12 +14,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<link href="<?= base_url();?>/assets/css/bootstrap.css" rel="stylesheet" type="text/css">
 		<link href="<?= base_url();?>/assets/css/modern-business.css" rel="stylesheet" type="text/css">
 		<link href="<?= base_url();?>/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-	   <script type="text/javascript">
+       <script type="text/javascript">
         $(document).ready(function() {
             $('carousel').carousel({
                 interval: 1000 //changes the speed
             });
              });
+        }); 
+    });
        </script>
     </head>
 	<body>
@@ -88,8 +90,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                         <option value="<?php echo $i; ?>"><?php echo $i; ?></option>
                         <?php } ?>
 			    	</select>
-			    	<input type='submit' value='Add to Cart'>
+			    	<input type='submit' id="add_to_cart" value='Add to Cart'>
 			    </form>
+                <p id="alert" class="hidden">Added to cart!</p>
             </div>
 
         </div>

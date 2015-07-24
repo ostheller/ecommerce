@@ -42,18 +42,25 @@ class Users_ideas extends CI_Controller {
 	public function load_browse()
 	{
 		$this->user_order->cart_count();
-		$this->load->view('user_browsing');
+		$all_data = $this->user_idea->browsing_index();
+		$this->load->view('user_browsing', array('data' => $all_data));
 	}
 
 	public function browsing_index()
 	{
 		$this->user_order->cart_count();
 		$all_data = $this->user_idea->browsing_index();
-		$this->load->view('partials/browse_content', array('data' => $all_data));
+		$this->load->view('user_browsing', array('data' => $all_data));
 	}
 
-	/* This function filters the ideas shown on the browsing page by tag */
+	/* This function filters the ideas shown on the browsing page by tag ON PAGE LOAD*/
 	public function browsing_show($id) {
+		$this->user_order->cart_count();
+		$data_sort = $this->user_idea->browsing_show($id);
+		$this->load->view('user_browsing', array('data' => $data_sort));
+	}
+
+	public function browsing_show_partial($id) {
 		$this->user_order->cart_count();
 		$data_sort = $this->user_idea->browsing_show($id);
 		$this->load->view('partials/browse_content', array('data' => $data_sort));
@@ -74,13 +81,13 @@ class Users_ideas extends CI_Controller {
 	public function pull_by_price() {
 		$this->user_order->cart_count();
 		$data_price = $this->user_idea->pull_by_price();
-		$this->load->view('user_browsing', array('data' => $data_price));
+		$this->load->view('partials/browse_content', array('data' => $data_price));
 	}
 
 	public function pull_by_sell_count() {
 		$this->user_order->cart_count();
 		$data_count = $this->user_idea->pull_by_sell_count();
-		$this->load->view('user_browsing', array('data' => $data_count));
+		$this->load->view('partials/browse_content', array('data' => $data_count));
 	}
 
 	public function keyword_search()
@@ -88,7 +95,7 @@ class Users_ideas extends CI_Controller {
 		$this->user_order->cart_count();
 		$post = $this->input->post();
 		$data_search = $this->user_idea->search($post);
-		$this->load->view('user_browsing', array('data' => $data_search));
+		$this->load->view('partials/browse_content', array('data' => $data_search));
 
 	}
 	/*  EVENTS to trigger this function should be:
@@ -105,6 +112,11 @@ class Users_ideas extends CI_Controller {
 		$this->load->view('user_show', array('datum' => $datum, 'related' => $related));
 	}
 
+	public function purchase($id)
+	{
+		$this->user_order->purchase($id);
+		$this->show($id);
+	}	
 	/*I wonder if the cart should be part of the orders controller instead of the ideas.
 		EVENTS to trigger this function should be:
 		Shopping Cart on User_Landing Page, 

@@ -30,12 +30,6 @@ class Users_orders extends CI_Controller {
 			redirect('/cart');
 	}
 
-	public function purchase($id)
-	{
-		$this->user_order->purchase($id);
-		$this->load->view('user_view_order');
-	}	
-
 /*   This page is identical to the admin order page.
 			for the user it's called and the user is 
 			redirected to this page when they successfully

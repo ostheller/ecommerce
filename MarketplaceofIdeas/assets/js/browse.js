@@ -1,33 +1,49 @@
 $(document).ready(function() {
-    $.get('/ideas', function(res){
-        $('#content').html(res);
-    }); 
     $('#aesthetics').click(function(){
-        $.get('/browse/aesthetics', function(res){
+        $.get('/sort/aesthetics', function(res){
             $('#content').html(res);
             }); 
     });
     
     $('#ethics').click(function(){
-    $.get('/browse/ethics', function(res){
+    $.get('/sort/ethics', function(res){
         $('#content').html(res);
         }); 
     });
     
     $('#epistemology').click(function(){
-    $.get('/browse/epistemology', function(res){
+    $.get('/sort/epistemology', function(res){
         $('#content').html(res);
         }); 
     });
     
     $('#metaphysics').click(function(){
-    $.get('/browse/metaphysics', function(res){
+    $.get('/sort/metaphysics', function(res){
         $('#content').html(res);
         }); 
     });
     
     $('#political').click(function(){
-    $.get('/browse/political', function(res){
+    $.get('/sort/political', function(res){
+        $('#content').html(res);
+        }); 
+    });
+
+    $('#keyword_search_form').submit(function(){
+          $.post('/search', $(this).serialize(), function(res) {
+            $('#content').html(res);
+          });
+          return false;
+        });
+
+    $('#byPrice').click(function(){
+    $.get('/ideas/byPrice', function(res){
+        $('#content').html(res);
+        }); 
+    });
+
+    $('#byPopularity').click(function(){
+    $.get('/ideas/byPopularity', function(res){
         $('#content').html(res);
         }); 
     });
